@@ -1,0 +1,44 @@
+\contentsline {chapter}{\numberline {1}Introduzione}{1}%
+\contentsline {section}{\numberline {1.1}Notazione}{1}%
+\contentsline {paragraph}{Evento}{1}%
+\contentsline {paragraph}{Attesa (expectation)}{1}%
+\contentsline {chapter}{\numberline {2}Passeggiate aleatorie}{3}%
+\contentsline {section}{\numberline {2.1}Schema di Bernoulli}{3}%
+\contentsline {section}{\numberline {2.2}Passeggiata aleatoria}{3}%
+\contentsline {paragraph}{Distribuzione binomiale}{4}%
+\contentsline {paragraph}{Passeggiata aleatoria simmetrica}{5}%
+\contentsline {section}{\numberline {2.3}Problema del ballottaggio}{5}%
+\contentsline {paragraph}{Principio di riflessione}{6}%
+\contentsline {paragraph}{Formula di Stirling}{8}%
+\contentsline {paragraph}{Teorema}{10}%
+\contentsline {paragraph}{Equazione del rinnovamento}{12}%
+\contentsline {paragraph}{Esempio}{14}%
+\contentsline {paragraph}{Dimostrazione}{16}%
+\contentsline {section}{\numberline {2.4}Problema della rovina del giocatore (gambler's ruin)}{18}%
+\contentsline {paragraph}{Caso simmetrico }{18}%
+\contentsline {paragraph}{Caso non simmetrico}{19}%
+\contentsline {section}{\numberline {2.5}Processi di diramazione di Galton-Watson (branching processes)}{21}%
+\contentsline {paragraph}{Formula delle probabilità totali}{22}%
+\contentsline {paragraph}{Esempi}{25}%
+\contentsline {section}{\numberline {2.6}Simulatori}{26}%
+\contentsline {chapter}{\numberline {3}Catene di Markov}{29}%
+\contentsline {section}{\numberline {3.1}Catene di Markov omogenee}{29}%
+\contentsline {subsection}{\numberline {3.1.1}Proprietà di Markov}{30}%
+\contentsline {paragraph}{Esempio 1}{31}%
+\contentsline {paragraph}{Esempio 2}{32}%
+\contentsline {subsection}{\numberline {3.1.2}Modello di Ebembat}{33}%
+\contentsline {subsection}{\numberline {3.1.3}Modello di Bernoulli-Laplace}{33}%
+\contentsline {section}{\numberline {3.2}Classificazione degli stati}{34}%
+\contentsline {paragraph}{Definizione}{34}%
+\contentsline {paragraph}{Proprietà}{34}%
+\contentsline {paragraph}{Esempio}{35}%
+\contentsline {paragraph}{Periodo}{35}%
+\contentsline {paragraph}{Osservazione}{36}%
+\contentsline {paragraph}{Esempio: passeggiata aleatoria simmetrica}{37}%
+\contentsline {subsection}{\numberline {3.2.1}Verificare se uno stato è transiente o ricorrente}{37}%
+\contentsline {paragraph}{Esempio}{38}%
+\contentsline {paragraph}{Lemma}{40}%
+\contentsline {paragraph}{Lemma}{40}%
+\contentsline {section}{\numberline {3.3}Teorema ergodico per catene di Markov}{41}%
+\contentsline {paragraph}{Teorema}{46}%
+\contentsline {section}{\numberline {3.4}Modello di coda}{47}%
