@@ -12,12 +12,22 @@
 \usepackage{soul}
 \usepackage{amssymb}
 \usepackage{mathtools}
-
+\pgfplotsset{compat=1.5.1}
 
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 
 \newcommand{\verteq}{\rotatebox{90}{$\,=$}}
 \newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+
+%TODO riascolta lezione del 7 ottobre (non so se mi son perso qualcosa)
+%TODO riascolta lezione del 13 ottobre (non so se mi son perso qualcosa)
+% riascoltata lezione del 14 ottobre
+%TODO riascolta lezione del 20 ottobre
+%TODO riascolta lezione del 21 ottobre
+%TODO riascolta lezione del 27 ottobre
+%TODO riascolta lezione del 28 ottobre
+%TODO riascolta lezione del 3 novembre
+%TODO riascolta lezione del 4 novembre
 
 \begin{document}
 	
@@ -897,7 +907,6 @@ La derivata seconda è positiva, quindi la funzione è strettamente convessa.
 \begin{tikzpicture}
 	\begin{axis}[grid=major, axis lines = middle, width=15cm, xmin=-0.2, xmax=1.2, ymax=1.1, ymin=-0.1, xtick={1}, ytick={1}]
 	%xtick={0.417, 0.805, 1}, ytick={0.417, 0.65, 1}
-	
 		\addplot[color=blue, very thick, domain=0:1, samples=300]	
 		{0.4 + 0.6*x*x*x*x}; %Se stai leggendo i sorgenti, questa è una funzione a caso che mi sono inventato
 		
@@ -1389,7 +1398,21 @@ $$ C = C_0 \dot\cup C_1 \dot\cup ... \dot\cup C_{q-1} $$
 
 E la catena di Markov percorre in maniera ciclica le classi. 
 
-%TODO hai perso l'inizio
+\subsection{Ricorrenza}
+Vediamo ora un altro tipo di classificazione, detto appunto \textbf{ricorrenza}: questa è la proprietà di uno stato di ritornare (infinite) volte nella catena di Markov.
+
+Definiamo, dati due stati $ s $ e $ s' $ e dato $ n > 0 $:
+
+$$ f^{(n)}_{s,s'} = P(x_n = s', x_{n-1} \ne s', ..., x_n \ne s' | x_0 = s)$$
+
+Questa è la probabilità di passare da $ s $ a $ s' $ per la prima volta in un tempo $ n $. 
+
+Osserviamo che se consideriamo questi eventi per un dato $ n $ e per un $ n' \ne $, questi eventi sono incompatibili: se partendo da $ s $ arriviamo per la prima volta a $ s' $ in un tempo $ n $, ovviamente è impossibile che succeda la stessa cosa per un tempo $ n' \ne n $. 
+In particolare, se facciamo la somma di queste probabilità, troveremo che questa è pari alla probabilità di uno di questi eventi:
+$$ \sum_{n} f_{s,s'}^{(n)} = f_{s,s'} $$
+è appunto la probabilità che si verifichi uno di quegli eventi, o in altre parole che arriveremo in uno stato $ s' $ partendo da uno stato $ s $ in un certo tempo. 
+
+Consideriamo il caso $ s' = s $; in questo caso scriveremo per semplicità $ f_{s,s} = f_s $ e indica la probabilità di tornare, nel futuro, a $ s $. 
 
 $ s $ è uno stato \textbf{ricorrente} se $ f_s $ = 1 (torniamo almeno una volta - in realtà infinite);
 
@@ -1397,8 +1420,7 @@ $ s $ è uno stato \textbf{transiente} se $ f_s < 1 $.
 
 La probabilità di tornare infinite volte in uno stato ricorrente è 1. La probabilità di tornare almeno 2 volte in uno transiente è $ f_s^2 $; la probabilità di tornare almeno $ n $ volte è $ f_s^n $.
 
-Negli stati transienti, %TODO assumo siano gli stati transienti quelli di cui stiamo parlando ora
-la probabilità di tornare infinite volte invece è 0. La catena di Markov passa per gli stati transienti con probabilità 1 un numero finito di volte. 
+Negli stati transienti, la probabilità di tornare infinite volte invece è 0. La catena di Markov passa per gli stati transienti con probabilità 1 un numero finito di volte. 
 
 \paragraph{Esempio: passeggiata aleatoria simmetrica}
 
@@ -1448,9 +1470,9 @@ $$ \frac{\partial}{\partial{p}} p(1-p) = 1.p -p = 1 - 2p $$
 	Questa quantità: $ (4p(1-p))^n $ è sempre minore di 1. È una serie geometrica convergente; allora, in questo caso lo stato 0 è transiente. 
 \end{multicols}
 
-I due giocatori andranno in pareggio solo un numero finito di volte. 
+Quindi nel caso di passeggiata aleatoria non simmetrica i due giocatori andranno in pareggio solo un numero finito di volte. 
 
-%TODO che cavolo è la roba sotto
+Verifichiamo ora la seconda proprietà, quella che ci permette di determinare se uno stato è transiente. Introduciamo la \textbf{funzione generatrice}. È uno strumento che si usa in molti casi, quando abbiamo una successione. 
 
 \begin{align*}
 	& f_{s,s}^{(0)} \\
@@ -1506,7 +1528,7 @@ $$ \Rightarrow \exists n_1 : P_{s,s'}^{(n_1)} > 0 \land \exists n_2 : p_{s,s'}^{
 
 $$ \sum_{n=0}^{\infty} p_{s',s'}^{(n)} \ge \sum_{n = n_1 + n_2}^{\infty} p_{s',s'}^{(n)} $$ 
 
-Se partiamo da $ n = n_1+n_2 $, come facciamo ad andare da $ s' $ a $ s' $? Andiamo in $ n_2 $ da $ s' $ a $ s $, e in ???: %TODO
+Se invece di partire da $ n = 0 $ partiamo da $ n = n_1+n_2 $, come facciamo ad andare da $ s' $ a $ s' $? Andiamo in $ n_2 $ da $ s' $ a $ n $, e in $ n - n_1 - n_2 $ possiamo andare a $ s $, e infine in $ n_1 $ da $ s $ a $ s' $:
 
 $$ \ge \sum_{n=n_1+n_2}^{\infty} p_{s',s}^{(n_2)} p_{s,s}^{(n-n_1-n_2)} p_{s,s'}^{(n_1)} $$
 Sia $ k = n-n_1-n_2 $:
@@ -1515,10 +1537,13 @@ $$ = p_{s',s}^{n_2} p_{s,s'}^{(n_1)} \sum_{k=0}^{\infty} p_{s,s}^{(k)} = +\infty
 $$ \Rightarrow s' \text{ è ricorrente.} \qed $$
 
 \section{Teorema ergodico per catene di Markov}
+Questo risultato riguarda le catene di Markov con una sola classe di equivalenza con stati ricorrenti e aperiodica. Possiamo dimostrare il teorema ergodico per catene di Markov. 
+
+Formalmente, 
 $$ 
 \begin{array}{cc}
 	s \in S & v_s = \sum_{n=1}^{\infty} n f_{s,s}^{(n)} \text{ (attesa del tempo di ritorno)} \\
-	s \text{ ricorrente } & f_s = \sum_{??}^{??} ?? = 1 \\ %TODO 
+	s \text{ ricorrente } & f_s = \sum_{n=1}^{\infty} f_{s,s}^{(n)} = 1 \\  
 \end{array} $$
 
 $$ p_{s,s'}^{(n)} \underset{n \to \infty}{\longrightarrow} \frac{1}{v_s} $$
@@ -1526,12 +1551,13 @@ $$ \text{se } v_s = +\infty, \; \; \frac{1}{v_s} = 0 $$
 
 Se $ v_s = +\infty $ allora non è necessario che sia aperiodica. 
 
-Questo teorema (che non dimostreremo) è interessante perché ??? %TODO
-Si può vedere che facendo andare avanti la catena di Markov e contando quante volte passa per $ s $, la frequenza/percentuale di tempo tende a questo limite. 
+Questo teorema (che non dimostreremo) è interessante perché ci dice che quando abbiamo una sola classe di equivalenza aperiodica con gli stati ricorrenti, è come se la catena di Markov si dimenticasse del punto di partenza: quando faccio tendere $ n $ all'infinito, la probabilità di andare da uno stato qualunque a $ s $ tende ad un limite che non dipende dal punto di partenza.
+
+Si può anche vedere che facendo andare avanti la catena di Markov e contando quante volte passa per $ s $, la frequenza/percentuale di tempo tende a questo limite. 
 
 È come nel caso dello schema di Bernoulli; per la legge dei grandi numeri, se contiamo quante volte otteniamo il successo, questa quantità tende alla probabilità. La probabilità ha il significato di frequenza.
 
-Anche nelle catene di Markov che sono dipendenti ??? %TODO
+Anche nelle catene di Markov che sono dipendenti, nel caso ergodico la probabilità di andare da uno stato ad un altro tende ad un certo limite che è anche la frequenza con cui la catena di Markov passa per quello stato. 
 
 Questo valore è l'attesa del tempo di ritorno; c'è però un metodo più semplice per calcolarlo. 
 
@@ -1543,8 +1569,8 @@ Osservazione: $ p_{s',s}^{(n+1)} = \sum_{s''} p_{s',s''}^{(n)} p_{s'',s} $
 
 $$ \begin{array}{cc}
 	p_{s,s'}^{(n+1)} \underset{n \to \infty}{u_s} & \sum_{s''}p_{s',s''}^{(n)} p_{s'',s} \\ 
-	%TODO
-	u_s = \sum_{s''} ??? & \sum_{s \in S} u_s = 1
+	
+	u_s = \sum_{s''} u_{s''} & \sum_{s \in S} u_s = 1
 \end{array} $$
 
 $ u_s $ è una distribuzione di probabilità sugli stati;
@@ -1567,10 +1593,14 @@ Con $ S $ finito. C'è un'unica soluzione:
 
 \begin{align*}
 	v_s & = \sum_{s''}v_{s''}p_{s'',s}^{(n)} \\
-	& = \sum_{s''}v_{s''}u_s = u_s ??? %TODO
+	 \text{Faccio } & \text{tendere } n \text{ all'infinito: }\\
+	& = \sum_{s''}v_{s''}u_s = u_s
 \end{align*}
+
+Nell'equazione $ \sum_{s''}v_{s''}u_s $ posso portare fuori $ u_s $ perché non dipende dalla sommatoria; ma la sommatoria è uguale a 1, quindi ottengo proprio $ u_s $.
+
 \vspace{1cm}
-\hrule  %TODO riguarda inizio
+\hrule  %TODO riguarda inizio 2020-10-20
 \vspace{1cm}
 Definiamo ora $ \mu_s = \sum_{n=1}^{\infty} n \cdot f_s^{(n)} $
 
@@ -1785,11 +1815,11 @@ In questo modello abbiamo dei clienti, che arrivano e vanno dagli sportelli dove
 
 Uno sportello può contenere un cliente, gli altri clienti sono in coda. 
 
-Definiamo $ p $ la \textbf{probabilità di arrivo di un cliente}, mentre $ q $ la probabilità di \textbf{fine del servizio}. Gli arrivi dei clienti e la fine del servizio sono indipendenti. 
+Definiamo $ p $ la \textbf{probabilità di arrivo di un cliente}, mentre $ q $ la probabilità di \textbf{fine del servizio}, $ 0 \le p \le 1 $ e $ 0 \le q \le 1 $. Gli arrivi dei clienti e la fine del servizio sono indipendenti. 
 
 Questo è descritto da una catena di Markov in cui lo spazio degli stati è $ \mathbb{N} $: $ S = \mathbb{N} = \{0, 1, ...\} $.
 
-Ci chiediamo ora qual è la probabilità, partendo da 0, di rimanere nello stato 0 (ovvero che non ci sia nessun cliente e che non arrivi nessun cliente), e altre probabilità:
+Ci chiediamo ora qual è la probabilità, partendo da 0, di rimanere nello stato 0 (ovvero che non ci sia nessun cliente e che non arrivi nessun cliente), e altre probabilità, con $ S = \mathbb{N} $:
 $$ \begin{array}{ccc}
   p_{0,0} = 1-p & p_{1,1} = p\cdot q + (1-p) 1-q  & p_{1,2} = p(1-q) \\
   p_{0,1} = p & p_{1,0} = (1-p)q & 
@@ -1800,8 +1830,8 @@ $ p_{1,1} $ indica la probabilità che, dopo aver finito di servire un cliente n
 In generale, per $ s \ge 1 $:
 \begin{align*}
 	p_{s,s} & = p\cdot q + (1-p) (1-q) & = r \\
-	p_{s,s-1} & = (1-p)q & = l \\
-	p_{s,s+1} & = p(1-q) & = d
+	p_{s,s+1} & = p(1-q) & = l \\ %TODO guarda lezione del 27/10/2020
+	p_{s,s-1} & = q(1-p) & = d
 \end{align*}
 
 Questa passeggiata è ricorrente positiva? Se esiste una distribuzione invariante si, se non esiste o gli stati sono ricorrenti nulli oppure transienti. 
@@ -1844,24 +1874,649 @@ Questo fa sì che non si formi una coda lunga. Se $ p < q $, allora abbiamo che 
 
 Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è una passeggiata aleatoria in cui possiamo aumentare o diminuire di 1. Qui però c'è anche la possibilità di rimanere nello stesso stato all'istante successivo. Ma se trascuriamo questi tempi, nel caso $ p = q $, $ \Rightarrow \frac{p}{1-p} = \frac{q}{1-q} $, siccome le probabilità di andare a destra e a sinistra sono uguali, il modello corrisponde alla passeggiata simmetrica. 
 
+\begin{multicols}{2}
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = middle, ticks=none, width=6cm, height=6cm, ymin=-1, ymax=3, xmin=-1]
+			\node[color=black, fill, circle, inner sep=2pt, label=below:{Rovina di A}] at (axis cs:3,0) {};
+			\node[color=black, fill, circle, inner sep=2pt, label=below:{Rovina di B}] at (axis cs:3,2) {};
+			\node[label=left:{N}] at (axis cs:0,2) {};
+			\addplot[color=black, very thick, domain=0:5, samples=2]	
+			{0*x + 2}; 
+		\end{axis}
+	\end{tikzpicture}
+	\\
+	\\
+	\\
+	Probabilità di rovina partendo da $S = 1- \frac{S}{N} $\\ 
+	\\
+	\\
+	La probabilità tende a 1 per $ N \to \infty $
+\end{multicols}
+
+Quindi, se $ S = 1 $, siccome andremo a 0, dovremo per forza ripassar e per 1; gli stati sono ricorrenti. Inoltre sono ricorrenti nulli perché non c'è distribuzione di probabilità invariante . 
+
+L'interpretazione è che la coda è lunga, ma ogni tanto si svuota. 
+
+Se $ p > q $, è come la passeggiata asimmetrica: $ d = \frac{p}{1-p} > l = \frac{q}{1-q} $: la probabilità di andare a destra è maggiore della probabilità di andare a sinistra. 
+
+C'è una probabilità positiva che il primo giocatore non si rovini, quindi che non torni a 0. Quindi in questo caso gli stati sono transienti. L'interpretazione quindi è che lo sportello si può vuotare un numero finito di volte, prima di allungarsi e non riuscire più a svuotarsi. 
+
+\section{Reversibilità}
+È una proprietà che possono possedere le catene di Markov. 
+
+Supponiamo di avere una catena irriducibile ergodica aperiodica. Sia $ S $ il suo spazio degli stati; abbiamo una distribuzione invariante $ u_s $. Nella catena di Markov, la distribuzione di probabilità è $ x_0, x_1, x_2, ... $.
+
+Se come distribuzione iniziale diamo $ u_s $, ai tempi successivi la distribuzione di $ x_1, x_2, ... $ è sempre uguale a $ u_s $.
+
+Possiamo pensare la catena di Markov, anziché su $ \mathbb{N} $, sui numeri interi:
+$$  ..., x_{-n}, x_{-n+1}, ..., x_{-1}, x_0, x_1, x_2, ... $$
+
+Possiamo poi considerare un processo stocastico in cui combiniamo la direzione del tempo: $ y_n = x_{-n} $
+
+Quello che si vede è che anche $ y_n $ è una catena di Markov. 
+
+Dobbiamo dimostrare che soddisfa le proprietà di Markov:
+$$ P (y_{n+1} = s' | y_{n} = ???) $$ %TODO
+
+Usiamo la formula delle probabilità subordinate:
+\begin{align*}
+	& = \frac{P(y_{n+1} = s' | y_n = ???)}{P(???)} \\ %TODO 
+	& = \frac{P(x_0=s_0, x_{-1} = s_1, ..., s_n = s, x_{-n-1} = s')}{P_{??} = s_0, x_{-1} = s_1, ..., x_{-n} = s} \\
+	& = \frac{s_{s'}p_{s',s} p_{s,s_n}...p_{s_1, s_0}}{u_s p_{s,s_n}...p_{s_1, s_0}} \\
+	& = \frac{s_{s'} p_{s',s}}{u_s} \qquad \begin{array}{c}
+		\text{\small Questa probabilità non dipende da tutti gli stati} \\ 
+		\text{\small precedenti, ma solo da quello immediatamente precedente} 
+	\end{array} \\
+	& = q_{s,s'}
+\end{align*}
+
+La catena di Markov si dice reversibile se $ p_{s,s'} = q_{s,s'} $. 
+
+Quindi se guardiamo la catena all'indietro è la stessa in senso contrario. Equivalentemente:
+$$ u_{s'} p_{s',s} = u_s p{s,s'} $$
+
+Supponiamo $ s,s' \in S $; supponiamo, per ogni stato $ s $:
+$$ \alpha_s > 0 : \sum_{s \in S} \alpha_s < + \infty, \qquad \alpha_s p_{s,s'} = \alpha_{s'}p_{s',s} $$ 
+
+allora $ u_s = \frac{\alpha_{s}}{\sum_{s'} \alpha_{s'}} $è una distribuzione invariante e la catena è reversibile. 
+
+Dobbiamo far vedere anzitutto che è una distribuzione invariante:
+$$ \sum_{s} u_s p_{s,s'} = u_{s'} $$
+Sia $ k = \frac{1}{\sum_{s'}\alpha_{s'}} $
+$$ \sum_{s} k\alpha_{s} p_{s,s'} = \sum_{s} k \overset{= k \alpha_{s'} = u_{s'} }{\alpha_{s}} p_{s',s}  ???$$ %TODO
+
+$$ u_s p_{s,s'} = k \alpha_{s} p_{s,s'} = k\alpha_{s'} p_{s',s} = u_{s'} p_{s',s} $$
+
+\paragraph{Esempio} Passeggiata aleatoria su intervallo $ [a, b] \subset \mathbb{Z} $ con condizioni simmetriche
+
+$$ \begin{array}{cc}
+	a+1 \le s \le b-1 & \\
+	p_{s,s+1} = p & p_{s,s-1} = 1-p \\
+	p_{a,a+1} = p & p_{a,b} = 1-p \\
+	p_{b,a} = p & p_{b,b-1} = 1-p
+\end{array}$$
+
+Vogliamo cercare dei numeri tali che:
+	$$ \alpha_{s}p-{s,s'} = \alpha_{s'} p_{s's,} $$
+Supponiamo $ s' = s+1 $
+\begin{align*}
+	\alpha_{s} p & = \alpha_{s+1} (1-p) \\
+	\alpha_{s+1} & = \frac{p}{1-p} \alpha_{s}
+\end{align*}
+
+Il numero degli stati è $ b-a+1 $; se itero queste relazioni:
+$$ \alpha_a = \left(\frac{p}{1-p}\right)^{b-a+1}\alpha_a $$
+Quindi $ \frac{p}{1-p})^{b-a+1} $ deve essere uguale a 1; ciò è vero solo se $ p = \frac{1}{2} $.
+
+Se $ p = \frac{1}{2} $, allora $ \alpha_s = \alpha_a \forall s $
+$$ u_s = \frac{1}{b+a+1}$$
+
+La catena è reversibile e ho trovato la distribuzione invariante. 
+
+Se $ p \ne \frac{1}{2} $, la passeggiata andrebbe più in senso orario o antiorario.
+\\
+\\
+\\
+Vediamo un criterio generale per la reversibilità. Supponiamo di avere una catena di Markov ergodica e aperiodica:
+$$ p_{s,s'}^(n) \overset{n \to \infty}{u_{s'}} \qquad \text{distribuzione invariante} $$
+Allora la catena di Markov è reversibile se e solo se $ \forall s_0, ..., s_n $:
+
+$$ p_{s_0,s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{s_{n-1}, s_n} \cdot p_{s_n , s_0} = p_{s_0 s_n} \cdot p_{s_n, s_{n-1}} \cdot ... \cdot p_{s_1, s_0} $$
+
+Supponiamo sia reversibile.
+
+\begin{align*}
+	p_{s,s'} & = \frac{p_{s',s}}{u_s}\cdot u_{s'} \\
+	& = p_{s_0 s_n} \cdot p_{s_n, s_{n-1}} \cdot ... \cdot p_{s_1, s_0} \\
+	& = \left(\frac{p_{s_0, s_1}}{u_{s_1}}\cdot u_{s_0}\right) \cdot \left(\frac{p_{s_1, s_2}}{u_{s_2}}\cdot u_{s_1}\right) \cdot ...
+\end{align*}
+
+Gli $ u_{s_i} $ si semplificano. Questa è una condizione necessaria. Dobbiamo ora far vedere che è sufficiente. 
+
+Supponiamo che la relazione sia soddisfatta.
+
+\begin{align*}
+	u_s p_{s,s'} & = \lim\limits_{n \to \infty} p_{s,s'}p_{s',s}^{(n)} \\
+	& = \lim\lim\limits_{n \to \infty} p_{s,s'} \sum_{s_1, s_2, ..., s_{n-1}} p_{s',s_1} p_{s_1, s_2} ... p_{s_{n-1}, s} \\
+	& = \lim\limits_{n \to \infty} \sum_{s_1, s_2, ..., s_{n-1}} p_{s,s_{n-1}} ... p_{s_1, s'}p_{s',s} \\
+	& = \lim\limits_{n \to \infty} p_{s,s'}^{(n)} p_{s',s} \overset{\text{per ergodicità}}{=} u_{s'} p_{s',s}
+\end{align*}
+
+\paragraph{corollario? esempio?} %TODO
+Supponiamo di avere una catena di Markov irriducibile su un intervallo tale che:
+$$ p_{s,s'} = 0 \qquad \text{se } | s' - s | \ge 2 $$
+Allora è reversibile. 
 
 
 
+Questa catena quindi non può fare dei salti maggiori o uguali a 2; può rimanere ferma, andare a destra oppure a sinistra. 
+
+Sappiamo che ci deve essere almeno uno stato ricorrente positivo. Siccome la catena è irriducibile, allora tutti gli stati sono così. 
+
+Mostriamo che è irreversibile:
+$$ s_1, ..., s_{n-1}, s' $$
+$$ p_{s_1, s} \cdot p_{s_1, s_2} \cdot ... \cdot ??? \qquad \text{(I)}$$ %TODO
+$$ p_{s,s'} \cdot p_{s', s_{n-1}} \cdot p_{s_2, s_1} \cdot p_{s_1, s} \qquad \text{(II)}$$
+
+Devo vedere se i due prodotti sono uguali. 
+
+In (I) ci saranno dei passaggi a destra, a sinistra e dei momenti in cui la catena rimane ferma. Siccome devo tornare allo stato di partenza, il numero dei passi a destra deve essere uguale al numero dei passi a sinistra. Per ogni coppia di stati vicini, alcuni andranno in un senso e altri nel senso contrario. 
+
+%LEZIONE 27/10/2020
+%TODO anziché confrontare le correzioni con quello che ho scritto l'altra volta, riascolta direttamente la lezione e fai il confronto diretto
+%comincio a copiare dalle cose nuove
+
+%TODO è una nuova sezione? 
+\paragraph{Distribuzione invariante per il processo di coda} Dobbiamo cercare dei numeri $ \alpha_s $ tali che 
+$$ \alpha_{s}p_{s,s'} = \alpha_{s'}p_{s',s} $$
+$$ s \ge 1: \begin{array}{c}
+	\alpha_{s}d = \alpha_{s+1}l \\
+	\alpha_{s+1} = \ddfrac{\alpha_{s}d}{l}
+\end{array} \qquad \qquad s = 0: \begin{array}{c}
+	\alpha_{0}p = \alpha_{1} l \\
+	\alpha_{1} = \alpha_{0}\ddfrac{p}{l}
+\end {array} $$
+
+Applichiamo lo stesso criterio per la passeggiata aleatoria (consideriamo solo gli spostamenti):
+$$ s \ge 1: 
+	\bar{\alpha}_{s-1} = \bar{\alpha}_s \ddfrac{\bar{p}}{1-\bar{p}} = \ddfrac{d}{l}
+	\qquad \qquad s = 0: 
+	\bar{\alpha}_{0} = \bar{\alpha}_{1} \ddfrac{l}{1-r}
+$$
+
+Le equazioni sono uguali a parte per il primo stato ($ s=0 $), quindi la distribuzione invariante non è uguale. 
+\\
+\\
+C'è un altro modo con il quale si può ricercare la distribuzione invariante %TODO giusto? è un esempio o è una nuova tecnica?
+
+Supponiamo sia reversibile. %TODO che cosa?
+Abbiamo un grafo:
+\begin{multicols}{2}
+	\begin{tikzpicture}
+		\node[draw, circle, fill = black, inner sep = 2pt] (A) at (0,0)  {};
+		\node[draw, circle, fill = black, inner sep = 2pt] (B) at (2,-2) {};
+		\node[draw, circle, fill = black, inner sep = 2pt] (C) at (-2,-0.5) {};
+		\node[draw, circle, fill = black, inner sep = 2pt] (D) at (-0.5,2) {};
+		\node[draw, circle, fill = black, inner sep = 2pt] (E) at (2,1.7) {};
+		\node[draw, circle, fill = black, inner sep = 2pt] (F) at (2,0) {};
+		
+		\path[draw, fill, black] 
+			(A) -- (B)
+	 		(A)	-- (C)
+   			(A) -- (D)
+			(A) -- (E)
+			(A) -- (F)
+			(E) -- (F);
+	\end{tikzpicture}
+	
+	
+	$ S = \{1,...,n\} $ (lo spazio degli stati sono i vertici del grafo)
+	
+	$ \forall i,j $ abbiamo una costante positiva $ v_{i,j} = v_{j,i} > 0 $.
+	
+	$ \{i,j\} $ è un arco del grafo.
+\end{multicols}
+
+Definiamo la catena di Markov in questo modo:
+$$ p_{i,j} = \ddfrac{v_{i,j}}{\sum_{j'}v_{i,j'}} $$
+
+Ci sono degli archi che attirano più di altri il passaggio. Cerchiamo una distribuzione invariante in modo che la catena di Markov sia reversibile:
+\begin{align*}
+	\alpha_{i}p_{i,j} & = \alpha_{j}p_{j,i} \\
+	\alpha_{i}\ddfrac{v_{i,j}}{\sum_{j'}v_{i,j'}} & = 	\alpha_{j}\ddfrac{v_{j,i}}{\sum_{i'}v_{j,i'}} \\
+	\ddfrac{a_j}{a_i} & = \frac{\sum_{i'}v_{j,i'}}{\sum_{j'}v_{i,j}}
+\end{align*}
+
+Devo scegliere $ k $ in modo che la somma faccia 1:
+\begin{align*}
+	\sum_{i}\alpha_{i} & = k\sum_{i}\sum_{j'}v_{i,j'} = 1 \\
+	k & = \ddfrac{1}{\sum_{i}\sum_{j'}v_{i,j'}}
+\end{align*}
+
+In questo modo ho trovato la distribuzione invariante e ho dimostrato che è una catena di Markov reversibile. Se non riesco a risolvere l'equazione non è detto che non ci sia la distribuzione inversa, ma la catena di Markov non è reversibile. 
+
+\section{Metodo Montecarlo basato sulle catene di Markov (MCMC)}
+Il metodo Montecarlo è un metodo numerico usato per approssimare usando generatori di numeri casuali. Vediamo un esempio del metodo standard dove si vuole approssimare $\pi$:
+\begin{multicols}{2}
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = center, xtick={-1, 1}, ytick={-1, 1}, ymin = -1.5, ymax=1.5, xmax=1.5, xmin =-1.5, width=7cm, height=7cm]
+		
+			\draw[thin] (axis cs:0,0) circle [black, radius=1.8cm] ;	
+			\draw[thin, black] (axis cs:1,1) -- (axis cs:1,-1) -- (axis cs:-1,-1) -- (axis cs:-1,1) -- (axis cs:1,1);
+
+		\end{axis}
+	\end{tikzpicture}
+	
+	L'area del cerchio è data da:
+	$$ A = r^2\cdot \pi = \pi $$
+	L'area del quadrato è data da:
+	$$ B = (2r)^2 = 4 $$
+	$$ \ddfrac{A}{B} = \frac{\pi}{4}$$
+	
+\end{multicols}
+
+Se scegliamo un punto a caso la probabilità che cada dentro al cerchio è $\frac{\pi}{4}$. Consideriamo una serie di eventi $ E_1, E_2, ... $ (punti scelti a caso nel quadrato):
+$$ E_i = (p_i \text{ appartiene al cerchio})$$
+
+Per la legge dei grandi numeri
+$$ \ddfrac{\sum_{i=1}^{N} E_i}{N} \simeq \ddfrac{\pi}{4} $$
+Per $ N $ molto grande. 
+
+Con la catena di Markov non abbiamo una successione indipendente, ma appunto una catena di Markov. %TODO spiega un po' meglio questo passaggio
+
+Supponiamo di avere un insieme $ S $ finito e di avere ??? %TODO
+di probabilità 
+$$ u_s = k\pi_s $$
+
+$ k $ è la costante di normalizzazione. Se $ s $ è molto grande, calcolare $ k $può essere quasi impossibile. Vogliamo approssimarlo in modo numerico. Per farlo, possiamo generare una catena di Markov ergodica reversibile con $ u_s $ come distribuzione invariante. 
+
+Partiamo da una catena di Markov su $ S $ con probabilità di transizione $ q_{s,s'} $ irriducibile e tale che se $ q_{s,s'} > 0 $ anche $ q_{s',s} > 0 $:
+
+\begin{align*}
+	 p_{s,s'} & = \alpha_{s,s'}q_{s,s'} \qquad \text{ per } s' \ne s \qquad 0 \le \alpha_{s,s'} \le 1 \\
+	 p_{s,s} & = q_{s,s} + \sum_{s'}(1 - \alpha_{s,s'})q_{s,s'} \\
+	 \sum_{s'}p_{s,s'} & = 1
+\end{align*}
+
+Ora voglio scegliere $ s' $ in modo tale che la catena abbia come distribuzione invariante $ u_s $:
+\begin{align*}
+	u_s p_{s,s'} & = u_{s'}p_{s',s} \qquad s' \ne s \; \; \text{\tiny altrimenti la condizione è banalmente verificata} \\
+	\pi_s p_{s,s'} & = \pi_{s'}p_{s',s} \qquad \qquad u_s = k\pi_s \\
+	\pi_s \alpha_{s,s'}q_{s,s'} & = \pi_{s'}\alpha_{s'}q_{s',s} \\		
+	\ddfrac{\alpha_{s,s'}}{\alpha_{s',s}} & = \ddfrac{\pi_{s'}q_{s',s}}{\pi_s q_{s,s'}} \qquad \qquad \alpha_{s,s'} \le 1 , \; \;  \alpha_{s',s} \le 1
+\end{align*}
+
+Definiamo
+
+\begin{align*}
+	\alpha_{s,s'} & = \phi \left(\ddfrac{\pi_{s'} q_{s',s}}{\pi_s q_{s,s'}}\right) \\
+	\alpha_{s',s} & = \phi \left(\ddfrac{\pi_{s} q_{s,s'}}{\pi_{s'} q_{s',s}}\right) 
+\end{align*}
+
+Che proprietà deve avere questa funzione?
+
+\begin{enumerate}
+	\item $ 0 \le \phi(x) \le 1 $
+	\item $ \ddfrac{\phi(x)}{\phi\left(\frac{1}{x}\right)} = x $
+\end{enumerate}
+
+Una possibile scelta per $\phi$ è:
+$$ \phi(x) = \min(1,x) $$
+Supponiamo $ 0 < x \le 1 $; allora $ \phi(x) = x $ e $ \phi(\frac{1}{x}) = 1 $.
+
+Se invece $ x > 1 $: 
+\begin{align*}
+	\phi(x) & = 1 \\
+	\phi(\frac{1}{x}) & = \frac{1}{x} \\
+	\frac{1}{\frac{1}{x}} & = 1
+\end{align*}
+
+Definiamo
+
+$$ \alpha_{s,s'} = \min\left(\ddfrac{\pi_s q_{s,s'}}{\pi_{s'}q_{s,s'}}, 1\right)$$ %TODO perché?
+
+\paragraph{Nota} Abbiamo definito $\phi$ in un certo modo, ma non è l'unico: un'altra possibile funzione è $ \phi(x) = \ddfrac{x}{1+x} $.
+
+\subsection{Algoritmo di Metropolis-Hastings}
+\paragraph{Modello di Ising}
+È usato per la meccanica statica, ma può essere applicato al riconoscimento delle immagini. 
+$$ S = \{-1, 1\}^\Lambda \qquad \qquad \qquad \Lambda \subset \mathbb{Z}^2 $$
+
+Ho un sottoinsieme di $ \mathbb{Z}^2 $ che posso vedere come un quadrato:
+
+\begin{multicols}{2}
+	\begin{tikzpicture}
+		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (0,0) {};
+		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (0,1) {};
+		\node[draw, circle, inner sep=2pt, label=-1, fill=black] () at (0,2) {};
+		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (1,0) {};
+		\node[draw, circle, inner sep=2pt, label=-1, fill=black] () at (1,1) {};
+		\node[draw, circle, inner sep=2pt, label=-1, fill=black] () at (1,2) {};
+		\node[draw, circle, inner sep=2pt, label=-1, fill=black] () at (2,0) {};
+		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (2,1) {};
+		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (2,2) {};
+	\end{tikzpicture}
+	
+	Se per ognuno di questi punti assegno una quantità, ottengo una configurazione:
+	$$ u_s = k \exp \left[-j \sum_{<i,j>}s_i s_j\right] \qquad \qquad i \in \Lambda $$
+\end{multicols}
+
+$ <i,j>: \; i,j $ sono vicini, considero solo coppie di $ i,j $ vicini. 
+
+Per calcolare $ k $ (la costante di normalizzazione) devo fare la somma di tutti i possibili $ s: |s| = 2^{|\Lambda|} $ %TODO controlla sia giusto
+
+Se prendo un quadrato di lato 10, il numero di possibili configurazioni è $ 2^{100} $.
+
+??? %TODO
+ Scelgo a caso un punto; se era uguale a 1, lo faccio diventare -1 e viceversa. 
+
+Questa $ q $ verifica le proprietà che voglio. %TODO che?
+
+Questa catena di Markov è irriducibile: se cambio uno alla volta i valori della configurazione posso passare da una configurazione all'altra.
+
+\begin{align*}
+	\pi_s & = \exp (j \sum_{<i,j>} s_i s_j) \\
+	\alpha_{s,s'} & = \min \left( \frac{\pi_s q_{s,s'}}{\pi_{s'} q_{s',s}} , 1 \right) \\
+\end{align*}
+
+$\alpha_{s,s'}$ è diverso da 0 solo se $ q_{s,s'} > 0 $, cioè solo se $ s,s' $ sono definiti cambiando di 1 ??? %TODO
+$$ \frac{\pi}{\pi_{s'}} = \frac{u_s}{u_{s'}} = \frac{\exp \left[ -j \sum_{<i,j>} s_i s_j
+	 \right]}{ \exp \left[ -j \sum_{<i,j>} s_i' s_j' \right] } $$
+
+So che $ s,s' $ sono uguali tranne in un punto. Quindi, tranne che per quel punto, tutte le coppie si cancellano. 
+
+I vicini di un punto in 2 dimensioni sono 4, quindi rimane una somma di 4 termini.
+
+Qual è la probabilità che un certo punto sia uguale a 1? ??? %TODO
+
+%TODO all'inizio del 28/10/2020 fa un recap dell'algoritmo di metropolis, non so se serva modificare/aggiungere qualcosa detto precedentemente
+
+\subsection{Campionatore di Gibbs (Gibbs sampler)}
+È una versione dell'algoritmo di Metropolis-Hastings. Supponiamo che l'insieme degli stati sia un prodotto cartesiano di $ n $ spazi: 
+$$ S = X_1 \times ... \times X_n $$
+$$ \underline{s} \in S \qquad \qquad \underline{s} = (x_1, ..., x_n) $$
+
+Scegliamo un punto a caso: $ \underline{s} = (\underbrace{s}_1, s_2) $
+
+$ \underline{s}_1 $ è la configurazione in tutti gli altri punti, $ s_2 $ è la configurazione in quel punto. %TODO non ho capito esattamente cosa voglia dire
+
+Possiamo scegliere $ \underline{s}' = (\underline{s}_1, s_2') $ tale che ??? %TODO
+
+Qual è la probabilità di passare da $ s $ a $ s' $?
+$$ p_{\underline{s}, \underline{s}'} = \frac{1}{n} p( s_2' | \underline{s}_1 )$$
+
+$$ \alpha_{s,s'} = \min\left( \frac{\pi(\underline{s}' q_{\underline{s}', s})}{\pi(\underline{s}) q_{s,s'}} , 1   \right) $$ %TODO e il collegamento con questa formula?
+
+Osserviamo che 
+$$ k\pi(s') q_{\underline{s}', \underline{s}} = k\pi(\underline{s}) q_{\underline{s}, \underline{s}'} $$
+
+Questo perché
+
+$$ k\pi(s) = k\pi(s'_1)p(\underline{s}_2', \underline{s}_1) $$ %TODO ricontrolla apici/pedici
+
+e quindi 
+
+$$ \alpha_{s,s'} = \min \left(\frac{\pi(s_1)p(s_2' | \underline{s}_1)}{\pi(s_1)p(s_2 | \underline{s}_1)}, 1\right) $$
+
+$ q_{\underline{s}', s} $ a meno di un fattore %TODO quale fattore
+è data da $ p(s_2 | s_1) $; quindi $\alpha_{s,s} = 1$. %TODO ricontrolla apici/pedici
+
+??? %TODO
+
+\chapter{Catene di Markov con tempo continuo}
+
+\section{Distribuzione esponenziale}
+
+Nelle catene di Markov con tempo continuo assume importanza la \textbf{distribuzione esponenziale}. 
+
+Questa distribuzione ha un parametro $\lambda > 0, \lambda \in \mathbb{R}$. 
+
+Consideriamo una variabile aleatoria $ X $ con distribuzione esponenziale di parametro $\lambda$. La funzione di ripartizione ci dà la probabilità che $ X < x $:
+
+$$ F_\lambda (X) = P(X < x) = 
+\begin{cases}
+	1 - e^{ - \lambda x} & \text{ se } x \ge 0 \\
+	0 & \text{ se } x < 0
+\end{cases} $$
+
+La distribuzione esponenziale è continua. Dal punto di vista probabilistico, vuol dire che la probabilità che $ X $ sia esattamente uguale a un certo valore è 0. Se la funzione fosse continua, la probabilità sarebbe il salto che fa da un punto ??? %TODO
+
+Introduciamo ora la \textbf{densità di probabilità} $ f_\lambda $:
+
+\begin{align*}
+	F_\lambda (x) & = \int_{-\infty}^{x} f_\lambda(y)dy \\
+	f_\lambda (x) & = \begin{cases}
+		\lambda e ^{-\lambda x} & \text{ se } x \ge 0 \\
+		0 & \text{ se } x < 0
+	\end{cases}
+\end{align*}
+
+La densità non è univocamente definita, potremmo cambiare un punto della funzione e l'integrale non cambierebbe. 
+
+Se abbiamo una variabile aleatoria, possiamo calcolare l'attesa e la varianza. 
+
+Supponiamo di avere $ X $ con distribuzione esponenziale di parametro $\lambda$. L'attesa è data da 
+
+\begin{align*}
+	P(X) & = \int_{-\infty}^{+\infty} x f_x(x) dx \\
+	& = \int_{0}^{+\infty}x \lambda e ^{-\lambda x}dx \\
+	& = \bigg[-xe^{-\lambda x} \bigg]_0^{+\infty} + \int_{0}^{+\infty} e ^{-\lambda x}dx  \\
+	& = 0 + \frac{1}{\lambda}\int_{0}^{+\infty} \lambda e^{-\lambda x} dx \\
+	& = \frac{1}{\lambda}\bigg[-e^{-\lambda x} \bigg]_0^{+\infty} \\
+	& = \frac{1}{\lambda}
+\end{align*}
+
+La varianza è:
+\begin{align*}
+	\text{var}(X) & = P(X^2) - P(X)^2 \\
+	\\
+	P(X^2) & = \int_{-\infty}^{+\infty} x^2 f_\lambda(x) dx \\
+	& = \int_{0}^{+\infty} x^2 \lambda e^{-\lambda x} dx \\
+	& = \bigg[-x^2e^{-\lambda x} \bigg]_0^{+\infty} + 2\int_0^{+\infty} x e^{-\lambda x} dx \\
+	& = 0 + \frac{2}{\lambda^2} \\
+	\\
+	\Rightarrow \text{var}(X) & = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}
+\end{align*}
+
+Lo \textbf{scarto quadratico medio} è $\sigma(X) = \sqrt{\text{var}(X)} = \ddfrac{1}{\lambda}$. %TODO controlla anche sopra che le X siano X e non x
+Questa quantità è la grandezza con cui $ X $ si allontana dalla sua attesa. 
+
+\subsection{Assenza di memoria}
+
+La variabile aleatoria esprime un tempo aleatorio. In questo caso la distribuzione ha una proprietà detta \textbf{assenza di memoria}, collegata alla proprietà di Markov. 
+
+Supponiamo di avere $ X $ con distribuzione esponenziale di parametro $\lambda$. Supponiamo $ x > 0, y > 0 $.
+
+$$ P(X > x + y | X > x) $$
+
+L'interpretazione della probabilità appena enunciata è la seguente: sapendo che $ X > x $, ovvero: sapendo che al tempo $ x $ il fatto $ X $ non si è ancora verificato, ci chiediamo quale sia la probabilità che non si verifichi al tempo $ x+y $:
+
+$$ P(X > x + y | X > x) = \frac{P(X>x+y)}{P(X > x)}$$
+
+perché dobbiamo fare l'intersezione di due eventi, ma $ P(X>x+y) < P(X>x) $
+
+\begin{align*}
+	& = \frac{1 - F_\lambda (x+y)}{1-F_\lambda(x)} \\
+	& = \frac{1- (1-e^{-\lambda(x+y)})}{1-(1-e^{\lambda x})} \\
+	& = \frac{e^{-\lambda(x+y)}}{e^{-\lambda x}} \\
+	& = e^{-\lambda y} \\
+	& = P(X > y)
+\end{align*}
+
+Interpretazione: se al tempo $ x $ non si è ancora verificato l'evento, qual è la probabilità che si verifichi dopo un ulteriore tempo $ y $? È la stessa cosa che chiedersi direttamente se l'evento si verifica dopo il tempo $ y $, come se ripartisse dall'inizio. 
+\\
+\\
+\\
+Vediamo altre proprietà. Supponiamo di avere due tempi indipendenti $ X, Y $ con distribuzioni esponenziali di parametri rispettivamente $\lambda_1, \lambda_2$. Consideriamo
+$$ Z = \min(X, Y) $$.
+
+Qual è la distribuzione di $ Z $? $ Z $ avrà ancora distribuzione esponenziale di parametro $ \lambda_1 + \lambda_2 $. Consideriamo un $ x > 0 $. Calcoliamo
+
+\begin{align*}
+	P(Z < x) & = 1 - P( > Z) \\
+	& = 1 - P(\min(X, Y) > x) \\
+	& = 1 - P((X > x)(Y > x)) \\
+	& = 1 - P(e^{-\lambda_1 x} e^{-\lambda_2 x}) \\
+	& = 1 - e^{-(\lambda_1 + \lambda_2)x}
+\end{align*}
+
+Chiediamoci ora $ P(X < Y) $ (nota: possiamo chiederci anche $ P(X > Y) $, ma $ P(X=Y) $ è 0 perché essendo la distribuzione continua la probabilità che assuma un certo valore è 0):
+
+\begin{align*}
+	& = \int_{0}^{+\infty} (1- e^{-\lambda_1 y}) \lambda_2 e^{-\lambda_2}y dy \\
+	& = \int_{0}^{+\infty} \lambda_2 e^{-\lambda_1 y} dy -\lambda_2 \int_{0}^{+\infty} e^{-(\lambda_1 + \lambda_2)y} dy \\
+	& = 1 - \frac{\lambda_2}{\lambda_1 + \lambda_2} \\
+	& = \frac{\lambda_1}{\lambda_1 + \lambda_2}
+	& \Rightarrow P(Y < X) = \frac{\lambda_1}{\lambda_1 + \lambda_2}
+	\\
+	\\
+	& P(Y < X) + P(X < Y) = 1 %TODO controlla che Y < X non sia Y < x e viceversa
+\end{align*}
+
+Possiamo estenderlo al caso di $ n $ variabili aleatorie indipendenti $ X_1, X_2, ..., X_n $ di parametri $ \lambda_1, \lambda_2, ..., \lambda_n $:
+
+$$ Z = \min(X_1 + ... + X_n) $$
+
+Possiamo fare il minimo tra $ X_1 $ e $ X_2 $, poi il minimo con $ X_3 $ etc. 
+$ Z $ ha una distribuzione esponenziale di parametro $ \lambda_1 + \lambda_2 + ... + \lambda_n $ e 
+\begin{align*}
+	P(Z = X_i) & = P(X_i < \min(X_1, ..., X_{i-1}, X_{i+1}, ..., X_n)) \\
+	& = \frac{\lambda_i}{\lambda_1 + \lambda_2 + ... + \lambda_n}
+\end{align*}
+
+\subsection{Tasso di rischio} %TODO è una sottosezione?
+Quando abbiamo una variabile aleatoria con una distribuzione esponenziale si considera una funzione detta \textbf{tasso di rischio}. %TODO negli appunti c'è scritto turard rate che non esiste
+
+Sia $ X $ una variabile aleatoria con densità $ f(x), \; x > 0 $ e $ f(x) = 0 $ per $ x < 0 $.
+
+Consideriamo $ P(t \le X \le t+1 | X > t) $; il tasso di rischio $ r(t) $ è:
+
+$$ r(t) = \lim\limits_{\Delta \to 0} \frac{P(t \le X \le t+1 | X > t)}{\Delta}$$ %TODO che cacchio è delta
+
+Che relazione c'è tra la densità di probabilità e il tasso di rischio?
+
+$$ r(t) = \lim\limits_{\Delta \to 0} \frac{\int_{t}^{t + \Delta} f(x)dx }{(1 - F(t))\Delta}$$ 
+
+Siccome $\Delta$ tende a 0, l'integrale è calcolato nel punto $ t $:
+
+$$ = \frac{f(t)}{1 - F(t)} $$
+
+Osservazione:
+\begin{align*}
+	r(t) & = -\frac{\partial}{\partial t} \log (1 - F(t)) \\
+	& = - \frac{-f(t)}{1 - F(t)} \\
+	& = \frac{f(t)}{1 - F(t)}
+\end{align*}
+
+Siccome $ F(0) = 0 $ e $ \log(1 - F(0)) = 0 $ possiamo scrivere che 
+\begin{align*}
+	\log(1 - F(t)) & = -\int_{0}^{t} r(s) ds \\
+	1 - F(t) & = \exp \left( - \int_{0}^{t} r(s)ds \right) \\
+	F(t) & = 1 - \exp \left( - \int_{0}^{t} r(s)ds \right)
+\end{align*}
+
+Questa è la formula che ci permette di calcolare la funzione di ripartizione per una variabile aleatoria sapendo il tasso di rischio. Se il tasso di rischio è pari a $\lambda$:
+$$ r(s) = \lambda \qquad \qquad \qquad F(t) = 1 - e^{-\lambda t}$$ 
+
+\subsection{Distribuzione iperesponenziale}
+
+Partendo dalla distribuzione esponenziale possiamo ottenere un'altra distribuzione che si ottiene facendo una somma di tante distribuzioni esponenziali: supponiamo di avere $ X_1, X_2, ..., X_n $ variabili aleatorie indipendenti con distribuzione esponenziale di parametri $ \lambda_1, ..., \lambda_n $ rispettivamente. 
+
+Supponiamo di avere una variabile aleatoria $ X $ indipendente da $ X_1, ..., X_n $.
+
+$$ P(X = j) = p_j \qquad \qquad j = 1, ..., n $$
+
+$ X_T $ è iperesponenziale.
+
+\begin{align*}
+	P(X_T > t) & ??? \\ %TODO
+	\\
+	P(X_T) & = \sum_{j=1}^{n} P(X_T > t | t = j) P (T = j) \\
+	& = \sum_{j = 1}^{n} e ^{-\lambda_j t} p_j
+\end{align*}
+
+Questa non ha la proprietà di assenza di memoria e non è una distribuzione esponenziale. 
 
 
+%TODO 3/11/2020 hai perso l'inizio
 
+Qual è il tasso di rischio di questa? %TODO esprimiti in modo meno rozzo
 
+$$ r(t) = \frac{\sum_{i = 1}^{n} p_i \lambda_i e^{-\lambda_i t}}{\sum_{i = 1}^{n} p_i e^{-\lambda_i t}} $$
 
+Il tasso di rischio non è costante. Vogliamo vedere cosa succede al limite. 
 
+Supponiamo che $\lambda_1$ sia il minimo dei $\lambda_i, \lambda_i = \lambda_1 + ... + i + 1$ %TODO controlla sia corretto
 
+$$ r(t) = \sum_{i = 1}^{n} p_i(\lambda_i e ^{(-\lambda_i - \lambda_1) t } \underset{t \to \infty}{\longrightarrow} \lambda_1) $$
+$$ ??? $$ %TODO controlla anche sopra
 
+La distribuzione esponenziale decade più lentamente delle altre. ??? %TODO
 
+Comunque non è costante, dipende dal tempo. 
 
+Vediamo qual è la somma di due variabili indipendenti con distribuzione esponenziale. Presentiamo prima un esempio nel caso discreto. Supponiamo di avere due variabili $ X, Y $ indipendenti con distribuzione di Poisson di parametri rispettivamente $\lambda_1, \lambda_2$. Sia $ Z = X + Y $. Qual è la distribuzione di $ Z $? Dobbiamo vedere qual è la probabilità che $ Z $ sia uguale ad un certo valore. 
+\begin{align*}
+	P(Z = u) & = \sum_{k = 0}^{n} P(X = k)P(Y = n-k) & n \ge 0 \\
+	& = \sum_{k=0}^{n} \frac{\lambda_1^k e^{-\lambda_1}} {k!} \frac{\lambda_2^{n-k} e^{-\lambda_2}}{(n-k)!} \\
+	& = \frac{e^{-(\lambda_1 + \lambda_2)}}{n!} \sum_{k=0}^{n} \underbrace{\binom{n}{k} \lambda_1^k \lambda_2^{n-k}}_{\text{binomio di Newton}} \\
+	& = \frac{(\lambda_1 + \lambda_2)^n}{n!} e^{-(\lambda_1 + \lambda_2)}
+\end{align*}
 
+Vediamo ora il caso continuo. $ X $ e $ Y $ sono due variabili aleatorie indipendenti con densità $ f(t), g(t) $ rispettivamente. Vogliamo analizzare $ Z = X + Y$. Sia $ l $ la densità di $ Z $. 
 
+\begin{align*}
+	h(t) & = \int f(u) g(t-u) du ??? \\%TODO
+	& = f * g(t) \qquad \qquad \text{ convoluzione di } f \text{ e } g
+\end{align*}
 
+La \textbf{convoluzione} è un'operazione che si può fare in generale e che date due funzioni ne restituisce una. 
 
+Proprietà della convoluzione: 
+\begin{enumerate}
+	\item proprietà commutativa: $ f * g = g*f $
+	\item bilinearità: $ f * (ag + bh ) = af * g + bf * h $ ??? %TODO
+\end{enumerate}
 
+Vogliamo applicare la convoluzione per studiare la somma di due variabili indipendenti con distribuzione esponenziale di parametro $ \lambda $: $ Z = X + Y $. La densità di $ X $ e $ Y $ è $ g_\lambda $. Calcoliamo la densità di $ Z $:
+\begin{align*}
+	h(t) & = g_\lambda * q_\lambda(t) \\
+	& = \int g_\lambda(u) g_\lambda(t-u) du
+\end{align*}
+
+La densità esponenziale è positiva se ??? %TODO
+è positiva, quindi se $ u $ è negativa è 0 e se $ t-u $ è negativa è 0: %TODO eh????
+
+\begin{align*}
+	& = \int_{0}^{t} \lambda e ^{-\lambda u} \lambda e^{-\lambda(t-u)} du \\
+	& = \lambda^2 e^{-\lambda t} \int_{0}^{t} du \\
+	& = \lambda^2 t e^{-\lambda t} & t \ge 0
+\end{align*}
+
+\subsection{Distribuzione di Erlanger} %TODO è scritto bene? possiamo considerarlo una sottosezione?
+In generale cosa succede se facciamo la somma di $ n $ variabili aleatorie $ X_1, ..., X_n $ indipendenti, con distribuzioni esponenziali di parametro $\lambda$? 
+
+Supponiamo $ Z = X_1 + ... + X_n $; $ Z $ ha densità $ h(t) $ con $ t > 0 $:
+
+$$ h(t) = \frac{\lambda^n t^{n-1}}{(n-1)!} e^{-\lambda t} $$
+
+Questa è chiamata distribuzione di Erlang di parametri $ (\lambda, n) $.
+
+È possibile dimostrare l'uguaglianza soprastante per induzione. 
+
+Supponiamo sia vera fino a $ n-1 $. Sappiamo che $ Z = X_1 + ... + X_n $; possiamo riscriverla come 
+$ Z = (X_1 + ... + X_{n-1}) + X_n $
+
+Siccome $ X_1, ..., X_n $ sono indipendenti, anche la somma evidenziata dalle parentesi tonde è indipendente da $ n $ e possiamo usare la convoluzione:
+
+\begin{align*}
+	h(t) & = \int_{0}^{t}\frac{\lambda^{n-1} u^{n-2}}{(n-2)!} e^{-\lambda u} \lambda e^{-\lambda(t-u)} du \\
+	& = \frac{\lambda^n}{(n-2)!}e^{-\lambda t} \int_{0}^{t} u^{n-2} du \\
+	& = \frac{\lambda^n}{(n-2)!} e^{-\lambda t} \frac{t^{n-1}}{n-1} \\
+	& = \frac{\lambda^n t^{n-1}}{(n-1)!} e^{-\lambda t} ??? %TODO controlla da (n-1)!
+\end{align*}
+
+La distribuzione di Erlang, a differenza della distribuzione esponenziale, non ha la proprietà di assenza di memoria. Però posso rappresentarla come una somma di variabili aleatorie indipendenti. 
 
 
 
