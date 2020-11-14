@@ -2518,6 +2518,294 @@ Siccome $ X_1, ..., X_n $ sono indipendenti, anche la somma evidenziata dalle pa
 
 La distribuzione di Erlang, a differenza della distribuzione esponenziale, non ha la proprietà di assenza di memoria. Però posso rappresentarla come una somma di variabili aleatorie indipendenti. 
 
+Vediamo ora il caso di $ n $ variabili aleatorie con parametri $ \lambda_1, ..., \lambda_n $ tutti diversi tra loro. Iniziamo studiando la somma tra due variabili $ X $ e $ Y $.
+
+Sia $ Z = X + Y $ e $ h(t) $ la densità di $ Z $:
+\begin{align*}
+	h(t) & = \int g_{\lambda_1}(u) g_{\lambda_2}(t-u) du \\ %TODO i \lambda sono pedici di g?
+	& = \int_{0}^{t} \lambda_1e^{-\lambda_1 u} \lambda_2e^{-\lambda_2(t-u)} du \\
+	& = \lambda_1\lambda_2e^{-\lambda_2 t} \int_{0}^{t}e^{-u(\lambda_1-\lambda_2)} du \\
+	& = \lambda_1\lambda_2e^{-\lambda_2 t} \bigg[\frac{e^{-u(\lambda_1-\lambda_2)}}{\lambda_2 - 
+		\lambda_1}\bigg]^{t}_0 \\
+	& = \frac{\lambda_1\lambda_2 e^{-\lambda_2 t}}{\lambda_2 - \lambda_1}e^{-(\lambda_1 - \lambda_2)t} + \frac{\lambda_1\lambda_2}{\lambda_1-\lambda_2}e^{-\lambda_2 t} \\
+	& = \frac{\lambda_2}{\lambda_2 - \lambda_1} \lambda_1 e^{-\lambda_1 t} + \frac{\lambda_1}{\lambda_1 - \lambda_2}\lambda_2 e^{-\lambda_2t} \\
+	\Rightarrow g_{\lambda_1} * g_{\lambda_2} & = \frac{\lambda_2}{\lambda_2 - \lambda_1} g_{\lambda_1} + \frac{\lambda_1}{\lambda_1-\lambda_2}g_{\lambda_2} %TODO i \lambda sono pedici di g?
+\end{align*}
+
+Consideriamo ora effettivamente $ n $ distribuzioni esponenziali $ X_1, X_2, ..., X_n $ indipendenti con parametri $ \lambda_1, ..., \lambda_n $ diversi tra loro. Bisogna fare una convoluzione di $ n $ parametri, nell'ordine che si preferisce. 
+
+??? %TODO
+
+Mi basta il coefficiente. 
+
+$$ \begin{array}{ccc} %TODO controlla che i lamba siano effettivamente apici
+ \text{ Convoluzione con } & g_{\lambda_1}: & \frac{\lambda_1}{\lambda_1 - \lambda_i} \\
+ & g_{\lambda_2} : & \frac{\lambda_2}{\lambda_2  - \lambda_1} \\
+ & ... & \\
+ & g_{\lambda_n}: & \frac{\lambda_n}{\lambda_n - \lambda_i}
+\end{array}$$
+
+%TODO ora sugli appuniti c'è la roba che ho appena scritto ma in orizzontale, è importante ricopiarla?
+
+La densità di $ X_1 + ... + X_n $ è:
+$$ h(t) = \sum_{i = 1}^n \prod_{j \ne i}^{n} \frac{\lambda_j}{\lambda_j - \lambda_i} g_{\lambda_i}$$
+Sembra analoga alla distribuzione iperesponenziale, ma non è così perché i coefficienti non sono necessariamente tutti positivi. Infatti il denominatore ha la differenza $ \lambda_j - \lambda_i $, quindi può assumere valori negativi. Questa distribuzione si chiama \textbf{ipoesponenziale.} %TODO la mettiamo in una sezione?
+
+Il fattore di rischio non è costante. Cosa succede mandando il tempo all'infinito? Supponiamo $\lambda_1$ sia il più piccolo di tutti: $\lambda_1 = \min(\lambda_1, ..., \lambda_n)$
+
+$$ \prod_{i \ne 1, j\ne 1}^{n} \left(\frac{\lambda_j}{\lambda_j - \lambda_i}\right) g_{\lambda_1} ??? $$ %TODO
+
+Tasso di rischio:
+$$ r(t) \frac{\sum_{i=1}^{n}\prod_{j\ne i}^{n} \left(\frac{\lambda_j}{\lambda_j - \lambda_i}\right)g_{\lambda_i}}{\sum_{i=1}^{n}\prod_{j\ne i}^{n} \left(\frac{\lambda_j}{\lambda_j - \lambda_i}\right) e^{-\lambda_i t}} ??? $$%TODO
+
+\begin{align*}
+	\lambda_1 & = \min(\lambda_1, ..., \lambda_n) \\
+	& r(t) \underset{t \to \infty}{\longrightarrow} \lambda_1
+\end{align*}
+
+\section{Processo di Poisson}
+Fa parte di una famiglia di processi detti processi di conteggio, un tipo di processo che descrive il numero di volte in cui si verifica un certo fatto al variare del tempo: $ N_t, t \ge 0 $ indica quante volte si è verificato un fatto (es. decadimento radioattivo, arrivo di un cliente allo sportello...) dal tempo 0 al tempo $ t $.
+
+\paragraph{Proprietà dei processi di conteggio}
+\begin{enumerate}
+	\item $ N_0 = 0 $;
+	\item $ N_t $ ha valori naturali;
+	\item $ N_t $ è non decrescente (quindi può rimanere uguale).
+\end{enumerate}
+
+Il processo di Poisson con parametro $\lambda$ è un processo di conteggio $ N_t $ con in più le seguenti proprietà:
+\begin{enumerate}
+	\item per $ 0 \le t_1 \le t_2 $, $ N_{t_2} - N_{t_1} $ (numero di fatti verificatisi tra $ t_1 $ e $ t_2 $) ha distribuzione di Poisson di parametro $\lambda(t_2 - t_1)$;
+	\item ha incrementi indipendenti.
+\end{enumerate}
+
+L'ultimo punto vuol dire che se si prendono tanti intervalli disgiunti $ (0, t_1], (t_1, t_2], ..., (t_{n-1}, t_n] $  con $ 0 \le t_1 < t_2 < ... < t_n $, allora $ N_{t_1}, N_{t_2} - N_{t_1}, ..., N_{t_n} - N_{t_{n-1}} $ sono indipendenti.
+
+Osservazione di compatibilità: se prendo $ (0, t_1 ], (t_1, t_2], ..., (0, t_2] $:
+$$ N_{t_2} - N_0 = (N_{t_2} - N_{t_1}) + (N_{t_1} - N_0) $$
+
+Queste distribuzioni (di parametri rispettivamente $\lambda(t_2 - 0),\lambda(t_2 - t_1),\lambda(t_1 - 0) $) sono indipendenti. 
+
+Supponiamo di prendere $ u_1, ..., u_n $ indipendenti con distribuzioni esponenziali di parametro $\lambda$. Immaginiamo che $ u_1, ..., u_n $ descrivano il tempo d'arrivo di clienti ad uno sportello. Allora
+$$ T_k = u_1 + ... + u_n $$
+
+ovvero $ T_k $ è il tempo dell'arrivo del cliente k-esimo. Posso descrivere un processo di conteggio (quanti clienti sono arrivati entro il tempo $ t $?)
+
+$$ N_t = \max \{k | T_k \le t \}, \qquad \qquad T_k \le t \le T_{k+1} $$
+
+Allora $ N_t $ è un processo di Poisson di parametro $\lambda$.
+
+Quanto vale quindi $ P(N_t = k) $?
+
+\begin{align*}
+	P(N_t = k) & = P(T_k \le t < T_{k+1}) \\
+	& = P((T_k \le t) \ (T_{k+1} \le t)) \\
+	& = P(T_k \le t) - P(T_{k+1} \le t)
+\end{align*}
+\\
+\\
+\\
+\hrule\vfill
+%TODO 2020-11-04 hai perso l'inizio!
+Possiamo dire che
+
+
+$$ P(X_k \le t) - P (X_{k+1} \le t) = \int_{0}^{t} \frac{\lambda^k s^{k-1}}{(k-1)!} e^{-\lambda s} ds - \int_{0}^{t} \frac{\lambda^{k+1} s^{k}}{k!} e^{- \lambda s} ds $$
+Integro per parti:
+\begin{align*}
+	& = \lambda^k \bigg[\frac{s^k}{k!} e^{-\lambda s}\bigg]_0^{t} + \int_{0}^{t} \frac{\lambda^{k+1} s^{k}}{k!} e^{- \lambda} ds - \int_{0}^{t} \frac{\lambda^{k+1} s^{k}}{k!} e^{- \lambda s} ds \\
+	& = \frac{\lambda^k t^k}{k!} e^{-\lambda t}
+\end{align*}
+
+Ma questa è la probabilità del processo di Poisson ??? %TODO
+
+Adesso devo verificare l'indipendenza: ??? %TODO
+intervalli separati sono indipendenti.
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw (0,0) -- (10,0);
+		\draw (4,-0.15) -- (4,0.15);
+		\draw (6,-0.15) -- (6,0.15);
+		\node[label=below:u] (A) at (4,0) {} ;
+		\node[label=below:t] (B) at (6,0) {} ;
+	\end{tikzpicture}
+\end{center}
+
+Prendiamo l'intervallo tra 0 e $ u $; ci chiediamo quanto vale
+$$ P(N_t - N_u = k | N_s, s \le u) $$
+
+??? %TODO
+
+$$ \frac{\lambda(t-u)^k}{k!} e^{-\lambda(t-u)} $$
+
+Questo rapporto tra distribuzione esponenziale e processo di Poisson ci permette di trovare un metodo per simulare il processo di Poisson.
+
+Consideriamo una successione di ??? %TODO
+
+Come si fa a generare una successione di variabili aleatorie con distribuzione esponenziale? Si usa questo fatto: sia $ Z $ una variabile con distribuzione uniforme in $ [0,1] $ e sia $ F $ la funzione di ripartizione dell'esponenziale:
+$$ F(x) = \begin{cases}
+	1 - e^{-\lambda x} & \text{se } x \ge 0 \\
+	0 & \text{se } x < 0
+\end{cases} $$
+
+$ F $ è una funzione strettamente crescente. Posso considerare la funzione inversa $ F^{-1} $, e quello che si vede è che $ F^{-1}(Z) = W $ è una variabile aleatoria con distribuzione esponenziale di parametro $\lambda$. 
+
+Esempio:
+
+\begin{align*}
+	P(W \le x & = F^{-1})(Z \le x) \\
+	& = P(Z \le F(x)) \\
+	& = F(x)
+\end{align*}
+
+In questo caso è facile anche calcolare l'inversa:
+\begin{align*}
+	x & = F^{-1}(y) \\
+	F(x) & = y \\ %TODO ricontrolla y e Y etc.
+	y & = 1 - e^{-\lambda x} \\
+	e^-{-\lambda x} & = 1 - y \\
+	-\lambda x & = \log(1-y) \\
+	x & = - \frac{1}{\lambda} \log (1-y)
+\end{align*}
+
+Se prendo una variabile aleatoria $ U $ con distribuzione uniforme su $ [0,1] $ e definisco $ W $:
+$$ W = \frac{1}{\lambda} \log(1 - U) $$
+$ W $ è una distribuzione esponenziale di parametro $\lambda$.
+
+Abbiamo visto il caso di una sola variabile; se vogliamo generare una successione di variabili $ U_1, U_2, ... $ indipendenti con distribuzioni uniformi in $ [0,1] $ definisco $ W_1, W_2, ... $ nel seguente modo:
+
+$$ W_i = \frac{1}{\lambda} \log(1 - U_i) $$
+
+Osservazione: in base alla definizione di processo di Poisson è un conteggio a valori interi non decrescenti. %TODO che cosa?
+
+In linea di principio un processo di Poisson potrebbe fare salti maggiori di 1, in realtà la probabilità che accada è 0. 
+
+Consideriamo un intervallo $ [0,t] $ e dividiamolo in intervalli di lunghezza $\frac{1}{2^N}$.
+
+Qual è la probabilità che in uno di questi intervalli il processo di Poisson faccia un salto più grande di 1? Siccome ??? %TODO
+ questo è uguale alla probabilità che nel primo salto non faccia salti più grandi di 1, elevato al numero degli intervalli:
+\begin{align*}
+	(P(N_{\frac{1}{2}N} \le 1))^{2^N} & = (P(N_{\frac{1}{2}N} = 0) + P(N_{\frac{1}{2}N} = 1) )^{2^N} \\
+	& = ( e^{-\frac{\lambda}{2^N}} + \frac{\lambda}{2^N}e^{-\frac{\lambda}{2^N}}  )^{2^N} \\
+	& = e^{-\lambda}(1 + \frac{\lambda}{2^N})^{2^N} \\
+	\\
+	\lim\limits_{N \to \infty} e^{-\lambda}(1 + \frac{\lambda}{2^N}) & = 1
+\end{align*}
+
+??? %TODO
+Quindi non ci sono salti più grandi di 1.
+??? %TODO
+Quindi o non ha salti oppure ha tutti salti di grandezza 1.
+
+\section{Decomposizione di un processo di Poisson}
+È un'altra proprietà dei processi di Poisson. Supponiamo di avere un processo di Poisson di parametro $\lambda$ che descrive gli arrivi dei clienti ad un supermercato (quanti clienti sono arrivati prima di un tempo $ t $). Dividiamo i clienti in due categorie, ad esempio maschi e femmine. Il cliente è in una certa categoria, ad esempio "maschi", con probabilità $ p $ ed è nell'altra categoria con probabilità $ 1-p $. È come se ogni volta che arriva un cliente tirassimo una moneta, se esce testa finisce nella prima categoria, se esce croce nella seconda. 
+
+Possiamo allora scrivere il nostro processo come due processi di conteggio:
+$$ N_t = N_t^{(1)} + N_t^{(2)} $$
+
+$ N_t^{(1)} $ e $ N_t^{(2)} $ sono due processi di Poisson indipendenti. 
+
+Vogliamo calcolare ora:
+
+\begin{align*}
+	P(N_t^{(1)} = k_1, N_t^{(2)} = k_2) & = P(N_t^{(1)} = k_1, N_t^{(2)} = k_2 | N_t = k_1 + k_2) P(N_t = k_1 + k_2) \\
+	& = p \binom{k_1 + k_2}{k_1} p^{k_1} (1-p)^{k_2} - \frac{(\lambda t)^{k_1 + k_2}}{(k_1 + k_2)!} e^{-\lambda t} \\
+	& = \frac{(\lambda p t)^{k_1}}{k_1!} \frac{\big[ \lambda(1-p)t \big]^{k_2}}{k_2!} e^{-\lambda p t} e^{-\lambda(1-p) t} \\
+	& = \frac{(\lambda p t)^{k_1}}{k_1!} e^{-\lambda p t} \frac{\big[ \lambda(1-p) t \big]^{k_2}}{k_2 !} e^{-\lambda (1-p) t}
+\end{align*}
+
+$ N_t^{(1)} $ è processo di Poisson di parametro $\lambda p$
+
+$ N_t^{(2)} $ è processo di Poisson di parametro $\lambda(1-p)$
+
+In questo modo abbiamo mostrato per un solo intervallo che sono indipendenti %TODO what
+, dobbiamo ancora verificare che gli incrementi su intervalli separati siano indipendenti.
+
+Ma siccome partiamo già da variabili aleatorie indipendenti, otterremo ancora ??? %TODO
+
+Questo si può generalizzare nella decomposizione in $ n $ processi di Poisson: consideriamo
+
+$$ P_1, P_2, ..., P_n \qquad \qquad P_1 + P_2 + ... + P_n  = 1 \qquad 0 \le p_i \le 1 $$
+$$ N_t = N_t^{(1)} + ... + N_t^{(n)} $$
+
+I processi $ N_t^{(1)}, ..., N_t^{(n)} $ sono anche loro di Poisson indipendenti di parametri rispettivamente $ \lambda_{p_1}, ..., \lambda_{p_n} $.
+
+Lo stesso argomento si può mostrare al contrario: supponiamo di avere $ N_t^{(1)}, ..., N_t^{(n)} $ processi di Poisson indipendenti di parametri $ \lambda_{1}, ..., \lambda_{n} $. Definiamo:
+$$ N_t = N_t^{(1)} + ... + N_t^{(n)} $$
+
+Allora $ N_t $ è è processo di Poisson di parametro $ \lambda = \lambda_{1} + ... + \lambda_{n} $.
+
+Supponiamo $ N_t $ sia un processo di Poisson di parametro $ \lambda = \lambda_{p_1} + ... + \lambda_{p_n} $; definiamo 
+$$ p_1  = \frac{\lambda_1}{\lambda_1 + ... + \lambda_{n}}, ... , p_n = \frac{\lambda_{n}}{\lambda_{1} + \lambda_{n}}$$
+$ N_t^{(1)}, ..., N_t^{(n)} $ sono indipendenti di parametro $\lambda_{p_i} = \lambda_{i}$
+
+\section{Definizione equivalente di processo di Poisson}
+Processo di conteggio con incrementi indipendenti 
+$$ P(N_{t + h} = N_t) = 1 - \lambda h t + o(t) $$
+$$ P(N_{t + h} = N_t + 1) = \lambda h + o(h) $$
+??? uniforme in $ t $ %TODO
+
+Cioè anziché ??? %TODO
+$ o(h) $: infinitesimo di ordine superiore ad $ h $, ovvero quantità tale che:
+$$ \lim\limits_{h \to 0} \frac{o(h)}{h} = 0 $$
+
+Vogliamo mostrare che le due definizioni sono equivalenti. 
+
+Qual è la probabilità di nessun incremento?
+\begin{align*}
+	P(N_{t+h} = N_t) & = e^{-\lambda h} \\
+	& = 1 - \lambda h + o(h)
+\end{align*}
+
+Incremento di 1?
+\begin{align*}	
+	P(N_{t+h} = N_t + 1) & = \lambda h e^{-\lambda h } \\ 
+	& = \lambda h (1 - \lambda h + o(h)) \\
+	& = \lambda h - \lambda^2 h^2 + o(h^2) \\
+	& = \lambda h + o(h)
+\end{align*}
+
+Incremento $ k \ge 2 $?
+
+\begin{align*}	
+	P(N_{t+h} = N_t + k) & \le 1 - P(N_{t+h} = N_t) - P(N_{t+h} = N_t + 1) \\
+	& = 1 - (1 - \lambda h - o(h)) - \lambda h - o(h) \\
+	& = o(h)
+\end{align*}
+
+Quindi la probabilità di fare un salto più grande di 2 è un infinitesimo di ordine superiore a $ h $. 
+
+Il processo di Poisson soddisfa queste condizioni. ??? %TODO
+Per concludere la dimostrazione che le due definizioni sono equivalenti, dobbiamo mostrare anche l'altro verso dell'implicazione, cioè ??? %TODO
+
+\begin{align*}
+	P(N_{t+h} = 0) & = P(N_t = 0) P(N_{t+h} - N_t = 0) \\
+	\\
+	P(N_{t+h} = 0) - P(N_t = 0) & = P(N_{t+h} - N_t = 0 - 1 )P(N_t = 0) \\
+	\\
+	u_t & = P(N_t = 0) \\
+	\\
+	u_{t+h} - u_t & = 0 \\
+	& = ((1 - \lambda h + o(h)) - 1 ) u_t \\
+	\frac{u_{t+h} - u_t}{h} & = \lambda u_t + \frac{o(h)}{h} \\
+	\\
+	\lim\limits_{h \to 0} u'_t & = \lambda u_t & u_0 = 1
+\end{align*}
+
+$$ 	??? ke^{-\lambda t} \qquad \qquad k = 1$$
+$$ u_t = e^{-\lambda t} \qquad \qquad P(N_t = 0) e^{-\lambda t} $$
+
+Questo corrisponde al processo di Poisson. Devo farlo vedere anche per valori diversi.
+
+Consideriamo $ P(N_{t+h} = k), k \ge 1 $
+
+
+
+
+
+
+
 
 
 \backmatter
