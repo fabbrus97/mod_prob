@@ -22,12 +22,21 @@
 %TODO riascolta lezione del 7 ottobre (non so se mi son perso qualcosa)
 %TODO riascolta lezione del 13 ottobre (non so se mi son perso qualcosa)
 % riascoltata lezione del 14 ottobre
-%TODO riascolta lezione del 20 ottobre
-%TODO riascolta lezione del 21 ottobre
+% riascolta lezione del 20 ottobre
+% riascolta lezione del 21 ottobre
 %TODO riascolta lezione del 27 ottobre
 %TODO riascolta lezione del 28 ottobre
 %TODO riascolta lezione del 3 novembre
 %TODO riascolta lezione del 4 novembre
+%TODO riascolta lezione del 10 novembre
+%TODO riascolta lezione del 11 novembre
+%TODO riascolta lezione del 17 novembre
+%TODO riascolta lezione del 18 novembre
+% riascolta lezione del 24 novembre
+%TODO riascolta lezione del 25 novembre
+%TODO riascolta lezione del 1 dicembre
+%TODO riascolta lezione del 2 dicembre
+%TODO riascolta lezione del 9 dicembre
 
 \begin{document}
 	
@@ -42,7 +51,11 @@
 
 
 \author{Simone Fabbri}
-\title{Appunti di Modelli Probabilistici}
+\title{%
+	Appunti di modelli probabilistici \\
+	\large Sulle lezioni di Massimo Campanino \\
+	Univ. Bologna, a.a. 2020-2021}
+
 \date{Aggiornato al \today}
 
 \frontmatter
@@ -1600,19 +1613,28 @@ Con $ S $ finito. C'è un'unica soluzione:
 Nell'equazione $ \sum_{s''}v_{s''}u_s $ posso portare fuori $ u_s $ perché non dipende dalla sommatoria; ma la sommatoria è uguale a 1, quindi ottengo proprio $ u_s $.
 
 \vspace{1cm}
-\hrule  %TODO riguarda inizio 2020-10-20
+\hrule 
 \vspace{1cm}
-Definiamo ora $ \mu_s = \sum_{n=1}^{\infty} n \cdot f_s^{(n)} $
 
-Allora $ p_{s,s'}^{(n)} \to \ddfrac{1}{\mu_s} $
+Ripetiamo l'enunciato del teorema ergodico per le catene di Markov: supponiamo di avere una catena di Markov con spazio egli stati $ S $, con una sola classe di equivalenza e stati ricorrenti. La proprietà di ricorrenza sappiamo valere per tutti gli elementi di una classe di equivalenza. Siano inoltre gli stati aperiodici (e anche questa è una proprietà che vale per tutti gli stati di una classe di equivalenza).
 
-Quindi è uguale a 0 se $ \mu = +\infty $. Se $ \mu= +\infty $, non è necessaria aperiodicità. 
+Dato uno stato $ s $, definiamo:
 
-Nel caso $ S $ finito, $ u_s = \ddfrac{1}{\mu_s} \qquad \displaystyle \sum_{s \in S} \mu_s = 1 $ %TODO controlla sua \mu_s nella sommatoria
+$$ \mu_s = \sum_{n=1}^{\infty} n \cdot f_s^{(n)} $$
 
+Come interpretiamo $ \mu_s $? Siccome gli stati sono ricorrenti, sappiamo che partendo da uno stato, ci ritorniamo con probabilità 1; possiamo allora considerare il tempo di ritorno come una variabile aleatoria detta, appunto, \textit{tempo di ritorno}. $ \mu_s $ è l'attesa del tempo di ritorno. 
+
+Allora 
+$$ p_{s,s'}^{(n)} \to \ddfrac{1}{\mu_s} $$
+
+Questa quantità è uguale a 0 se $ \mu = +\infty $. Se $ \mu= +\infty $, non è necessaria aperiodicità. 
+
+Nel caso $ S $ finito, detto $ u_s = \ddfrac{1}{\mu_s} $
+$$ \qquad \displaystyle \sum_{s \in S} u_s = 1 $$
+e
 $$ \forall s' \qquad \sum_{s} u_s p_{s,s'} = u_s'$$
 
-Queste relazioni ci dicono che $ u_s $ è una distribuzione invariante o stazionaria, ovvero se mettiamo $ u_s $ come stato iniziale in una catena di Markov, vediamo che nei tempi successivi ??? %TODO
+Queste relazioni ci dicono che $ u_s $ è una distribuzione invariante o stazionaria, ovvero se $ u_s $ soddisfa le due equazioni e mettiamo $ u_s $ come distribuzione iniziale in una catena di Markov, vediamo che nei tempi successivi rimane invariante (ovvero la distribuzione rimane $ u_s $)Se $ u_s $ è la distribuzione iniziale, da $ \sum_{s} u_s p_{s,s'} = u_s' $ segue che $ u_s $ è anche la distribuzione al tempo 1. È anche stazionaria perché non cambia nel tempo
 
 Vogliamo verificare se la proprietà sia vera anche nel caso $ S $ infinito. 
 
@@ -1648,7 +1670,7 @@ Quindi anche nel caso infinito, $ u_s $ è una distribuzione di probabilità, ci
 
 \begin{align*}
 	u_{s'} & = \sum_{s} u_s p_{s,s'}^{(2)} \\
-	u_{s'} = \sum_{s} u_s p_{s,s'} ^{(n)}
+	u_{s'} & = \sum_{s} u_s p_{s,s'} ^{(n)}
 \end{align*}
 
 Per $ n \to \infty $, $ u_{s'} = \sum_{s} u_su_{s'}$
@@ -1682,13 +1704,14 @@ $ p_{s,s_2}^{(n)} $ non tende a 0 (per $ n \to \infty $)
 
 $$ \Rightarrow s_2 \text{ è ricorrente positivo} \qed $$
 
-Una conseguenza è che se $ S $ è finito, non ci sono stati ricorrenti nulli, perché 
+Una conseguenza è che se $ S $ è finito, non ci sono stati ricorrenti nulli, perché abbiamo che $ \sum_{s' \in S} p_{s,s'}^{(n)} = 1 $.
 
-\formule{\sum_{s' \in S} p_{s,s'}^{(n)} = 1}{essendo S finito, possiamo passare al limite della somma. Se gli stati fossero ricorrenti nulli, il limite tenderebbe a 0, ma non è possibile.}
 
-??? %TODO riguarda lezione
+Essendo S finito, possiamo passare al limite della somma. Se gli stati fossero ricorrenti nulli, il limite tenderebbe a 0, e siccome è una somma finita, anche la somma tenderebbe a 0. Ma la somma è pari a 1, quindi dev'esserci almeno uno stato ricorrente positivo. E abbiamo appena visto che se abbiamo una sola classe di equivalenza e uno stato è ricorrente positivo, allora sono tutti ricorrenti positivi - anche se la dimostrazione appena vista funziona solo nel caso aperiodico. 
 
-Vediamo il caso più semplice di catena di Markov con spazio degli stati finiti, che è una catena di Markov con due stati: $ S = \{0,1\} $. La matrice di transizione è: %TODO si chiama così?
+Quindi in una tale catena di Markov (sola classe di equivalenza, irriducibile, stati ricorrenti positivi, aperiodica) abbiamo una distribuzione invariante, e le probabilità tendono a $ u_s $: ma come si fa a calcolare questo limite? La cosa più semplice è provare a risolvere il sistema d'equazioni.
+
+Vediamo il caso più semplice di catena di Markov con spazio degli stati finiti, che è una catena di Markov con due stati: $ S = \{0,1\} $. La matrice di transizione è:
 
 $$ \Pi = \left(\begin{matrix}
 	p & 1-p \\
@@ -1746,7 +1769,7 @@ Possiamo rappresentare la passeggiata aleatoria con un cerchio:
 	\end{tikzpicture}	
 \end{center}
 
-Se $ r $ è dispari, è aperiodica. %TODO che cosa? la passeggiata?
+Se $ r $ è dispari, la catena è aperiodica.
 
 \begin{align*}
 	& u_0 + u_1 + ... + u_{r-1} = 1 \\
@@ -1756,17 +1779,14 @@ Se $ r $ è dispari, è aperiodica. %TODO che cosa? la passeggiata?
 	u_{r-1} & = u_{r-2} p + u_0(1-p)
 \end{align*}
 
-Abbiamo $ r+1 $ equazioni e $ r $ incognite. Ipotizziamo che $ u_s = \frac{1}{r} $.
+Abbiamo $ r+1 $ equazioni e $ r $ incognite. Possiamo però intuitivamente provare a vedere quale sarà la distribuzione invariante anche senza risolvere le equazioni: immaginiamo di fare andare avanti la passeggiata aleatoria per molto tempo, è naturale pensare che alla fine la distribuzione sia uniforme: se giriamo tanto a caso, la probabilità di trovarci in un qualsiasi punto sia uguale. Ipotizziamo quindi che $ u_s = \frac{1}{r} $. Sostituendolo nelle equazioni, in effetti vengono risolte. 
 
-Questa è in realtà una distribuzione invariante anche nel caso pari, ma nel caso pari non è periodico. 
-
-
-???%TODO
+Questa è in realtà una distribuzione invariante anche nel caso pari, ma nel caso pari non è aperiodico, quindi non è vero che la distribuzione tende alla distribuzione uguale per tutti gli stati: se noi partiamo da 0, per tornare a 0, sia che facciamo lo stesso numero di passi orari e antiorari, oppure facciamo un certo numero di giri attorno, il tempo che impieghiamo è sempre pari, e quindi la probabilità di tornare a 0 dopo un tempo dispari è 0. 
 
 
-In entrambi i modelli di \textbf{Laplace-Bernoulli} e \textbf{Ehrenfest} abbiamo due urne. Nel primo scegliamo a caso una pallina e la spostiamo da un'urna all'altra; nel secondo, abbiamo $ n $ palline bianche e $ n $ palline nere. Di queste $ 2n $ palline, metà stanno nell'urna A e metà nell'urna B. Possiamo prendere come stato il numero delle palline bianche in A. Quello che osserviamo è che il modello di Ehrenfest non è aperiodico. 
+Altri modelli che abbiamo visto sono i modelli di estrazione dall'urna: abbiamo visto il modello di Ehrenfest e di Laplace-Bernoulli. In entrambi i modelli abbiamo due urne. Nel primo scegliamo a caso una pallina e la spostiamo da un'urna all'altra; nel secondo, abbiamo $ n $ palline bianche e $ n $ palline nere. Di queste $ 2n $ palline, metà stanno nell'urna A e metà nell'urna B. Possiamo prendere come stato il numero delle palline bianche in A. Quello che osserviamo è che il modello di Ehrenfest non è aperiodico: come nel caso della passeggiata aleatoria ha periodo 2. 
 
-???%TODO
+Rappresentiamo gli stati come punti, mettendo una freccia per indicare le transizioni possibili. Il numero delle palline nell'urna A può aumentare o diminuire, ovvero possiamo fare un passo a destra o un passo a sinistra. Possiamo tornare solo nei tempi pari, e quindi in questo caso - siccome il periodo è 2 - non possiamo applicare direttamente il teorema ergodico. 
 
 Nel modello di Laplace-Bernoulli il numero di palline bianche può anche rimanere invariato:
 
@@ -1802,13 +1822,26 @@ $$ \sum_{s}u_s = 1 \qquad \forall s', u_{s'} = \sum_{s} u_s p_{s,s'} $$
 Allora gli stati sono ricorrenti positivi. 
 \\
 \\
-Dobbiamo far vedere che non sono ricorrenti nulli o transienti. Supponiamo per assurdo siano transienti:
-$$ ??? \; \sum_{n} p_{s,s^*}^{(n)} < +\infty $$ %TODO
-Se prendiamo $ s' \ne s $, 
-$$ p_{s',s^*}^{(n)}\underset{n\to 0}{\longrightarrow} 0$$
-Possiamo scrivere l'equazione del rinnovamento:
-$$ p_{s',s}^{(n)} \sum ???$$ %TODO
-??? %TODO
+Dobbiamo far vedere che non sono ricorrenti nulli o transienti. Supponiamo per assurdo siano transienti.
+
+La proprietà equivalente a essere transienti è la seguente:
+$$ \sum_n p^{(n)}_{s,s} < + \infty $$ 
+Questo implica in particolare che anche la probabilità di andare da uno stato qualunque, es. da $ s' $ a $ s $ con $ s' \ne s $ tende a 0:
+$$ p_{s,s'} \underset{n\to \infty}{\longrightarrow} 0  $$
+Possiamo scrivere l'equazione del rinnovamento; questa equazione deve tendere a 0::
+$$ p_{s',s}^{(n)}  = \sum_{k=1}^{n} p^{(k)}_{s',s} p^{(n-k)}_{s,s} \underset{n \to \infty}{\longrightarrow} 0$$
+
+Si può dividere in due parti:
+$$ = \sum_{k=1}^{\frac{n}{2}} + \sum_{k=\frac{n}{2} + 1}^{n}$$
+Si vede che non è possibile che esista una distribuzione invariante: se $ u_s $ è una distribuzione invariante, allora
+$$ u_s = \sum_{s'}u_{s'} p_{s',s} $$
+Ma questa si può iterare:
+$$ = \sum_{s'}u_{s'} p^{(n)}_{s',s} $$
+Se noi facciamo tendere $ n $ all'infinito, se $ s $ fosse uno stato transiente, la probabilità tenderebbe a 0; di conseguenza $ u_s = 0 $, e quindi $ u_s $ non sarebbe una distribuzione di probabilità.
+
+Se gli stati fossero ricorrenti nulli, dal teorema ergodico abbiamo che $ p^{(n)}_{s',s} \to 1 $. Potremo usare lo stesso argomento. 
+
+Quindi gli stati non possono essere ne transienti ne ricorrenti nulli: devono essere ricorrenti positivi. 
 
 \section{Modello di coda}
 In questo modello abbiamo dei clienti, che arrivano e vanno dagli sportelli dove vengono serviti. Il tempo che passano agli sportelli è aleatorio. Supponiamo che il tempo sia discreto. 
@@ -1817,7 +1850,7 @@ Uno sportello può contenere un cliente, gli altri clienti sono in coda.
 
 Definiamo $ p $ la \textbf{probabilità di arrivo di un cliente}, mentre $ q $ la probabilità di \textbf{fine del servizio}, $ 0 \le p \le 1 $ e $ 0 \le q \le 1 $. Gli arrivi dei clienti e la fine del servizio sono indipendenti. 
 
-Questo è descritto da una catena di Markov in cui lo spazio degli stati è $ \mathbb{N} $: $ S = \mathbb{N} = \{0, 1, ...\} $.
+Questo è descritto da una catena di Markov in cui lo spazio degli stati è $ \mathbb{N} $: $ S = \mathbb{N} = \{0, 1, ...\} $, e ha una sola classe di equivalenza di periodo 1.
 
 Ci chiediamo ora qual è la probabilità, partendo da 0, di rimanere nello stato 0 (ovvero che non ci sia nessun cliente e che non arrivi nessun cliente), e altre probabilità, con $ S = \mathbb{N} $:
 $$ \begin{array}{ccc}
@@ -1830,13 +1863,17 @@ $ p_{1,1} $ indica la probabilità che, dopo aver finito di servire un cliente n
 In generale, per $ s \ge 1 $:
 \begin{align*}
 	p_{s,s} & = p\cdot q + (1-p) (1-q) & = r \\
-	p_{s,s+1} & = p(1-q) & = l \\ %TODO guarda lezione del 27/10/2020
-	p_{s,s-1} & = q(1-p) & = d
+	p_{s,s+1} & = p(1-q) & = d \\
+	p_{s,s-1} & = q(1-p) & = l
 \end{align*}
 
 Questa passeggiata è ricorrente positiva? Se esiste una distribuzione invariante si, se non esiste o gli stati sono ricorrenti nulli oppure transienti. 
 
-Definiamo $ u_i $, con $ i \in \mathbb{N} $:
+%2020-10-21
+
+Vogliamo quindi vedere se gli stati sono ricorrenti o transienti, e nel primo caso se sono ricorrenti positivi o ricorrenti nulli. 
+
+Vogliamo scrivere le equazioni per la distribuzione invariante. Definiamo $ u_i $ la distribuzione invariante, con $ i \in \mathbb{N} $:
 \begin{align*}
 	\sum_{i=0}^{\infty} u_i & = i \\
 	u_0 & = u_0(1-p) + u_1 l \\
@@ -1857,23 +1894,37 @@ Sapendo che $ \sum_{i=0}^{\infty} u_i = 1 $:
 
 $$ u_0 \left( 1 + \frac{p}{l} + \frac{p}{l}\frac{d}{l} + \frac{p}{l} \left(\frac{d}{l}\right)^2 + ... \right) = 1 $$
 
+
+
 L'equazione è possibile solo se questa serie:
 $$ u_0 \left(1 + \frac{p}{l} \left( \sum_{j=0}^{\infty} \left(\frac{d}{l}\right)^j\right)\right) $$
 
-è convergente; ma questa è una serie geometrica, ed è convergente per $ \frac{d}{l} = 1 $.
+è convergente; ma questa è una serie geometrica, ed è convergente per $ \frac{d}{l} < 1 $.
 
+Andiamo a ricordare che cos'era $ d $:
 $$ \begin{array}{cc}
-d = p(1-q) & l = q(1-p) \\
-p(1-q) < q(1-p) & ??? \\ %TODO
-\frac{p}{1-p} < \frac{q}{1-q} & p < q
-\end{array} $$
+d = p(1-q) & l = q(1-p) \end{array} $$
 
-Intuitivamente, $ p $ è la probabilità di arrivo di un cliente, $ q $ la probabilità che un cliente vada via. ???? %TODO
+\begin{align}
+	\frac{d}{l} < 1 & \Rightarrow d < l \\
+	\Rightarrow & p(1-q) < q(1-p)
+	\Rightarrow &	\frac{p}{1-p} < \frac{q}{1-q} % & p < q
+\end{align}
 
-Questo fa sì che non si formi una coda lunga. Se $ p < q $, allora abbiamo che gli stati sono \textbf{ricorrenti positivi}. Se $ p \ge q $, gli stati sono \textbf{ricorrenti nulli} oppure \textbf{transienti}. 
+Consideriamo ora la funzione $ \frac{x}{1-x} $; è una funzione strettamente crescente, quindi l'ultima disequazione scritta sopra è equivalente a
+$$ p < q $$
+
+Quindi la conclusione perché esista la distribuzione invariante è proprio $ p < q $. Se esiste la distribuzione invariante, gli stati sono \textbf{ricorrenti positivi}. 
+
+
+Intuitivamente, essendo $ p $ è la probabilità di arrivo di un cliente e $ q $ la probabilità che un cliente vada via, se $ p < q $ l'afflusso dei clienti è minore della tendenza dei clienti a lasciare il sistema; questo fa sì che non si formi una coda lunga, perché il flusso degli arrivi è più piccolo del flusso delle partenze, e gli stati sono appunto ricorrenti positivi. 
+
+Rimane da vedere il caso $ p \ge q $; ci sono due possibilità: gli stati sono \textbf{ricorrenti nulli} oppure \textbf{transienti}. 
 
 Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è una passeggiata aleatoria in cui possiamo aumentare o diminuire di 1. Qui però c'è anche la possibilità di rimanere nello stesso stato all'istante successivo. Ma se trascuriamo questi tempi, nel caso $ p = q $, $ \Rightarrow \frac{p}{1-p} = \frac{q}{1-q} $, siccome le probabilità di andare a destra e a sinistra sono uguali, il modello corrisponde alla passeggiata simmetrica. 
-
+\\
+\\
+\\
 \begin{multicols}{2}
 	\begin{tikzpicture}
 		\begin{axis}[axis lines = middle, ticks=none, width=6cm, height=6cm, ymin=-1, ymax=3, xmin=-1]
@@ -1884,7 +1935,6 @@ Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è u
 			{0*x + 2}; 
 		\end{axis}
 	\end{tikzpicture}
-	\\
 	\\
 	\\
 	Probabilità di rovina partendo da $S = 1- \frac{S}{N} $\\ 
@@ -1904,48 +1954,67 @@ C'è una probabilità positiva che il primo giocatore non si rovini, quindi che 
 \section{Reversibilità}
 È una proprietà che possono possedere le catene di Markov. 
 
-Supponiamo di avere una catena irriducibile ergodica aperiodica. Sia $ S $ il suo spazio degli stati; abbiamo una distribuzione invariante $ u_s $. Nella catena di Markov, la distribuzione di probabilità è $ x_0, x_1, x_2, ... $.
+Supponiamo di avere una catena irriducibile ergodica aperiodica. Sia $ S $ il suo spazio degli stati; abbiamo una distribuzione invariante $ u_s $. Nella catena di Markov, la distribuzione di probabilità è $ X_0, X_1, X_2, ... $.
 
-Se come distribuzione iniziale diamo $ u_s $, ai tempi successivi la distribuzione di $ x_1, x_2, ... $ è sempre uguale a $ u_s $.
+Se come distribuzione iniziale diamo $ u_s $, ai tempi successivi la distribuzione di $ X_1, X_2, ... $ è sempre uguale a $ u_s $.
 
 Possiamo pensare la catena di Markov, anziché su $ \mathbb{N} $, sui numeri interi:
-$$  ..., x_{-n}, x_{-n+1}, ..., x_{-1}, x_0, x_1, x_2, ... $$
+$$  ..., X_{-n}, X_{-n+1}, ..., X_{-1}, X_0, X_1, X_2, ... $$
 
-Possiamo poi considerare un processo stocastico in cui combiniamo la direzione del tempo: $ y_n = x_{-n} $
+Possiamo poi considerare un processo stocastico in cui scambiamo la direzione del tempo: $ Y_n = X_{-n} $.
 
-Quello che si vede è che anche $ y_n $ è una catena di Markov. 
+Quello che si vede è che anche $ Y_n $ è una catena di Markov. 
 
-Dobbiamo dimostrare che soddisfa le proprietà di Markov:
-$$ P (y_{n+1} = s' | y_{n} = ???) $$ %TODO
+Per vederlo, dobbiamo dimostrare che soddisfa le proprietà di Markov:
+$$ P (Y_{n+1} = s' | Y_{n} = s, Y_{n-1} = s_{n-1}, ..., Y_0 = s_0) $$ 
 
-Usiamo la formula delle probabilità subordinate:
+Possiamo scriverlo usando la formula delle probabilità subordinate:
 \begin{align*}
-	& = \frac{P(y_{n+1} = s' | y_n = ???)}{P(???)} \\ %TODO 
-	& = \frac{P(x_0=s_0, x_{-1} = s_1, ..., s_n = s, x_{-n-1} = s')}{P_{??} = s_0, x_{-1} = s_1, ..., x_{-n} = s} \\
-	& = \frac{s_{s'}p_{s',s} p_{s,s_n}...p_{s_1, s_0}}{u_s p_{s,s_n}...p_{s_1, s_0}} \\
-	& = \frac{s_{s'} p_{s',s}}{u_s} \qquad \begin{array}{c}
+	& = \frac{P(Y_{n+1} = s' | Y_n = s, ..., Y_0 = S_0)}{P(Y_n = s, Y_{n-1} = s_{n-1}, ..., Y_0 = s_0)} \\ 
+	& = \frac{P(X_0=s_0, X_{-1} = s_1, ..., X_{-n} = s, X_{-n-1} = s')}{P(X_0 = s_0, X_{-1} = s_1, ..., X_{-n} = s)} \\
+	& = \frac{u_{s'}p_{s',s} p_{s,s_n}...p_{s_1, s_0}}{u_s p_{s,s_n}...p_{s_1, s_0}} \\
+	& = \frac{u_{s'} p_{s',s}}{u_s} \qquad \begin{array}{c}
 		\text{\small Questa probabilità non dipende da tutti gli stati} \\ 
 		\text{\small precedenti, ma solo da quello immediatamente precedente} 
 	\end{array} \\
 	& = q_{s,s'}
 \end{align*}
 
-La catena di Markov si dice reversibile se $ p_{s,s'} = q_{s,s'} $. 
+\textbf{Proprietà di reversibilità:} 
+ la catena di Markov si dice reversibile se $ p_{s,s'} = q_{s,s'} $. 
 
-Quindi se guardiamo la catena all'indietro è la stessa in senso contrario. Equivalentemente:
-$$ u_{s'} p_{s',s} = u_s p{s,s'} $$
+Quindi se guardiamo la catena all'indietro è la stessa originaria in senso contrario. Equivalentemente:
+$$ u_{s'} \cdot p_{s',s} = u_s \cdot q_{s,s'} $$
+\\
+\\
+%TODO potrebbe andarci una sottosezione/paragrafo
+Vediamo una condizione per mostrare che una catena di Markov è reversibile; questa tecnica dà anche un metodo per calcolare la distribuzione invariante (nel caso sia reversibile). 
 
 Supponiamo $ s,s' \in S $; supponiamo, per ogni stato $ s $:
 $$ \alpha_s > 0 : \sum_{s \in S} \alpha_s < + \infty, \qquad \alpha_s p_{s,s'} = \alpha_{s'}p_{s',s} $$ 
 
-allora $ u_s = \frac{\alpha_{s}}{\sum_{s'} \alpha_{s'}} $è una distribuzione invariante e la catena è reversibile. 
+allora $ u_s = \frac{\alpha_{s}}{\sum_{s'} \alpha_{s'}} $ è una distribuzione invariante e la catena è reversibile. 
 
-Dobbiamo far vedere anzitutto che è una distribuzione invariante:
+Dobbiamo far vedere anzitutto che è una distribuzione invariante; la condizione perché ciò avvenga è:
 $$ \sum_{s} u_s p_{s,s'} = u_{s'} $$
-Sia $ k = \frac{1}{\sum_{s'}\alpha_{s'}} $
-$$ \sum_{s} k\alpha_{s} p_{s,s'} = \sum_{s} k \overset{= k \alpha_{s'} = u_{s'} }{\alpha_{s}} p_{s',s}  ???$$ %TODO
+Sia $ k = \frac{1}{\sum_{s'}\alpha_{s'}} $; $ u_s = k \cdot a_s $.
+\begin{align*}
+	\sum_{s} k\alpha_{s} p_{s,s'} & = \sum_{s} k \alpha_{s} p_{s',s} \\
+	& = k \alpha_{s'} \\ 
+	& = u_{s'} \qed
+\end{align*}
 
-$$ u_s p_{s,s'} = k \alpha_{s} p_{s,s'} = k\alpha_{s'} p_{s',s} = u_{s'} p_{s',s} $$
+$ p_{s',s} $ è una matrice di transizione, quindi la somma su $ s $ è 1. 
+
+Quindi questa è una distribuzione invariante, e la catena di Markov è reversibile: 
+\begin{align*}
+u_s p_{s,s'} & = k \alpha_{s} p_{s,s'} \\
+	& = k\alpha_{s'} p_{s',s} \\
+	& = u_{s'} p_{s',s} 
+\end{align*}
+
+Quindi un modo per vedere se la catena di Markov è reversibile, e inoltre per calcolare la distribuzione invariante, è cercare una successione di numeri che verifichino la proprietà 
+$$ u_s = \frac{\alpha_{s}}{\sum_{s'} \alpha_{s'}} $$
 
 \paragraph{Esempio} Passeggiata aleatoria su intervallo $ [a, b] \subset \mathbb{Z} $ con condizioni simmetriche
 
@@ -1999,11 +2068,10 @@ Supponiamo che la relazione sia soddisfatta.
 	u_s p_{s,s'} & = \lim\limits_{n \to \infty} p_{s,s'}p_{s',s}^{(n)} \\
 	& = \lim\lim\limits_{n \to \infty} p_{s,s'} \sum_{s_1, s_2, ..., s_{n-1}} p_{s',s_1} p_{s_1, s_2} ... p_{s_{n-1}, s} \\
 	& = \lim\limits_{n \to \infty} \sum_{s_1, s_2, ..., s_{n-1}} p_{s,s_{n-1}} ... p_{s_1, s'}p_{s',s} \\
-	& = \lim\limits_{n \to \infty} p_{s,s'}^{(n)} p_{s',s} \overset{\text{per ergodicità}}{=} u_{s'} p_{s',s}
+	& = \lim\limits_{n \to \infty} p_{s,s'}^{(n)} p_{s',s} \overset{\text{per ergodicità}}{=} u_{s'} p_{s',s} \qed
 \end{align*}
 
-\paragraph{corollario? esempio?} %TODO
-Supponiamo di avere una catena di Markov irriducibile su un intervallo tale che:
+Un esempio di applicazione di questo è il seguente: supponiamo di avere una catena di Markov irriducibile su un intervallo tale che
 $$ p_{s,s'} = 0 \qquad \text{se } | s' - s | \ge 2 $$
 Allora è reversibile. 
 
@@ -2022,7 +2090,7 @@ Devo vedere se i due prodotti sono uguali.
 
 In (I) ci saranno dei passaggi a destra, a sinistra e dei momenti in cui la catena rimane ferma. Siccome devo tornare allo stato di partenza, il numero dei passi a destra deve essere uguale al numero dei passi a sinistra. Per ogni coppia di stati vicini, alcuni andranno in un senso e altri nel senso contrario. 
 
-%LEZIONE 27/10/2020
+%LEZIONE 27/10/2020 2020-10-27
 %TODO anziché confrontare le correzioni con quello che ho scritto l'altra volta, riascolta direttamente la lezione e fai il confronto diretto
 %comincio a copiare dalle cose nuove
 
@@ -2563,7 +2631,7 @@ $$ r(t) \frac{\sum_{i=1}^{n}\prod_{j\ne i}^{n} \left(\frac{\lambda_j}{\lambda_j 
 	& r(t) \underset{t \to \infty}{\longrightarrow} \lambda_1
 \end{align*}
 
-\section{Processo di Poisson}
+\chapter{Processo di Poisson}
 Fa parte di una famiglia di processi detti processi di conteggio, un tipo di processo che descrive il numero di volte in cui si verifica un certo fatto al variare del tempo: $ N_t, t \ge 0 $ indica quante volte si è verificato un fatto (es. decadimento radioattivo, arrivo di un cliente allo sportello...) dal tempo 0 al tempo $ t $.
 
 \paragraph{Proprietà dei processi di conteggio}
@@ -2799,14 +2867,1288 @@ $$ u_t = e^{-\lambda t} \qquad \qquad P(N_t = 0) e^{-\lambda t} $$
 Questo corrisponde al processo di Poisson. Devo farlo vedere anche per valori diversi.
 
 Consideriamo $ P(N_{t+h} = k), k \ge 1 $
+Si può verificare in due modi:
+$$ P(N_{t+h} = k) = P(N_t = k) P(N_{t+h} - N_t = 0) $$
+Oppure
+$$ P(N_{t+h} = k) = P(N_t = k-1)P(N_{t+h} -N_t = 1) + o(h) $$
+??? %TODO
 
+$$ P(N_{t+h} = k) - P(N_t = k) = -(\lambda h + o(h)) P(N_{t} = k) + P(t = k - 1)(\lambda h + o(h)) + o(h) $$
 
+Definiamo $ U_k^{(t)} = P(N_{t} = k) $
 
+\begin{align*}
+	\frac{u_{t+h}^{(t)}  - u_t^{(k)} }{h} & = -\lambda u_t^{(k)} + \frac{o(h)}{o} + \lambda_{u_t}(k-1) + o(h) \\
+	u_t^{(k)} & = -\lambda_{u_t}^{(k)} + \lambda_{u_t}^{(k-1)} & u_t^{(0)} = e^{-\lambda t}
+\end{align*}
 
+Verifico ??? %TODO
+$$ u_t^{(k)} = \frac{(\lambda t)^k}{k!} e^{-\lambda t} $$
 
+Deriviamo:
+$$ u_t'^{(k)}= \frac{\lambda k (\lambda t)^{(k-1)}}{k!} e^{-\lambda t} -\lambda\frac{(\lambda t)^k}{k!} e^{-\lambda t} $$
+La soluzione di questa equazione differenziale è quella data dalla soluzione del processo di Poisson. 
 
+%TODO 2020-11-10
 
+\section{Distribuzione condizionata dei punti di salto}
+Sia $ T $ il primo punto di salto. Vogliamo calcolare $ P( a < T \le b | N_u = 1) $, con $ 0 \le a < b \le u $. Sapendo che al tempo $ u $ c'è stato un solo salto (il processo di Poisson è uguale a 1), qual è la probabilità che ci sia un salto in $ (a,b] $?
 
+Vogliamo mostrare che $ P( a < T \le b | N_u = 1) = \frac{b-a}{u} $.
+
+Sia $ N_T $ un processo di Poisson con parametro $\lambda$:
+
+\begin{align*}
+	P( a < T \le b | N_u = 1) & = \frac{P( a < T \le b | N_u = 1)}{P(N_u = 1)} \\
+	& = \frac{P(N_a = 0, N_b - N_a = 1, N_u - N_b = 0)}{P(N_u = 1)} \\
+	& = \frac{ \cancel{e^{-\lambda a}} (\bcancel{\lambda} (b-a)) \cancel{e^{-\lambda(b-a)}} \cancel{e^{-\lambda(u-b)}}  }{(\bcancel{\lambda} u) \cancel{e^{-\lambda u}}} \\
+	& = \frac{b-a}{u}
+\end{align*}
+
+La stessa cosa è dimostrabile nel caso di $ n $ salti. Vediamo per esempio il caso $ n = 2 $. 
+
+Siano $ T_1, T_2 $ i primi due salti. Consideriamo due intervalli $ (a,b] $ e $ (c,d] $ con $ 0 \le a < b < c < d \le u $.
+
+Vogliamo calcolare:
+
+$$ P(a < T_1 \le b, c < T_2 \le d | N_u = 2) $$
+
+Ovvero qual è la probabilità che ci siano due salti:
+
+\begin{align*}
+	& = \frac{P(N_a = 0, N_b - N_a = 1, N_c - N_b = 0, N_d - N_c  = 1, N_u - N_d  = 0)}{N_u = 2} \\
+	& = \frac{  \cancel{e^{-\lambda a}} (\bcancel{\lambda}(b-a)) \cancel{e^{-\lambda(b-a)}} e^{-\lambda(b-c )}    (\bcancel{\lambda}(d-c)) \cancel{e^{-\lambda(d-c)}} \cancel {e^{-\lambda(u-d)}}  } {\frac{(\bcancel{\lambda }u)^2}{2} \cancel{e^{-\lambda u}}} \\ %TODO qualcosa non torna con la roba che si semplifica
+	& = 2 \frac{(b-a)(d-c)}{u^2}
+\end{align*}
+
+Possiamo visualizzare $ T_1 $ e $ T_2 $ come punti del piano:
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = middle, grid, xtick={1,1.5,3.6}, xticklabels={$ a $,$ b $, $ u $}, ytick={1.8,3,3.6}, yticklabels={$ c $, $ d $, $ u $}, xmin = -1, ymin = -1, xmax = 4, ymax = 4]
+		
+		\draw[black] (axis cs: 3.6,0) --(axis cs: 3.6,3.6);
+		\draw[black] (axis cs: 0,3.6) --(axis cs: 3.6,3.6);
+		
+		\addplot[black, tiny, domain=-0.1:3.7] {x+0};
+		\draw[lightgray] (axis cs:0.4,0.5) -- (axis cs:0.1, 0.8);
+		\draw[lightgray] (axis cs:0.6,0.7) -- (axis cs:0.1, 1.2);
+		\draw[lightgray] (axis cs:0.8,1.1) -- (axis cs:0.1, 1.8);
+		\draw[lightgray] (axis cs:1,1.4) -- (axis cs:0.1, 2.4);
+		\draw[lightgray] (axis cs:1.5,1.9) -- (axis cs:0.1, 3.4);
+		\draw[lightgray] (axis cs:2,2.5) -- (axis cs:1.1, 3.4);
+		\draw[lightgray] (axis cs:2.5,3) -- (axis cs:2.1, 3.4);
+		\draw[lightgray] (axis cs:2.7,3.2) -- (axis cs:2.5, 3.4);
+	
+		\draw[black, thick] (axis cs: 1,1.8) -- (axis cs: 1.5, 1.8);
+		\draw[black, thick] (axis cs: 1,1.8) -- (axis cs: 1, 3);
+		\draw[black, thick] (axis cs: 1,3) -- (axis cs: 1.5, 3);
+		\draw[black, thick] (axis cs: 1.5,3) -- (axis cs: 1.5, 1.8);
+			
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+%TODO spiega meglio come hai creato il grafico
+
+La probabilità che si trovi nel rettangolo è proporzionale al rapporto tra l'area del rettangolo e l'area totale. In generale, siano $ T_1, T_2, ..., T_n $ i primi $ n $ salti di un processo di Poisson $ N_T $ di parametro $\lambda$. Dati $ 0 \le a_1 < b_1 \le a_2 < b_2 \le ... \le b_{n-1} \le a_n < n $ allora %TODO ricontrolla < e <=
+$$ P(a_1 < T_1 \le b_1, ..., a_n < T_n \le b_n | N_u = n) = \frac{\prod_{i=1}^{n} (b_i - a_i)}{\frac{n^n}{n!}}$$
+
+La produttoria sarebbe il volume di un simplesso in $ n $ dimensioni. È uniforme nella regione in cui $ 0 \le T_1 < T_2 < ... < T_n \le u $
+
+\section{Processo di Poisson non omogeneo}
+??? %TODO
+L'afflusso dei clienti in un negozio non è omogeneo: solitamente non c'è lo stesso numero dei clienti in ogni fascia oraria. 
+
+Questo porta ad una generalizzazione del processo di Poisson, per l'appunto il processo di Poisson non omogeneo. 
+
+Il parametro non è più \textit{costante} $\lambda$, ma è una \textbf{funzione} $\lambda(t)$. Assumiamo che $\lambda(t)$ sia una funzione continua e illimitata. $\lambda(t)$ è detta \textit{intensità}. Se prendiamo $\lambda(t)$ costante, questo corrisponderà al processo di Poisson omogeneo. 
+
+??? \paragraph{Caratterizzazione infinitesimale} %TODO 
+$ N_t $
+\begin{enumerate}
+	\item è un processo di conteggio
+	\item incrementi indipendenti
+	\item $ P(N_{(t+h)} - N_{(t)} = 1) = \lambda(t) h + o(h) $
+	\item $ P(N_{(t+h)} - N_{(t)} = 0) = 1 - \lambda(t) h + o(h) $
+\end{enumerate}
+
+$ o(h) $ indica una qualsiasi quantità tale che $ \lim\limits_{h \to 0} \frac{o(h)}{h} = 0 $, ovvero una quantità che tende a 0 più rapidamente di $ h $, per $ h $ che tende a 0. 
+
+Partendo dalla caratterizzazione infinitesimale, possiamo ottenere delle equazioni differenziali come nel caso omogeneo:
+
+$$ u_t^{(k)} = P(N_t = k) $$
+$$ \text{derivate prime: } \begin{cases}
+	u_t'^{(0)} & = -\lambda_t u_t^{(0)} \\
+	u_t'^{(k)} & = -\lambda_t u_t^{(k-1)} - \lambda_tu_t^{(k)} \;, \qquad k \ge 1
+\end{cases} $$
+
+Risolviamo le equazioni. Sia $\Lambda(t) = \int_{0}^{t} \lambda_s ds$; allora:
+\begin{align*}
+	u_t^{(0)} & = e^{-\Lambda(t)} \\
+	u_t^{(k)} & = \frac{(\Lambda(t))^k}{k!} e^{-\Lambda(t)} 
+\end{align*}
+Infatti 
+\begin{align*}
+	\frac{\partial}{\partial t} u_t^{(0)} & = -e^{-\Lambda(t)} \lambda_t \\
+	& = -\lambda_t u_t^{(0)} \\
+	P(N_t = k) & = \frac{(\Lambda(t))^k}{k!} e^{-\Lambda(t)}
+\end{align*}
+
+Nel caso particolare del processo omogeneo $\Lambda(t)$ = $\lambda_t$.
+\\
+\\
+Ora, supponiamo di partire da un tempo $ t_1 $, con $ t \ge t_1 $:
+$$ P(N_t - N_{t_1} = k) = \frac{(\Lambda(t) - \Lambda(t_1))^k}{k!} e^{-(\Lambda(t) - \Lambda(t_1))} $$
+
+Anche qui nel caso $\lambda_t \equiv \lambda$ (caso omogeneo) $ \Lambda(t) - \Lambda(t_1) = \lambda(t - t_1) $
+\\
+\\
+%TODO facciamo una sottosezione o qualcos'altro?
+Vediamo ora la definizione equivalente di un processo di Poisson:
+\begin{enumerate}
+	\item è un processo di conteggio
+	\item incrementi indipendenti
+	\item $ P(N_{t_2} - N_{t_1} = k) $, con $ t_1 < t_2 $, è Poisson di parametro $\Lambda(t_2) - \Lambda(t_1)$
+\end{enumerate}
+Se $\lambda_t \equiv \lambda$, allora $\Lambda(t) = \lambda t$ %TODO è \lambda t oppure t va al pedice/tra parentesi/altro?
+
+È facile verificare che questa definizione soddisfa le condizioni infinitesimali:
+\begin{align*}
+	P(N_{???} - N_t = 0) & = e^{-\Lambda(t+h) - \Lambda(t)} \\ %TODO
+	e^{-\int_{t}^{t+h} \lambda_s ds} \\
+	e^{-\lambda_t h + o(h)} \\
+	\\
+	P(N_{(t+h)} - N_t = 1 ) & = \Lambda(t+h) - \Lambda(t) e^{-(\Lambda(t+h) - \Lambda(t))} \\
+	& = \lambda_t h + o(h)
+\end{align*}
+
+Quindi le due definizioni sono equivalenti. 
+
+\paragraph{Esempio} Supponiamo di avere un negozio aperto 9 ore, dalle 8 alle 17. Modelliamo l'apertura come un processo non omogeneo.
+
+$$ \begin{array}{cc}
+	\lambda_t = s + st & 0 \le t \le 3 \\
+	\lambda_t = 20 & 3 \le t \le 5 \\
+	\lambda_t = 20 - 2(t-s) & 5 \le t \le 9
+\end{array}
+$$
+Intensità del flusso di clienti al negozio:
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[axis lines = left, xtick = {9,11, 13, 17}, xmin = 8.5, xmax = 17.5, ymin = 0, ymax = 10, ytick = {0}]
+			\draw[black] (axis cs: 9,0) -- (axis cs: 9,0.5);
+			\draw[black] (axis cs: 9, 0.5) -- (axis cs: 13,5);
+			\draw[black] (axis cs: 13,5) -- (axis cs: 17,3.7);
+			\draw[black] (axis cs: 17,3.7) -- (axis cs: 17,0);
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+
+Supponiamo di voler calcolare l'attesa del numero dei clienti dalle 10 alle 12. Siccome calcoliamo il tempo a partire dalle 8, %TODO what
+corrisponde a $ N_4 - N_2 $, distribuzione di Poisson di parametro $\Lambda(4) - \Lambda(2)$:
+\begin{align*}
+	\Lambda(4) - \Lambda(2) & = \int_2^4 \lambda t dt \\
+	& = \int_{2}^{3} (5 + 5t) dt + \int_{0}^{4} 2 dt
+\end{align*}
+
+$\Lambda(4) - \Lambda(2)$ dà non solo l'attesa, ma anche la varianza.
+
+\paragraph{Esempio} 
+Consideriamo un sistema di coda in tempo continuo. Per definire un sistema di code usiamo la notazione $M/G/\infty$, dove $ M $ indica il processo di arrivo dei clienti (nel nostro caso il processo di Poisson: $ M $ sta per \textit{memorless}, perché legato alla distribuzione esponenziale che ha la proprietà dell'assenza di memoria); $ G $ indica la distribuzione del tempo di servizio del cliente allo sportello; nel nostro caso è \textit{generale}, ovvero non facciamo particolari assunzioni. $\infty$ vuol dire che ci sono infiniti sportelli.
+
+Questo quindi non è "veramente" un processo di coda perché non si formano mai delle code, essendoci infiniti sportelli. 
+
+Ci chiediamo qual è la distribuzione dei clienti che sono allo sportello e quella dei clienti andati via al tempo $ t $. 
+
+Sia $ N_t $ il numero totale dei clienti giunti fino al tempo $ t $. Questa è una distribuzione di Poisson di parametro $\lambda$. Possiamo scrivere
+
+$$ N_t = N_t^{(1)} + N_t^{(2)}$$
+
+Con $ N_t^{(1)} $ i clienti già serviti, $ N_t^{(2)} $ i clienti agli sportelli.
+
+Supponiamo che il tempo di servizio sia una variabile aleatoria con densità $ g(t) $. La funzione di ripartizione è:
+
+$$ G(t) = \int_{0}^{t} g(s) ds $$
+Sia 
+$$ \mu = \int_0^{\infty} t g(t) dt < + \infty $$
+Ovvero, il tempo di servizio ha attesa finita. 
+
+Se un cliente arriva in un certo tempo $ s $, qual è la probabilità che sia ancora nel sistema al tempo $ t $? Chiamiamo questa probabilità $ p_s $:
+$$ p_s = \int_{0}^{t-s} g(u) du $$
+
+Gli arrivi dei clienti che rimangono fino al tempo $ t $ si possono vedere come un processo di Poisson non omogeneo; $\lambda$ è l'intensità di arrivo ed è fissa, non è la probabilità che rimanga fino al tempo $ t $. 
+
+$ N_t^{(1)} $ è Poisson con parametro $\lambda \int_{0}^{t} p_s ds$
+
+Ricordando che $ G(t) = \int_{0}^{t} g(s) ds $:
+$$ \lambda\int_{0}^{t} p_s ds = \lambda\int_{0}^{t} G(t-s) ds $$
+
+Sia $ z = t - s $:
+$$ = \lambda\int_{0}^{t} G(z) ds $$
+
+$ N_t^{(2)} $ è analogo (è Poisson con parametro $\lambda \int_{0}^{t} (1 - G(z) dz)$) %TODO ricontrolla se è dz o ds
+
+Sia ora $ M_t $ il numero dei clienti usciti da 0 a $ t $. Anche questo è un processo di Poisson di parametro $\lambda_t$, con $\lambda_t \underset{t \to \infty }{\longrightarrow} \lambda$.
+
+%TODO 2020-20-11
+Supponiamo di avere $ N_t $ omogeneo di parametro $\lambda$. Supponiamo che $ p(t) $ sia una funzione continua, con $ 0 \le p(t) \le 1 $.
+
+Allora possiamo generare un processo di Poisson non omogeneo $\bar{N}_t$ con intensità $\lambda_t = \lambda p(t)$. 
+
+Quando si verifica un arrivo con probabilità $ p(t) $ lo accettiamo, e lo rifiutiamo con probabilità $ 1 - p(t) $ ??? %TODO
+
+Si vede facilmente che questo ha le proprietà di un processo di Poisson non omogeneo. 
+
+\paragraph{Esempio: processo di coda } $ M/G/\infty $ %TODO non è l'esempio precedente?
+
+Sia $ N_t $ il numero dei clienti presenti nel sistema al tempo $ t $. Se un cliente arriva al tempo $ s < t $, qual è la probabilità che sia ancora nel sistema al tempo $ t $? Il cliente sarà ancora allo sportello se il tempo di servizio è maggiore di $ t - s $. 
+
+$ \bar{N}_s $ sarà un processo di Poisson non omogeneo di intensità $\lambda_s$ = $\lambda p(s)$, dove $ p(s) = 1 - G(t-s) $; $ G $ è la ripartizione del tempo di servizio.
+
+$ 1 - G(t - s) $ è la probabilità che il tempo di servizio sia maggiore di $ t - s $:
+
+$$ 1 - G(t-s) = \int_{t-s}^{\infty} g(z) dz $$
+
+Qual è la distribuzione del numero dei clienti $ \bar{N}_t $ che sono ancor presenti al tempo $ t $?
+
+$ \bar{N}_t $ è una distribuzione di Poisson non omogeneo di parametro $\Lambda(t)$:
+
+\begin{align*}
+	\Lambda(t) & = \int_{0}^{t}\lambda_s ds \\
+	& = \lambda \int_{0}^{t} (1 - G(t-s)) ds
+\end{align*}
+
+Facciamo un cambio di variabile: $ u = t-s $
+$$ = \lambda\int_{0}^{t}( 1 - G(u)) du $$
+
+Cosa succede se $ t $ tende infinito? L'integrale tende a 
+$$ \lambda \int_0^{\infty} ( 1 - G(u)) du $$
+Ma questa è l'attesa del tempo di servizio (moltiplicato per $\lambda$):
+\begin{align*}
+	\int_{0}^{+\infty} ( 1 - G(u)) du  & = \cancel{\bigg[ u( 1 - G(u)) \bigg]_0^{+\infty}} + \int_{0}^{+\infty} ug(u) du \\
+	& = \mu
+\end{align*}
+
+Intuitivamente, il parametro del processo di Poisson (che è anche uguale all'attesa del numero dei clienti) è tanto più grande sia se faccio crescere $\lambda$ (arrivano più clienti), oppure se l'attesa del tempo di servizio è grande (i clienti) rimangono più tempo).
+
+Vediamo un'altra proprietà dei processi di Poisson non omogenei: siano $ N_t^{(1)} $ e $ N_t^{(2)} $ due processi di Poisson non omogenei di intensità $\lambda_t^{(1)}$ e $ \lambda_t^{(2)} $ rispettivamente, e indipendenti. Allora
+
+$$ N_t = N_t^{(1)} + N_t^{(2)} $$
+
+è un processo di Poisson non omogeneo di intensità $ \lambda_t = \lambda_t^{(1)} + \lambda_t^{(2)} $.
+
+Si può dimostrare usando una delle due caratterizzazioni del processo di Poisson, in questo caso useremo la seconda. 
+
+Consideriamo $ t_1 < t_2 $ e consideriamo l'incremento $ N_{t_2} - N_{t_1} $:
+$$ N_{t_2} - N_{t_1} = (N_{t_2}^{(1)} - N_{t_1}^{(1)}) + (N_{t_2}^{(2)} - N_{t_1}^{(1)}) $$
+Il primo membro dell'addizione è Poisson di parametro $\Lambda_1(t_2) - \Lambda_1(t_1)$, il secondo è Poisson di parametro $ \Lambda_2(t_2) - \Lambda_2(t_1) $
+
+$$ \Lambda_1(t) = \int_{0}^{t} \lambda_s^{(1)} ds \qquad \qquad \Lambda_2(t) = \int_{0}^{t} \lambda_s^{(2)} ds $$
+
+%TODO manca un passaggio temo
+
+$ N_{t_1} - N_{t_2} $ è Poisson di parametro $\Lambda(t_2) - \Lambda(t_1)$
+
+$$ \Lambda_t = \int_{0}^{t} \lambda_s ds \qquad \qquad \lambda_s = \lambda_t^{(1)} + \lambda_t^{(2)} \qed$$
+
+La stessa cosa si può dimostrare al contrario: sia $ N_t $ un processo di Poisson con densità $\lambda_{t}$ continua e limitata. Se $\lambda_{t} = \lambda_t^{(1)} + \lambda_t^{(2)}$, allora $ N_t = N_t^{(1)} + N_t^{(2)} $, dove $ N_t^{(1)}, N_t^{(2)} $ sono processi di Poisson indipendenti con intensità $\lambda_t^{(1)}, \lambda_t^{(2)}$ rispettivamente e $ 0 \le \lambda_t^{(1)}, 0 \le \lambda_t^{(2)} $ continui. 
+
+Come costruisco $ N_t^{(1)} $ e $ N_t^{(2)} $? Prendiamo l'intervallo $ (t, t+h] $ e chiediamoci quanto vale 
+$$ P(N_{t+h}^{(1)} - N_t^{(1)} = 1 | N_{t+h} - N_t = 1)  $$
+Ovvero sapendo che c'è un salto nel processo $ N_t $ qual è la probabilità che ci sia anche in $ N_t^{(1)} $?
+
+\begin{align*}
+	P(N_{t+h}^{(1)} - N_t^{(1)} = 1| N_{t+h} - N_t = 1) & = \frac{P(N_{t+h}^{(1)} - N_t^{(1)}= 1) P(N_{t+h} - N_t = 1)}{P(N_{t+h} - N_t = 1)} \\
+	& = \frac{(\Lambda_1(t+h) - \Lambda_1(t))e^{-(\Lambda_{1}(t+h) - \Lambda_1(t))}e^{-(\Lambda_2(t+h) - \Lambda_2(t))} }{(\Lambda(t+h) - \Lambda(t)) e^{-(\Lambda(t+h) - \Lambda(t))}} \\
+	& = \frac{(\lambda_t^{(1)} h + o(h)) \cancel{e^{-(\lambda_t^{(1)}h + o(h))}} \cancel{e^{-(\lambda_t^{(1)}(h) +o(h))}} }{ (\lambda_t^{(1)} + \lambda_t^{(2)} ) \cdot h \cdot o(h) \cdot \cancel{ e^{-(\lambda_t h + o(h))} } }
+	\\
+	\\
+	\uparrow h \to 0 \qquad  & \qquad \frac{\lambda_t^{(1)}}{\lambda_t^{(1)} + \lambda_t^{(2)}}
+\end{align*}
+
+Si può generalizzare al caso di $ n $ processi di processi non omogenei indipendenti. 
+
+??? %TODO
+
+$ N_t $ Poisson di intensità 1
+
+??? %TODO
+
+Torniamo al processo di coda $ M/G/\infty $. Sia $ \bar{N}_t $ il processo di conteggio delle uscite dal sistema. Vogliamo mostrare che questo è un processo di Poisson non omogeneo. Consideriamo un incremento $ \bar{N}_{t_2} - \bar{N}_{t_1} $, con $ t_1 < t_2 $.
+
+$ \bar{N}_{t_2} - \bar{N}_{t_1} $ è il numero dei clienti usciti dal sistema nell'intervallo di tempo $ (t_1, t_2] $. Affinché un cliente esca in questo intervallo, occorre che sia arrivato in un certo istante $ s $, con $ s \le t_2 $ e il suo tempo di servizio deve essere compreso tra $ t_2 - s $ e $ t_1 - s $.
+
+La probabilità che il tempo di servizio sia compreso in quell'intervallo è dato da $ [G(t_2 - s) - G(t_1 - s)] $.
+
+Quindi posso contare i clienti andati in quell'intervallo con 
+$$ \lambda[G(t_2 - s) - G(t_1 - s)] ???$$ %TODO
+
+$ \bar{N}_{t_2} - \bar{N}_{t_1} $ ha distribuzione di Poisson di parametro $\lambda \int_{0}^{\infty} (G(t_2 - s) - G(t_1 - s)) d s$
+
+L'altra cosa che devo verificare è che gli incrementi su intervalli disgiunti siano indipendenti. Questo si può vedere come una decomposizione: considero $ k $ intervalli $ I_1, ..., I_k $. Il tempo d'uscita del cliente deve corrispondere ad uno degli intervalli ??? %TODO
+
+Qual è l'intensità di questo processo di Poisson?
+$ \bar{N}_{t+h} - \bar{N}_{t} $ è Poisson con parametro:
+\begin{align*}
+	\lambda \int_{0}^{+\infty}(G(t-s+h) - G(t-s)) ds \\
+	& = \frac{\lambda\int_{0}^{+\infty} (g(t-s)h + o(h)) ds }{h} \\
+	& = \Lambda(t+h) - \Lambda(t) ??? // %TODO
+	\\
+	\lambda\int_{0}^{t}g(t-s)ds & = \lambda\int_{0}^{t} g(u)du \\
+	& = \lambda G(u)
+\end{align*}
+
+$ G(t) = \int_{0}^{t} g(s) ds $ funzione di ripartizione del tempo di servizio. 
+
+Se $ t \to \infty, \quad G(t) \to 1 $
+
+$ \lambda_t = \lambda G(t) \to \lambda $
+
+Per $ t $ grande il processo di Poisson per le uscite è pari a quello delle entrate. Intuitivamente ha senso, perché tutti i clienti che entrano poi escono, quindi le uscite devono corrispondere alle entrate. 
+
+\section{Processi di Poisson composti (compound Poisson process)}
+Supponiamo di avere $ N_t $ processi di Poisson di parametro $\lambda$. Supponiamo di avere una successione di variabili aleatorie indipendenti e identicamente distribuite $ X_1, X_2, ... $ con $ P(X_i) = \mu $ ??? %TODO
+
+Allora definiamo
+$$ Y_t = \sum_{i = 1}^{N_t} X_i $$
+
+$ Y_t $ è aleatorio in 2 punti: sommiamo un numero aleatorio di elementi, che sono a loro volta variabili aleatorie. Se $ N_t = 0, Y_t = 0 $.
+
+Un esempio è il seguente: consideriamo una polizza di assicurazione; $ N_t $ è un processo di conteggio che conta il numero di incidenti verificatisi fino al tempo $ t $. $ X_i $ rappresenta il premio che deve pagare la compagnia per l'incidente $ i $. Qual è l'attesa di $ Y_t $?
+
+$$ P(Y_t) = P(P(Y_t | N_t )) $$
+
+\begin{align*}
+	??? P(Y_t | N_t) & = \mu N_t \\ %TODO
+	P(Y_t) & = P(\mu N_t) \\
+	& = \mu P(N_t) \\
+	& = \mu \lambda t
+\end{align*}
+
+Qual è la varianza di $ Y_t $? C'è una formula analoga che dice che 
+$$ \text{var} (Y_t) = P(\mathrm{var}(Y_t | N_t)) + \mathrm{var}((P(Y_t | N_t)))$$
+
+Quanto vale $ P(Y_t | N_t ) $? è $ N_t \mu $
+
+Quanto vale $ \mathrm{var}(Y_t | N_t) $? Supponiamo che $\mathrm{var}(X_i) = \sigma^2$
+$$ \mathrm{var}(Y_t | N_t) = N_t \sigma^2 $$
+Allora
+$$ \mathrm{var}(y_t) = \lambda t \sigma^2 + \lambda t \mu = \lambda t (\sigma^2 + \mu) $$
+
+%TODO 2020-11-17 hai perso l'inizio
+
+\begin{align*}
+	\text{var}(Y) & = P((Y-P(Y))^2) \\
+	 & = P(P((Y-P(Y))^2 | X ))\\
+	 & = P(P(((Y-P(Y|X)) + P((Y|X) - P(X))^2 ) | X))  \\
+	 & = P(???) \\ %TODO
+	 \text{DP} & = P(\text{var}(Y|X)) + \text{var}(P(Y|X)) \\
+	 \\
+	 \text{DP} & = 2P(P((Y - P(Y-X)) (P(Y|X) - P(X)|X) )) \\%TODO negli appunti c'è una parentesi in più
+	 & = 2P((P(Y|X) -P(X)) P((Y-P(Y|X)) (X)  ) ) \\ %TODO negli appunti mancano due parentesi 
+	 & = 0
+\end{align*}
+
+Dove DP è il doppio prodotto. Quindi abbiamo ottenuto che 
+$$ \text{var}(Y) = \text{var}(P(Y|X)) + P(\text{var}(Y|X)) $$
+
+Vogliamo applicare questa formula al processo di Poisson composto:
+$$ Y_t = \sum_{k = 1}^{N_t} X_k $$ 
+riscriviamo:
+\begin{align*}
+	\text{var}(Y_t) & = P(P(Y_t | N_t)) \\
+	& = P(N_t \mu) \\
+	& = \mu P(N_t) \\
+	& = \lambda t \mu\\
+	& ??? %TODO
+\end{align*}
+
+con $\lambda = P(X_1)$ e $ N_t $ processo di Poisson di parametro $\lambda$.
+Quindi 
+\begin{align*}
+	\text{var}(Y_t) & = P(\text{var}(Y_t | N_t)) + \text{var}(P(Y_t | N_t)) \\
+	& = P(N_t \sigma^2) + \text{var}(N_t \mu) & \sigma^2 = \text{var}(X_1) \\
+	& = \lambda t \sigma^2 + \mu^2 \lambda t \\ %TODO l'altra volta ha scritto male, non ha scritto \mu^2 ma solo \mu!
+	& = \lambda t(\sigma^2 + \mu^2) \\
+	\text{var}(X_1)	 & = P((X_1)^2) - \mu^2 \\
+	\sigma^2 & = P((X_1)^2) - \mu^2 \\
+	P((X_1)^2) & = \mu^2 + \sigma^2
+\end{align*}
+
+Questo è ??? %TODO
+
+Vediamo alcuni esempi di processi di Poisson composti. Supponiamo un evento sportivo; arriva un pullman con delle persone ??? %TODO
+
+Oppure un supermercato dove arrivano dei clienti con un processo di Poisson e ogni cliente fa una certa spesa, che può essere una variabile aleatoria ??? %TODO
+Il valore dell'importo dei clienti da 0 a $ t $ si può vedere come un processo di Poisson composto. 
+
+Supponiamo ci sia una migrazione di famiglie che arrivano da una certa area. Le famiglie arrivano con un tasso $\lambda = 2$ (ovvero, in media arrivano 2 famiglie alla settimana).
+Le famiglie possono avere dimensioni (e rispettive probabilità di avere quella dimensione):
+$$ 
+\begin{array}{cccc}
+	1 & 2 & 3 & 4 \\
+	\frac{1}{6} & \frac{1}{3} & \frac{1}{3} & \frac{1}{6}
+\end{array}
+$$
+
+Qual è l'attesa e la varianza del numero di individui $ Y $ che arrivano in 5 settimane?
+
+Sia $ X_1 $ la variabile aleatoria che rappresenta il numero di individui della prima famiglia che arriva. 
+\begin{align*}
+	P(X_1) & = \frac{1}{6} + \frac{2}{3} + \frac{3}{3} + \frac{4}{6} = \frac{\overset{5}{\cancel{15}}}{\underset{2}{\cancel{\,6\,}}} \\
+	P(Y) & = \lambda t P(X_1) \\
+	& = 2 \cdot 5 \cdot \frac{5}{2}\\
+	\\
+	P((X_1)^2) & = \frac{1}{6} + \frac{4}{3} + \frac{9}{3} + \frac{16}{6} = \frac{48}{6} = 8 \\
+	\text{var}(Y) & = \lambda t P((X_1)^2) \\
+	& = 2\cdot 5 \cdot 8	
+\end{align*}
+
+%TODO questo esempio è sul ROSS. 
+
+Vediamo un esempio con le code; consideriamo un sistema di coda $ M/G/1 $, ovvero gli arrivi sono un processo di Poisson, abbiamo una distribuzione $ G $ per il tempo di servizio e abbiamo un solo sportello. 
+
+Qual è l'attesa del tempo $ B $ in cui lo sportello rimane occupato? Sia $ S $ il tempo di servizio del primo cliente se $ N(S) = 1 $, dove $ N(S) $ è il numero dei clienti che arrivano nel tempo da $ S $ durante il tempo $ S $. %TODO eh? riscrivilo in italiano comprensibile
+
+Se $ N(S) = 1 $ (ovvero, se durante il tempo di servizio del primo cliente arriva un solo cliente), possiamo scrivere il tempo di occupazione come
+$$ B = S + B_1 $$
+Dove $ B_1 $ è ??? %TODO
+
+La distribuzione di $ B_1 $ è uguale a quella di $ B $. In generale, se $ N(S) = n $:
+\begin{align*}
+	B & = S + \sum_{i = 1}^{n} B_i \\
+	P(B|S) & = S + P(\sum_{i=1}^{N(S)} B_i | S)
+\end{align*}
+
+$\sum_{i=1}^{N(S)}B_i$ è un processo di Poisson composto. 
+
+$$ P(B|S) = S + P(\sum_{i=1}^{N(S)} B_i(S)) $$
+
+$ N(S) $ è un processo di Poisson di parametro $\lambda$ (è il processo degli arrivi dei clienti). 
+
+\begin{align*}
+	\text{var}(B|S) & = \text{var}(\sum_{i=1}^{N(S)} B_i | S) \\
+	\text{var}(B|S) & =  \lambda S P(B^2) \\
+	P(B) & = P(P(B|S)) \\
+	& = (1 + \lambda P(B)) P(S) \\
+	P(B) & = \frac{P(S)}{1 - \lambda P(S)} \qquad \text{con }\lambda P(S) < 1 \\
+	\\
+	\text{var}(B) & = \text{var}(P(B|S)) + P(\text{var}(B|S)) \\
+	& = (\ + \lambda P(B))^" \text{var}(\rho) + \lambda P(S) P(B^2) \\
+	& = (1 + \lambda P(B))^2 \text{var}(S) + \lambda P(S) \text{var}(B) + \lambda P(S)	 P(B^2)
+\end{align*}
+
+Sostituendo all'ultima formula $ P(B) $ precedentemente calcolato:
+
+$$ \text{var}(B) = \frac{\text{var}(S) + \lambda P(\rho)}{(1 - \lambda P(S))^2} \qquad \text{con } \lambda P(S) < 1 $$ %TODO ricontrolla sto \rho
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+Nel caso di variabili aleatorie che assumono valori infinitamente numerabili, in un processo di Poisson composto possiamo decomporre il processo di Poisson in una somma di processi di Poisson.
+
+Sia $ Y_i = \sum_{i=1}^{\infty} X_i $. Supponiamo che i valori possibili degli $ X_i $ siano una successione finita o un'infinità numerabile $\alpha_i, i \in \{1, ..., n\}$ oppure $ i \in \mathbb{N} $.
+
+Supponiamo $ P(X_i = \alpha_j) = p_j $.
+
+Diciamo che si ha un arrivo di tipo $ j $ quando la corrispondente variabile aleatoria vale $ \alpha_{j} $. 
+
+Sia $ N_t^{(j)} $ il processo di conteggio che conta gli arrivi di tipo $ j $. Allora possiamo scrivere:
+$$ Y_t = \sum_{j} \alpha_{j} N_t^{(j)} $$
+
+$ N_t^{(j)} $ è un processo di Poisson con intensità $\lambda p_j$ (perché quando si ha un arrivo, la probabilità che sia di tipo $ j $ è data appunto da $ p_j $). 
+
+Ci chiediamo: quanto vale $ P(Y_t) $?
+$$ P(Y_t) = \sum_{j}\alpha_{j} p_j \lambda t$$
+$\alpha_{j} p_j$ è l'attesa di una delle variabili aleatorie (perché hanno tutte la stessa attesa), diciamo $ X_1 $:
+$$ = \lambda t P(X_1) $$
+
+Invece, siccome $ Y_t = \sum_{j} \alpha_{j} N_t^{(j)} $, gli $ N_t^{j} $ sono indipendenti, quindi:
+\begin{align*}
+	\text{var}(Y_t) & = \sum_{j} \alpha_j^2 \text{var}(N_t^{(j)}) \\
+	& = \sum_{j} \alpha_j^2\lambda t p_j \\
+	& = \lambda t \sum_{j} \alpha_j^2 p_j \\
+	& = \lambda t p((X_1)^2)
+\end{align*}
+
+Abbiamo quindi ottenuto che $ Y_t $ si può scrivere come 
+$$ Y_t = \sum_j \alpha_j N_t^{(j)} $$
+Dove $ N_t^{(j)} $ sono processi di Poisson indipendenti con intensità $\lambda p_j$.
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+Rimane un'ultima nozione da dare sui processi di Poisson composti: la somma di due processi di Poisson composti indipendenti è ancora un processo di Poisson composto. Supponiamo di avere $ X_t, Y_t $ composti indipendenti, con intensità $\lambda_1$ e $\lambda_2$ e funzioni di ripartizione $ F_1 $ e $ F_2 $, rispettivamente. 
+
+Sia $Z_t = X_t + Y_t$. $ Z_t $ è un processo di Poisson composto con tasso $\lambda_1 + \lambda_{2}$ e funzione di ripartizione $ F $ data da:
+$$ F(x)  = \frac{\lambda_1}{\lambda_1 + \lambda_{2}} F_1(x) + \frac{\lambda_{2}}{\lambda_{1} + \lambda_{2}}F_2(x)
+$$
+
+\section{Processi di pura nascita (pure birth processes)}
+Abbiamo visto che un modo per caratterizzare il processo di Poisson è dire che il tempo tra gli arrivi è dato da $ T_1 = u_1, T_2 = u_2, ... $ con $ u_1, u_2, ... $ una successione di variabili aleatorie indipendenti con distribuzione esponenziale di parametro $\lambda$, e $\lambda$ il parametro del processo di Poisson.
+
+Supponiamo ora che le variabili $ u_i $ abbiano parametri non necessariamente uguali. Queste variabili rappresentano sempre il numero di arrivi, ma si possono interpretare anche in termini ad esempio di crescita di una popolazione di cellule, dove contiamo quante sono le cellule che si duplicano in un tempo $ t $; %TODO controlla se ci sono apici/pedici per t
+ si vede che i tempi tra due duplicazioni hanno distribuzione esponenziale, ma dipende da $ i $: ovvero più è grande la popolazione, più il tempo è grande. Questi processi si chiamano \textbf{processi di pura nascita}. 
+ 
+ \paragraph{Esplosione} Se i $\lambda_{i}$ crescono troppo velocemente, la popolazione può crescere all'infinito in un tempo finito. 
+ 
+ %TODO 2020-11-18
+ %TODO hai perso l'inizio
+ \begin{align*}
+ 	P_0(t+h) & = P(U_0 > t+h) \\
+ 	& = P(U_0 > t) P(U_0 > t+h | U_0 > t) \\
+ 	& = -e^{-\lambda_0 h} \\
+ 	& = 1 - \lambda_0 h + o(h)
+ 	P(t+h) - P_0(t) & = P_0(t)(1 - \lambda h - 1 + o(h)) \\
+ 	& = -P_0(t)\lambda_0 h \\
+ 	\frac{P_0(t+h) -P_0(t)}{h} & = -\lambda_0 P_0(t) +\frac{o(h)}{h}
+ \end{align*}
+ 
+ Se mandiamo $ h $ a 0, il rapporto incrementale tende alla derivata:
+ $$ P_0'(t) = -\lambda_0 P_0(t) $$
+
+La stessa cosa possiamo farla in generale:
+
+\begin{align*}
+	P_k(t+h) & = P \\
+	& = P(N_{t+h} = k) =
+\end{align*}
+
+Può succedere in due modi:
+\begin{itemize}
+	\item $ P_k(t) $ è la probabilità che, al tempo $t$, $ N_t = k $; bisogna che $ U_k > h $, e quindi scriveremo nell'equazione $ P_k(t)(1 - e^{-\lambda_k h}) $
+	\item oppure al tempo $ t $ eravamo in $ k-1 $ e la variabile $ U_{k-1} < k $, che ci da il membro $ - P_{k-1}(t) (\lambda_{k-1} h + o(h) ) $
+\end{itemize} %TODO ricontrolla, c'è un frame dove mette tutto a fuoco
+
+Mettendo tutto insieme:
+
+\begin{align*}
+	& = P_k(t)(1 - e^{-\lambda_k h}) - P_{k-1}(t) (\lambda_{k-1} h + o(h) ) + o(h) \\
+	\frac{	P_k(t+h) - P_k (t)}{h} & = -\lambda_k P_k(t) + \frac{o(h)}{h} + \lambda_{k-1}P_{k-1}(t) \\
+	& = o(h) & k \ge 1
+\end{align*}
+
+Facendo tendere $ h $ a 0 otteniamo la derivata:
+$$ P_k'(t) = -\lambda_k P_k( ???) $$ %TODO
+
+$$ P_0(0) = 1 \qquad \qquad P_0(t) = e^{-\lambda_0 t} $$
+
+Fenomeno dell'esplosione:
+$$ ??? \qquad \qquad P(N_t \le n)$$ %TODO
+
+Sia $ \mu_n(t) = 1 - S_n(t) + P(N_t > n) $ e sia $\mu(t) = \lim\limits_{n \to \infty} \mu_n(t)$; quando $ n $ cresce, questa probabilità decresce:
+$$ \lim\lim\limits_{n \to \infty} \mu_n(t) = \underset{n}{\inf} \mu_n(t) $$
+ è la probabilità che ci sia stata un'esplosione ??? di $ t $ %TODO
+
+??? %TODO
+
+\begin{align*}
+	S_n'(t) & = ??? P_0(t) \\ %TODO
+	& = \lambda_0P_0(t) + ... + \lambda_nP_{n-1}(t) - \lambda_n P_n(t) \\
+	& = -\lambda_nP_n(t)
+\end{align*}
+
+Ricordando che $ \mu_n(t = 1 - S_n(t)) $:
+\begin{align*}
+	S_n'(t) = - \mu_n' (t) \\
+	\mu_n'(t) & = -\lambda_nP_n(t)
+\end{align*}
+
+Siccome $\mu_n(0) = 0$, posso dire che:
+$$ \mu_n(t) = \lambda_n \int_{0}^{t}p_n(s) ds \qquad \text{ oppure } \qquad \int_{0}^{t}P_n(s)ds = \frac{\mu_n(t)}{\lambda_n} $$
+\begin{align*}
+	\int_{0}^{t} S_n(t)ds  & = \int_{0}^{t}P_0(s) + ... + P_n(s) ds \\
+	& = \frac{\mu_0(t)}{\lambda_0} + ... + \frac{\mu_n(t)}{\lambda_n}
+\end{align*}
+
+Supponiamo che $ \sum_{k=0}^{n} \frac{1}{\lambda_k} = +\infty $:
+$$ \sum_{k=0}^{n} \frac{1}{\lambda_k} = +\infty > \mu_(t) (\frac{1}{\lambda_0 + ... + \frac{1}{\lambda_n}})$$
+
+Ricordando che $ S_n(t) = 1 - \mu_n(t) $, se facciamo tendere $ n $ all'infinito nell'integrale precedente, otteniamo che 
+$$ \sum_{0}^{t} (1 - \mu(t)) dt > \mu(t) (\frac{1}{\lambda_0 + ... + \frac{1}{\lambda_n}}) $$
+
+Se la serie fosse divergente, tendendo all'infinito andremo all'infinito, ma la disuguaglianza non sarebbe possibile, a meno che $ \mu(t) = 0 \Rightarrow \mu(t) = 0 $ %TODO o qualcosa del genere, riascolta
+
+Consideriamo ora un altro caso. Supponiamo che $ \sum_{k=0}^{m} \frac{1}{\lambda_n} = \infty $ ??? %TODO
+
+$$ \text{\texttt{somma dopo int precedente}} \le \frac{1}{\lambda_0} + \frac{1}{\lambda_1} + ... + \frac{1}{\lambda_n} $$ %TODO
+
+\texttt{int precedente} %TODO
+ lo posso ora riscrivere come $ \int_0^t 1 - \mu_0 (t) dt $
+
+ Quindi posso scrivere:
+$$ \sum_0^t (1 - \mu(s) d(s)  \le \sum_{k=0}^\infty \frac{1}{\lambda_k} < \infty $$ %TODO Le parentesi non sono bilanciate
+
+Ma dev'essere vero per ogni tempo $ t $; quindi $ \mu_s > 0 $, per qualche $ s $. Perché se $\mu_s = 0$ per ogni $ s $, allora $\sum_{0}^{t}(-\mu_s d(s)) = t$, quindi $ t\le \sum_{k=0}^{\infty}\frac{1}{\lambda_k} $. Ho supposto che la serie è finita, quindi potrei prendere un $ t $ abbastanza grande per cui la disuguaglianza non vale %TODO è disuguaglianza?
+
+Quando i $\lambda_k$ crescono abbastanza rapidamente allora abbiamo l'esplosione. Nel caso del proceso di Poisson, i $\lambda_i$ sono tutti uguali a $\lambda$:
+
+$$ \sum_{i=0}^{\infty} \frac{1}{\lambda_i} = \sum ??? $$ %TODO
+
+%TODO come ci colleghiamo alla cosa sotto?
+
+Nel processo di Yule $\lambda_i = i\cdot \lambda, \; i \ge 1$
+$$ \sum_{i=1}^\infty \frac{1}{\lambda_i} = \frac{i=1}{\infty} \frac{1}{\lambda} = \frac{1}{\lambda} \sum_{i=1}^\infty \frac{1}{i} = +\infty$$
+
+I $\lambda_i$ crescono ma non abbastanza per provocare un'esplosione; per quella dovremmo avere ad esempio $\lambda_i = 1$ ??? %TODO
+
+$$ ??? \Rightarrow \text{ esplosione} $$ %TODO
+
+Quando abbiamo esplosione il processo non è definito ??? %TODO
+ 
+\chapter{Catene di Markov con tempo continuo} %TODO boh, è una sezione? un capitolo? un esempio?
+Numero finito o infinità numerabile ??? %TODO
+
+$ S $ spazio degli stati, finito o numerabile
+
+$\rho_s$ è la distribuzione iniziale:
+$$ s \in S \qquad 0 \le \rho_s \le 1 \qquad \sum_{s} \rho_s = 1 $$
+Probabilità di transizione $ p $:
+$$ \forall t > 0, p_{s,s'}(t)  $$
+
+Nel caso del tempo continuo, il tempo $ t $ può essere arbitrariamente piccolo ??? %TODO
+
+Che condizioni deve soddisfare $ p_{s,s'}(t) $?
+
+\begin{enumerate}
+	\item $ 0 \le P_{s,s'}(t) = 1 $
+	\item $ \forall s \sum_{s,s'} P_{s,s'}(t) = 1 $
+	\item Equazioni di Chapman-Kolmogorov:
+	
+	Se $ t_1 > 0, t_2 > 0 $:
+	
+	$$ p_{s,s'}(t_1 + t_2) = \sum_{s''}^{s,s''} (t_1) p_{s'',s}(t_2) $$
+\end{enumerate}
+
+Posso ora definire una catena di Markov. Sia $ X_t $ la catena di Markov, $ \forall t > 0 $ variabili aleatorie a valori in $ S $ %TODO eh??
+
+Se assegno $ t_0 = 0 < t_1 < t_2 < ... < t_n $ allora
+
+\begin{align*}
+	P(X_0 = 0, X_{t_1} = S_1, ..., X_{t_n} = S_n) ) & = p_{s_0} p_{s_0, s_1}(t_1) p_{s_1, s_2}(t_2 - t_1) ... p_{s_{n-1}, s_n} (t_n - t_{n-1}) \\
+	P(X_0 = s_0 ???) & = p_{s_0} p_{s_0, s_2}(t_2) ... p_{s_{n_1} , s_n} (t_n - t_{n-1}) %TODO
+\end{align*}
+
+D'altra parte 
+$$ \sum_s p_{s_0, s_1}(t_1) p_{s_0, s_2}(t_2 - t_1) = p_{s_0, s_2}(t_2) $$
+applicando le equazioni di Chapman-Kolmogorov.
+
+Le due condizioni servono a far sì che ??? %TODO
+
+\paragraph{Esempio} Processo di Poisson di parametro $\lambda > 0 $
+
+Sia $ S = \mathbb{N} $ e la distribuzione iniziale $ \rho_0 = 1, \rho_s = 0 $ per $ s \ge 1 $.
+
+$$ p_{s,s'}(t) = \begin{cases}
+	\frac{(\lambda t)^{s'-s} e^{-\lambda t}}{(s'-s)!}, & s' \ge 0 \\
+	0, & s' < 0
+\end{cases} $$
+
+Questa è la probabilità degli incrementi; la probabilità di avere un incremento ha la distribuzione di Poisson di parametro $\lambda(t)$, dove $ t $ è l'intervallo ??? %TODO credo, l'ho inventato
+
+Devo verificare le equazioni di Chapman-Kolmogorov:
+\\
+$ t_1 > 0, t_2 > 0 $
+$$ \sum_{s'' \in \mathbb{N}} p_{s,s'} (t_1) p_{s,s''} (t_2) $$
+
+Se $ s' < s $, la sommatoria è pari a 0.
+
+Se $ s' \ge s $, la sommatoria è pari a 
+
+$$ \sum_{s \le s'' \le s'} p_{s,s''}(t_1) p_{s'',s'}(t_2) $$
+
+Facciamo un cambio di variabile: $ k_1 = s'' - s, \; k_2 = s' - s'' $
+
+$$ \sum_{k_1 = 0}^{s'-s} \frac{(\lambda t_1)^{k_1}}{k_1 !} e^{-\lambda t_1} \frac{(\lambda t_2)^{s' - s - k_1}}{(s' - s - k_1) !} e^{-\lambda(t_2 - t_1)} = \frac{\lambda(t_2 - t_1)}{(s'-s)!} e^{-\lambda(t_1 + t_2)} ??? $$ %TODO
+
+??? %TODO
+
+ \vspace{1cm}
+ \hrule
+ \vspace{1cm}
+
+%TODO 2020-11-24 cioè l'hai già fatta, ma devi capire come si lega alla parte precedente
+ Vogliamo introdurre in generale i processi di Markov con tempo continuo. In generale, è difficile specificare la probabilità di transizione (perché dovremo specificarla per tutti i tempi positivi); c'è un modo equivalente però. In questa formulazione si chiama processo di tipo esponenziale. Sono basati sul fatto che nelle catene di Markov con tempo continuo il tempo che rimaniamo in uno stato è una distribuzione esponenziale. 
+ 
+ Sia $ S $ lo spazio degli stati, $ \rho_s $ la distribuzione iniziale: $ \sum_{\rho_s} = 1 $
+ $$ \forall s \in S, v_s > 0 $$
+ $$ \forall s,s' \quad s' \ne s \quad \exists a_{s,s'} \qquad (\text{nota: nel Ross è } p_{s,s'}) $$
+ $$ a_{s,s'} \ge 0 \qquad \sum_{s'} a_{s,s'} = 1 $$
+
+Quindi è una probabilità di transizione, ma è definita quando $ s' \ne s $. L'interpretazione è la seguente: nel processo di tipo esponenziale, $ v_s $ è il parametro della distribuzione esponenziale del tempo in cui rimaniamo nello stato $ s $. Partiamo quindi dallo stato iniziale $ s $ con distribuzione $\rho_s$; poi rimaniamo nello stato con distribuzione che dipende dal parametro $ v_s $. Quando scade il tempo, passiamo dallo stato $ s $ allo stato $ s' $ con probabilità $ a_{s,s'} $. Poi rimaniamo nello stato $ s' $ con tempo esponenziale di parametro $ v_{s'} $ e così via. \\
+\\
+I casi che abbiamo già visto, ovvero il processo di Poisson e i processi di pura nascita, sono casi particolari: nel processo di Poisson, $ v_s \equiv \lambda_{i} $ (i $ v_s $ sono tutti uguali ai $\lambda_{i}$) e la matrice $ a_{s,s'} $ è definita così:
+
+$$ a_{s,s+1} = 1 \qquad a_{s,s'} = 0, \; s' = s $$ %TODO rincontrolla s' = s
+
+E la distribuzione iniziale è: 
+$$ \rho_s = 1 \qquad \rho_s = 0, \; s \ne 0 $$ 
+
+Nei processi di pura nascita invece abbiamo che $ v_s = \lambda_ s $ (per ogni stato $ s $ abbiamo un $\lambda_{s}$ diverso); la matrice di transizione è la stessa:
+
+$$ a_{s,s+1} = 1 \qquad a_{s,s'} = 0, \; s' \ne s+1 $$ 
+
+In generale, quando abbiamo un processo di tipo esponenziale se $ v_s \le C \; \forall s$, allora non si può verificare l'esplosione. 
+
+\paragraph{Esempio} Vediamo il modello esponenziale più semplice possibile, quello con spazio degli stati di dimensione 2: $ S = \{0,1\} $; avremo due costanti $ v_0 $ e $ v_1 $.
+
+$$ a_{0,1} = 1 \qquad a_{1,0} = 0 $$
+
+Supponiamo di partire dallo stato 0:
+$$ \rho_0 = 1 \qquad \rho_1 = 0 $$
+
+Questa potrebbe essere ad esempio la descrizione di un macchinario: per un certo periodo è nello stato di funzionamento (stato 0), poi passa in uno stato di inattività per riparazione (stato 1), poi torna nello stato di funzionamento etc. 
+
+\paragraph{Esempio} Nota: nel Ross è l'esempio del negozio del lustrascarpe. 
+
+Sia $ S = \{0,1,2\} $. Immaginiamoci un negozio di un lustrascarpe dove inizialmente non ci sono clienti (stato 0); i clienti arrivano con una distribuzione di Poisson di parametro $\lambda$, si passa poi nello stato in cui le scarpe vengono pulite (stato 1) e infine in quello in cui vengono lucidate (stato 2):
+
+\begin{multicols}{2}
+	$$ \begin{array}{ccc}
+		\rho_0 = 1 & \rho_s = 0 & s \ne 0 \\
+		v_0 = \lambda & v_1 = \mu_1 & v_2 = \mu_2 \\
+		a_{0,1} = 1 & a_{1,2} = 1 & a_{2,0} = 1
+	\end{array} $$
+	\\
+	\\
+	\begin{tikzpicture}
+		\node[] (0) at (7,3.5) {};
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:{0}, label=above:{$ \lambda $}] (1) at (5,3) {};
+		\node[] (A) at (5,2.4) {};
+		\node[] (B) at (5.1, 3.1) {};
+		
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:1, label=above:{$ \mu_1$}] (2) at (9,3) {};
+		\node[] (C) at (8.9, 3.1) {};
+		\node[] (D) at (9, 2.5) {};
+
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:2, label=above:{$ \mu_2 $}] (3) at (7,0) {};
+		\node[] (E) at (7.1, 0) {};
+		\node[] (F) at (6.9, 0) {};
+		
+		\node[] (X) at (5.4,0.8) {1};
+		\node[] (Y) at (8.6,0.8) {1};
+		\node[] (Z) at (7, 4) {1};
+		
+		\path []
+		(B) edge[thick, bend left, ->] (C)
+		(D) edge[thick, bend left, ->] (E)
+		(F) edge[thick, bend left, ->] (A);
+		
+		
+	\end{tikzpicture}
+\end{multicols}
+
+Quello che è interessante chiedersi è, se facciamo passare molto tempo, qual è la percentuale di tempo in cui nel negozio c'è un cliente e quella in cui non c'è nessun cliente (nel negozio può rimanere al massimo un cliente alla volta).
+
+Torniamo ai processi di pura nascita. Sia $ S $ lo spazio degli stati:
+
+$$ \forall s \in S, \quad v_s > 0 $$
+$$ \forall s,s' \in S \quad s' \ne s \quad a_{s,s'} $$
+$$ \sum_{\begin{array}{c}
+	s' \in S \\ 
+	s' \ne s
+	\end{array}} a_{s,s'} = 1$$
+
+Sia $\rho_s$ la distribuzione iniziale. Possiamo far vedere che un processo di tipo esponenziale corrisponde ad una catena di Markov omogenea continua. Il motivo di questa corrispondenza risiede nella proprietà dell'assenza di memoria della distribuzione esponenziale. \\
+\\
+Gli esempi visti fin'ora fanno parte di una classe di processi esponenziali detti \textbf{processi di nascita e morte} dove $ S = \mathbb{N} $ oppure $ S = [O, M] \in \mathbb{N} $. Per i processi di pura nascita, per ogni stato abbiamo due parametri: $\lambda_0, \forall s \ge 1 \lambda_s, \mu_s$
+
+I processi di pura nascita sono un caso particolare dove $\mu_s = 0$.
+
+Per ogni stato abbiamo due tempi esponenziali, uno di parametro $\lambda_s$ e uno di parametro $\mu_s$. Consideriamo il più piccolo tra $\lambda_{s}$ e $\mu_s$; se è $\lambda_{s}$, andremo nello stato $ s+1 $, altrimenti $ s-1 $. Nel caso dello stato 0 abbiamo solo $\lambda_0$, perché non ci sono stati con indice negativo. 
+
+Se voglio descriverlo come processo esponenziale, avremo che $ v_0 = \lambda_0 $, $ s > 1 $ e $ v_s = \lambda_s + \mu_s $ perché se ci troviamo nello stato 0, il tempo che rimaniamo nello stato sarà $\lambda_0$; altrimenti, il tempo esponenziale che rimaniamo nello stato sarà il minimo tra $\lambda_s$ e $ \mu_s $. Ma noi abbiamo visto che se abbiamo due variabili con distribuzione esponenziale indipendente, il più piccolo dei due ha una distribuzione esponenziale che è pari alla somma dei parametri ($ \lambda_s +\mu _s $). 
+
+Infine, la probabilità che tra i due il minimo sia $\lambda_s$ è dato da $\frac{\lambda_s}{\lambda_s + \mu_s}$; questo caso e il caso in cui $\mu_s$ sia il minimo tra i due sono riassunti nelle formule sottostanti:
+
+$$ a_{s,s+1} = \frac{\lambda_s}{\lambda_s + \mu_s} \qquad a_{s,s-1} = \frac{\mu_s}{\lambda_s + \mu_s} \qquad a_{0,1} = 1$$
+
+Anche nei processi di nascita e morte si può verificare esplosione. Se i $\lambda_s$ sono tutti maggiorati da una costante, non si può avere esplosione, e nemmeno se i $\lambda_i$ crescono come $ s $, ovvero $\lambda_s = s \cdot \lambda$ (quindi crescono linearmente con una qualche costante $ s $). %TODO cioè non ho capito se si può verificare epslosione o meno
+
+Vediamo qual è l'attesa del tempo con cui possiamo andare da uno stato all'altro. Sia $ T_s $ il tempo per andare da $ s $ a $ s+1 $. 
+
+Consideriamo l'attesa di $ T_s $, $ P(T_s) $:
+$$ P(T_0) = \frac{1}{\lambda_0}$$
+Consideriamo il caso generale $ s \ge 1 $; definiamo $ I_s $:
+$$ I_s = \begin{cases}
+	0, & \text{ se da } s \text{ passiamo a } s-1 \\
+	1, & \text{ se da } s \text{ passiamo a } s+1 \\
+\end{cases}$$
+\begin{align*}
+	P(T_s | I_s = 1) & = \frac{1}{\lambda_s + \mu_s} \\
+	P(T_s | I_s = 0) & = \frac{1}{\lambda_s + \mu_s} + P(T_{s-1}) + P(T_s) 
+\end{align*}
+
+Se $ I_s = 1 $, allora passiamo allo stato $ s+1 $.
+
+Se invece $ I_s = 0$, vuol dire che passiamo allo stato $ s-1 $; per tornare allo stato $ s+1 $, siccome possiamo fare solo salti di 1, dovremo prima tornare allo stato $ s $ e poi andare allo stato $ s+1 $.
+
+Il tempo per andare dallo stato $ s $ allo stato $ s' $, con $ s' > s $:
+$$ T_s + T_{s+1} + ... + T_{s'+1} $$
+Quindi possiamo scrivere infine l'attesa di $ T_s $:
+\begin{align*}
+	P(T_s) & = P(T_s | I_s = 0)P(I_s = 0) + P(T_s | I_s = 1)P(I_s = 1) \\
+	& = \frac{\lambda_s}{\lambda_s + \mu_s}\frac{1}{\lambda_s + \mu_s} + \frac{\mu_s}{\lambda_s + \mu_s} \left( - \frac{1}{\lambda_s + \mu_s} P(T_{s-1}) + P(T_s) \right) \\
+	& = \frac{1}{\lambda_s + \mu_s} + \frac{\mu_s}{\lambda_s + \mu_s}\left(P(T_{s-1}) + P(T_s) \right) \\
+	P(T_s)\left(1 - \frac{\lambda_s}{\lambda_s + \mu_s} \right) & = \frac{1}{\lambda_s + \mu_s} + \frac{\mu_s}{\lambda_s + \mu_s} P(T_{s-1}) \\
+	P(T_s) & = \frac{1}{\lambda_s} + \frac{\mu_s}{\lambda_s} P(T_{s-1})
+\end{align*}
+
+Siccome $ P(T_0) = \frac{1}{\lambda_0}$, posso calcolare induttivamente (grazie alla formula sopra) tutte le attese di $ T_s $
+
+\paragraph{Esempio} Vediamo un processo di nascita e morte con $\lambda_s = \lambda$ e $\mu_s = \mu$; questo corrisponde ad un processo di coda $ M/M/1 $, dove $\lambda$ è il parametro di Poisson degli arrivi e $ \mu $ è il parametro del tempo di servizio. Supponiamo $\mu \ne \lambda$:
+
+$$ P(T_0)  = \frac{1}{\lambda} \qquad P(T_s) = \frac{1}{\lambda} + \frac{\mu}{\lambda} P(T_{s-1})$$
+
+\begin{align*}
+	P(T_1) & = \frac{1}{\lambda} + \frac{\mu}{\lambda} \frac{1}{\lambda} \\
+	p(T_2) & = \frac{1}{\lambda} + \frac{\mu}{\lambda}\left( \frac{1}{\lambda} + \frac{\mu}{\lambda}\frac{1}{\lambda} \right)\\
+	P(T_1) & = \frac{1}{\lambda} \left( 1 + \frac{\mu}{\lambda} \right) \\
+	P(T_2) & = \frac{1}{\lambda} \left(1 + \frac{\mu}{\lambda} + \left(\frac{\mu}{\lambda}\right)^2 \right) \\
+	... & \\
+	P(T_s) & = \frac{1}{\lambda} \left( \frac{1 - \left(\ddfrac{\mu}{\lambda}\right)^{s+1}}{1 - \ddfrac{\mu}{\lambda}} \right) \\
+	& = \frac{1 - \left(\ddfrac{\mu}{\lambda}\right)^{s+1}}{\lambda - \mu}
+\end{align*}
+
+Se $\lambda = \mu$:
+
+$$ P(T_s) = \frac{1}{\lambda}(s+1) $$
+
+Per andare da $ s $ a $ s' $, l'attesa sarà
+$$ T_s + T_{s+1} + T_{s'-1} $$
+
+%TODO 2020-11-25
+L'esempio del lustrascarpe non è un processo di nascita e morte, perché ??? %TODO
+
+Vediamo un processo di nascita e morte che modella la crescita (e decrescita) di una popolazione.
+
+\subsection{Modello di crescita lineare con immigrazione}
+In questo modello gli individui possono replicarsi: da un individuo se ne genera un altro, oppure morire. Il tempo dello sdoppiamento è un esponenziale di parametro $\lambda$, il tempo di morte è un esponenziale di parametro $\mu$. 
+
+Ci interessa ??? %TODO
+
+C'è però anche un afflusso di individui dall'esterno (dati dall'immigrazione); $\theta$ è il tempo associato con l'immigrazione. 
+
+Sia lo spazio degli stati $ S = \mathbb{N} $. 
+
+Sia $\mu_n = m\cdot \mu$ %TODO è m\cdot\mu oppure n\cdot\mu?
+ e $\lambda_n = n\cdot \lambda + \theta$.
+ 
+ Se abbiamo $ n $ individui, a ogni individuo sarà associato un tempo esponenziale (il tempo della morte). Quando un individuo muore, la popolazione diminuirà di 1 al minimo dei tempi associato agli individui. Il minimo tra $ n $ variabili aleatorie con distribuzione esponenziale è pari a ?? %TODO
+ 
+ Quindi ? %TODO
+ parametro del minimo è $ n\mu $. Analogo per $\lambda n$: ... %TODO
+ 
+ Definiamo $ X_t $ la variabile aleatoria che descrive il numero totale degli individui. Sia $ M(t) $ l'attesa di $ X_t $: $ M(t) = P(X_t) $.
+ 
+ Fissato un certo $ i \in \mathbb{N} $, la distribuzione iniziale sarà $ \rho_i = 1, \rho_s = 0 s\ne i $: all'inizio la popolazione comprende $ i $ individui. 
+ 
+ Per calcolare $ M(t) $ usiamo un'equazione differenziale:
+ 
+	$$ M(t+h) = P(X_{t+h}) = P(P(X_{t+h} | X_t))$$
+	$$ X_{t+h} = \begin{cases}
+		X_t + 1, & \text{con probabilità } (\theta + \lambda X_t)h + o(h) \\
+		X_t-1, & \text{con probabilità } (\mu X_t)h + o(h) \\
+		X_t, & \text{con probabilità } 1 - (\theta + X_t(\lambda + \mu)) + o(h)
+	\end{cases} $$ %TODO quando aumentiamo di 1???
+	
+La probabilità di passare in uno stato più di 1 è un infinitesimo di ordine superiore ??? %TODO
+
+\begin{align*}
+	M(t+h) - M(t) & = P(P(X_{t+h} | X_t )) - M(t) \\
+	& = \bar{P(X_t)} + (\theta + (\lambda - \mu)) P(X_t)) + o(h) - \bar{P(X_t)} \\ %TODO parentesi non bilanciate
+	& = \theta + (\lambda - \mu)) M(t) + \frac{o(h)}{h} %TODO parentesi non bilanciate
+\end{align*}
+
+Facendo tendere $ h $ a 0 calcoliamo la derivata:
+$$ M(t) = (\lambda - \mu) M(t) + \theta $$
+
+La condizione iniziale è $ M(0) = i $; per risolvere l'equazione differenziale introduciamo una funzione $ h $:
+
+\begin{align*}
+	h(t) & = (\lambda - \mu)M(t) + \theta \\
+	h'(t) & = (\lambda - \mu)M'(t) \\
+	& = (\lambda - \mu)^2 M(t) + (\lambda - \mu)\theta \\
+	& = (\lambda - \mu)((\lambda - \mu)M(t) + \theta) \\
+	& = (\lambda - \mu)h(t) \\
+	\frac{h'(t)}{h(t)} & = \lambda - \mu \\
+	\Rightarrow \frac{\partial \log(h(t))}{\partial t} & = \lambda - \mu
+\end{align*}
+
+Supponiamo $ \lambda \ne \mu $:
+$$ \log(h(t)) = (\lambda - \mu)t + c $$
+Sia $ e^c = k $:
+\begin{align*}
+	 h(t) & = K e^{(\lambda - \mu)t} \\
+	 \Rightarrow (\lambda - \mu)M(t) + \theta & = Ke^{(\lambda - \mu)t}
+\end{align*}
+Mi rimane da calcolare $ K $; sapendo che $ M(0) = i$:
+\begin{align*}
+	(\lambda - \mu)i + \theta & = k \\
+	\Rightarrow M(t) & = \frac{(\lambda - \mu)i + \theta}{\lambda - \mu} \cdot e^{(\lambda - \mu)t} - \frac{\theta}{\lambda - \mu}
+\end{align*}
+
+Se $ \lambda = \mu $:
+$$ h'(t) = (\lambda - \mu)h(t) = 0 $$
+
+Se la derivata di $ h $ è 0, allora $ h $ sarà pari a una costante:
+
+\begin{align*}
+	h(t) & = ct + d \\
+	\Rightarrow M(t) & = \theta t + i
+\end{align*}
+
+Nel caso $\mu = \lambda$ quindi la popolazione cresce linearmente con l'immigrazione, nell'altro caso cresce se $ \lambda > \mu $ la crescita è esponenziale, altrimenti si stabilizza e cresce grazie all'immigrazione. Può avvenire l'esplosione? No, perché in questo caso le costanti crescono ??? %TODO
+
+Abbiamo calcolato solo l'attesa del numero di individui; possiamo calcolare però le probabilità di transizione, tornando ai modelli di pura nascita.
+
+\subsection{Modello di pura nascita}
+$ S = \mathbb{N} ??? \mu_0 = \mu_1 = ... = \mu_n = 0 $ %TODO
+
+Sia $ s \in \mathbb{N} $; sia $ T_s $ il tempo di permanenza nello stato $ s $. $ T_0, T_1, ... $ sono esponenziali di parametro $\lambda_s$ e sono indipendenti. 
+
+Vogliamo calcolare $ P_{i,j}(T): $
+
+$$ P_{i,j}(T) = (X_t = j | X_0 = i) \qquad \qquad j \ge i $$
+
+Nel caso dei processi di pura nascita lo stato può solo crescere, quindi la probabilità di andare da $ j $ a $ i $ con $ i < j $ è 0. 
+
+$$ P_{i,j}(t) = P(T_i > t) = e^{-\lambda_i t} $$
+
+Se $ i < j $: 
+\begin{align*}
+	P_{i,j}(t) & = P(T_i + Y_{i+1} + ... + T_j > t_1, T_i + ... + T_{j-1} \le t) \\
+	& = P((T_i + T_{i+1} + ... + T_j > t) - (T_i + T_{i+1} + ... + T_{j-1} > t))
+\end{align*}
+
+Il secondo evento è più piccolo del primo, è contenuto nel primo
+
+$$ = P(T_i + T_{i+1} + ... + T_j > t) - P(T_i + T_{i+1} + ... + T_{j-1} > t) $$
+
+Supponiamo $\lambda_s \ne \lambda_{s'}$, per $ s \ne s' $
+
+$$ = \sum_{k=1}^{j} e^{-\lambda_k t} \prod_{\begin{array}{c}
+	r \ne k \\ %TODO controlla sia \ne
+	r = i
+	\end{array}}^{j} \frac{\lambda_r}{\lambda_r - \lambda_k} - \sum_{k=1}^{j-1} e^{-\lambda_k t} \prod_{\begin{array}{c}
+	r \ne k \\ %TODO controlla sia \ne
+	r = i
+	\end{array}}^{j-1} \frac{\lambda_r}{\lambda_r - \lambda_k}$$
+
+In questo caso c'è la possibilità che ci sia esplosione:
+$$ \sum_j P_{i,j}(t) < 1 \qquad \qquad ???$$ %TODO
+
+\paragraph{Processo di Yule} Un caso particolare è il processo di Yule, in cui $\lambda_j = j\lambda$ con $\lambda > 0$.
+
+Lo spazio degli stati non parte da 0: $ S = \{1,2,3...\} $
+
+In questo caso non c'è esplosione: se i $\lambda_j$ crescono linearmente,
+
+$$ \sum_j^{\infty} \frac{1}{\lambda_j} = 1 \qquad \qquad ??? = +\infty$$ %TODO
+
+\section{Equazioni di Kolmogorov}
+
+Vediamo ora come si può impostare in generale il calcolo della probabilità di transizione per le catene di Markov con tempo continuo. ?? %TODO
+ Si può dimostrare che deve soddisfare le equazioni in avanti di Kolmogorov e le equazioni all'indietro di Kolmogorov. 
+
+Partiamo da un processo di tipo esponenziale:
+
+?? %TODO
+
+$ q:{s,s'} $ è detta intensità della transizione da $ s $ a $ s' $.
+
+$$ P_{s,s'}(h) = q_{s,s'}h + o(h) $$
+
+$ 1 - e^{-v_s h} $ è la probabilità che il tempo esponenziale sia minore di $ h $. 
+
+Quando scade questo tempo ??? %TODO
+
+Quindi 
+
+\begin{align*}
+	(1 - e^{-v_s h})a_{s,s'} + o(h) & = (v_s h + c(h)) a_{s,s'} + o(h) \\ %TODO controlla parentesi
+	& = v_s a_{s,s'} h + o(h) & = q_{s,s'} h + o(h)
+\end{align*}
+
+Vogliamo ottenere delle equazioni che sono soddisfatte dalle probabilità di transizione.
+
+\subsection{Equazioni all'indietro di Kolmogorov (Kolmogorov backward equation)}
+
+Consideriamo un intervallo $ [0, t+h] = [0, h] \cup [h, t+h] $. %TODO controlla sia o oppure 0
+
+Consideriamo la probabilità
+
+$$ P_{s,s'} (t+h) = \sum_{s''} P_{s,s''}(h)P{s'', s'}(t) $$
+
+Possiamo approssimare questa probabilità:
+
+\begin{align*}
+	& = \sum_{s'' \ne s} (q_{s,s''}h + o(h))P_{s'',s'}(t) + P_{s,s}(h) \\
+	& = \sum_{s'' \ne s} ... + \underbrace{e^{-v_s h} + o(h)}_{1 - v_s h + o(h)}\\ %TODO
+	& = \sum_{s'' \ne s} ... + (1 - v_s h + o(h))P_{s,s'}(t) %TODO
+\end{align*}
+
+Voglio scrivere un'equazione differenziale ??? %TODO
+
+Considero 
+
+$$ \frac{P_{s,s'}(t+h) - P_{s,s'}(t)}{h} = \frac{-v_s h + o(h)}{h} P_{s,s'}(t) + \frac{\sum_{s'' \ne s} (q_{s,s''} h + o(h)) }{h} P_{s'',s'}(t) $$
+
+Per calcolare la derivata, facciamo tendere $ h $ a 0:
+
+\begin{align*}
+	\underset{h \to 0}{\longrightarrow} \qquad & -v_s P_{s,s'}(t) + \sum_{s' \ne s}(t) + \sum_{s' \ne s} q_{s,s''} - P_{s'',s'}(t) \\
+	\frac{\partial}{\partial t} P_{s,s'}(t) = & -v_s P_{s,s'}(t) + \sum_{s'' \ne s} q_{s,s''} P_{s'',s'}(t) 
+\end{align*}
+
+$ \frac{\partial}{\partial t} P_{s,s'}(t) $ è l'equazione di Kolmogorov all'indietro. Queste equazioni collegano tra loro le probabilità di transizione con lo stesso punto di arrivo. 
+
+\paragraph{Esempio} $ S = \{0,1\} $; abbiamo $ v_0, v_1 $
+$$ \begin{array}{cc}
+ 	q_{0,1} = v_0 & q_{1,0} = v_1 \\
+ 	a_{0,1} = 1 & a_{1,0} = 1
+\end{array} $$
+
+\begin{align*}
+	\frac{\partial}{\partial t} P_{0,1}(t) & = -v_0 P_{0,1}(t) + v_0 P_{1,0}(t) \\
+	\frac{\partial}{\partial t} P_{0,0}(t) & = -v_0 P_{0,0}(t) + v_0 P_{1,0}(t) 
+\end{align*} 
+
+%TODO 2020-12-1
+Un modo per vedere le equazioni all'indietro è rappresentando la catena di Markov con un grafico:
+\begin{center}
+	\begin{tikzpicture} %TODO rincontrolla grafico
+		\node[] (0) at (7,3.5) {};
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:{0}, label=above:{$ \lambda $}] (1) at (5,3) {};
+		\node[] (A) at (5,2.4) {};
+		\node[] (B) at (5.1, 3.1) {};
+		
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:1, label=above:{$ \mu_1$}] (2) at (9,3) {};
+		\node[] (C) at (8.9, 3.1) {};
+		\node[] (D) at (9, 2.5) {};
+		
+		\node[draw=black, circle, inner sep=2pt, fill=black, label=below:2, label=above:{$ \mu_2 $}] (3) at (7,0) {};
+		\node[] (E) at (7.1, 0) {};
+		\node[] (F) at (6.9, 0) {};
+		
+		\node[] (X) at (5.4,0.8) {1};
+		\node[] (Y) at (8.6,0.8) {1};
+		\node[] (Z) at (7, 4) {1};
+		
+		\path []
+		(B) edge[thick, bend left, ->] (C)
+		(D) edge[thick, bend left, ->] (E)
+		(F) edge[thick, bend left, ->] (A);
+	\end{tikzpicture}
+\end{center}
+
+Ad ogni stato è associato $ v_1 $ ??? %TODO
+
+Le frecce sono ??? %TODO
+
+Ad ogni freccia possiamo associare l'intensità $ q_{i,j} $
+
+Le equazioni all'indietro si ottengono così:
+
+$$ P_{s,s'}'(t) = -v_sP_{s,s'} + \sum_{s''\ne s} q_{s,s''} P_{s'',s}(t)$$
+
+Guardiamo il grafico ??? %TODO
+
+Vediamo l'esempio più semplice, quello in cui $ S = \{0,1\} $; sia $ s' = 0 $. Abbiamo $ v_0 = \lambda, v_1 = \mu $. Abbiamo anche che $ q_{0,1} = \lambda, q_{1,0} = \mu $.
+
+Le equazioni all'indietro sono:
+\begin{align*}
+	P_{0,0}'(t) & = \lambda[P_{1,0}(t) - P_{0,0}(t)] \\
+	P_{1,0}'(t) & = \mu [P_{0,0}(t) - P_{1,0}(t) ] \\
+	\frac{d}{dt} [\mu P_{0,0}(t) + \mu P_{0,0}'(t) + \lambda P_{1,0}'(t) ] & = 0 \\
+	\lambda P_{1,0}(t)] & = \mu P_{0,0}(t) + \lambda P_{1,0}(t) = c \\ %TODO ricontrolla
+	\mu P_{0,0}(0) + \lambda P_{1,0}(0) & = c \\
+	\mu \cdot 1 + \lambda \cdot 0 & = c \\
+	\Rightarrow c & = \mu
+\end{align*}
+
+$ \mu P_{0,0}(t) + \lambda P_{1,0}(t) $ è uguale ad una costante $ c $ perché non cambia nel tempo; quanto vale $ c $? Per scoprirlo abbiamo posto $ t = 0 $.
+
+Quindi abbiamo che 
+
+\begin{align*}
+	\lambda P_{0,0}(t) + \mu P_{0,0}(t) & = \mu \\
+	\lambda P_{1,0}(t) & = \mu(1 - P_{0,0}(t)) \\
+	P_{0,0}'(t)\mu & = [1 - P_{0,0}(t)] - \lambda P_{0,0}(t) \\
+	& = \mu - (\mu + \lambda) P_{0,0}(t)
+\end{align*}
+
+Definiamo 
+
+$$ h(t) = P_{0,0}(t) - \frac{\mu}{\mu + \lambda}$$
+
+\begin{align*}
+	h'(t) & = \mu - (\mu - \lambda)(h(t) + \frac{\mu}{\mu + \lambda}) \\
+	& = -(\mu + \lambda)h(t) \\
+	\frac{h'(t)}{h(t)} & = -(\mu + \lambda) \\
+	& = \frac{\partial}{\partial t} \log(h(t)) \\
+	\log h(t) & = -(\mu + \lambda)t + c \\
+	h(t) & = K e^{-(\mu + \lambda)t}
+\end{align*}
+
+Quando vale $ K $?
+
+\begin{align*}
+	h(t) & = P_{0,0}(t) - \frac{\mu}{\mu + \lambda} \\
+	h(0) & = P_{0,0}(0) - \frac{\mu}{\lambda + \mu} \\
+	& = \ - \frac{\mu}{\mu + \lambda} \\
+	& = \frac{\lambda}{\lambda + \mu} \\
+	h(t) & = \frac{\lambda}{\mu + \lambda}e^{(-\mu + \lambda)t} \\
+	P_{0,0}(t) & = \frac{\lambda}{\mu + \lambda}e^{-(\mu + \lambda)t} + \frac{\mu}{\mu + \lambda} \\
+	\lambda P_{0,0}(t) & = \mu - (\mu + \lambda) P_{0,0}(t) \\
+	P_{1,0} (t) & = \frac{\mu}{\lambda} - \frac{(\mu + \lambda)}{\lambda} \left(\frac{\lambda}{\mu + \lambda} e^{-(\mu + \lambda)t} + \frac{\mu}{\mu + \lambda}\right) \\
+	& = \frac{\mu}{\mu + \lambda}e^{-(\mu + \lambda)t} + \frac{\mu}{\mu + \lambda}
+\end{align*}
+
+Facciamo tendere $ t $ all'infinito:
+
+$$ P_{0,0}(t) \to \frac{\mu}{\mu + \lambda} \quad \text{ e } \quad P_{1,0}(t) \to \frac{\mu}{\mu + \lambda}$$
+
+Quindi se facciamo passare molto tempo le probabilità di andare nello stato 0 sia partendo da 0, sia partendo da 1, tendono allo stesso limite. 
+
+Per quel che riguarda $ P_{0,1}(t) $ e $ P_{1,1}(t) $ non occorre rifare i calcoli, perché è come se si scambiassero di nome gli stati e quindi basta scambiare $\mu$ e $\lambda$:
+
+\begin{align*}
+	P_{1,1}(t) & = \frac{\mu}{\mu + \lambda} e^{-(\mu + \lambda)t} + \frac{\lambda}{\lambda + \mu} \\
+	P_{0,1}(t) & = \frac{\lambda}{\mu + \lambda} e^{-(\mu + \lambda)t} + \frac{\lambda}{\lambda + \mu}
+\end{align*}
+
+Se $ t \to \infty $:
+
+$$ P_{0,1}(t) \to \frac{\lambda}{\mu + \lambda} \quad \text{ e } \quad P_{1,1}(t) \to \frac{\lambda}{\mu + \lambda}$$
+
+Si può vedere che questo valore è anche la percentuale di tempo che la catena di Markov si trova nello stato 1. %TODO riascolta
+
+\subsection{Equazioni in avanti di Kolmogorov (Kolmogorov forward equations )}
+Consideriamo un intervallo di tempo $ (0, t+h] $. 
+
+Nelle equazioni all'indietro di Kolmogorov abbiamo diviso l'intervallo da 0 a $ h $; qui dividiamo in due intervalli $ (0, t] $ e $ (t, t+h] $. 
+
+\begin{align*}
+	P_{s,s'}(t+h) & = P_{s,s'}(t) P_{s',s'}(h) + \sum_{s'' \ne s} P_{s,s''}(t)P_{s'',s'}(h) \\ %TODO rincontrolla
+	P_{s',s'}(h) & = 1 - v_{s'} h + o(h) \\
+	P_{s'',s'}(h) & = q_{s'',s'}h + o(h) \\
+	\frac{P_{s,s'}(t+h) - P_{s,s'}(t)}{h} & = \frac{(-v_{s'} h + o(h))}{h}P_{s,s'}(t) + \frac{\sum_{s'' \ne s'}(q_{s'',s'} h + o(h) ) }{h} P_{s,s''}(t)
+\end{align*}
+
+È legittimo passare al limite? Nei casi che vedremo questo passaggio è sempre legittimo; facciamo tendere $ h $ a 0: %TODO riascolta
+
+$$ P_{s,s'}'(t) = -v_{s'} P_{s,s'}(t) + \sum_{s'' \ne s' } q_{s'',s'}P_{s,s''}(t) $$
+
+Anche di questa equazione si può dare un'interpretazione grafica. 
+
+A differenza delle equazioni all'indietro, questa collega tra loro ??? %TODO
+teniamo fisso il punto di partenza. Sulle altre invece tenevamo fermo il punto di d'arrivo. 
+
+\begin{align*}
+	P_s(t) & = P(X_t = s) \\
+	& = \sum \rho_{s'} P_{s',s}(t) \\
+	\frac{\partial}{\partial t}P_s(t) & = \sum_{s'} \rho_{s'} \frac{\partial}{\partial t} P_{s',s}(t) \\
+	P_s'(t) & = -v_s P_s(t) + \sum_{s'}P_{s'}(t) q_{s',s}
+\end{align*}
+
+\paragraph{Esempio }Vediamo ora il caso più semplice in cui $ S = \{0,1\} $:
+$$ \begin{array}{c}
+	v_0 = \lambda = q_{0,1} \\
+	v_1 = \mu = q_{1,0}
+\end{array} $$
+
+\begin{align*}
+	P_{0,0}'(t) & = -\lambda P_{0,0}(t) + \mu P_{0,1}(t) \\
+	P_{0,1}'(t) & = -\mu P_{0,1}(t) + \lambda P_{0,1}(t)
+\end{align*}
+
+\begin{align*}
+	P_{0,0}(t) + P_{0,1}(t) & = 1 \\
+	P_{0,1}(t) & = 1 - P_{0,0}(t) \\
+	P_{0,0}'(t) & = - \lambda P_{0,0}(t) + \mu(1 - P_{0,0}(t)) \\
+	P_{0,0}'(t) & = -(\lambda + \mu)P_{0,0}(t) + \mu
+\end{align*}
+
+Definiamo 
+
+$$ h(t) = P_{0,0}(t) + \frac{\mu}{\lambda + \mu} $$
+
+\begin{align*}
+	h'(t) & = -(\lambda + \mu)(h(t) + \frac{\mu}{\lambda + \mu}) + \mu \\
+	& = -(\lambda + \mu) h(t) \\
+	h(t) & = Ke^{-(\lambda + \mu)t} \\
+	h(t) & = \frac{\mu}{\lambda + \mu} + \frac{\lambda}{\lambda + \mu}e^{-(\lambda + \mu)t} \\
+	P_{1,1}(t) & = 1 - P_{0,0}(t) \\
+	& = \frac{\lambda}{\lambda + \mu} - \frac{\lambda}{\lambda + \mu} e^{-(\lambda + \mu)t} \\
+	P_{1,1}(t) & = \frac{\lambda}{\lambda + \mu} + \frac{\mu}{\lambda + \mu}e^{-(\lambda + \mu)t} \\
+	P_{1,0}(t) & = \frac{\mu}{\lambda + \mu} - \frac{\mu}{\lambda + \mu}e^{-(\lambda + \mu)t} \\
+	P_{0,0}(t) + P_{0,1}(t) & = 1 \\
+	P_{1,0}(t) + P_{1,1}(t) & = 1
+\end{align*}
+
+\subsubsection{Esempio - Processi di pura nascita}
+
+$$ S = \mathbb{N} \qquad \qquad \begin{array}{cc}
+	v_s = \lambda_s & a_{s,s+1} = 1 \\
+	q_{s,s+1} = \lambda_s
+\end{array}$$
+
+Fissiamo $ \bar{s} $ stato di partenza; quali sono le equazioni in avanti?
+
+\begin{align*}
+	P_{\bar{s},s}'(t) & = -\lambda_s P_{\bar{s},s}(t) + \lambda_{s-1P_{\bar{s},s-1}(t)} \\
+	P_{\bar{s},\bar{s}}'(t) & = -\lambda_{\bar{s}} P_{\bar{s},\bar{s}}(t) \\ %TODO riascolta perché non possiamo riscrivere \bar{s} - 1
+	P_{\bar{s},\bar{s}}(t) & = Ke^{-\lambda_{\bar{s}}t} \\
+	& = e^{-\lambda_{\bar{s}} t}
+\end{align*}
+
+$ K $ deve essere uguale a 1 perché ??? %TODO
+
+$$ P_s(t) = P_{\bar{s},s}(t) $$
+
+Supponiamo $ s > \bar{s} $; allora:
+
+\begin{align*}
+	P_s'(t) & = -\lambda_s P_s(t) + \lambda_{s-1}P_{s'-1}(t) \\ %TODO controlla non ci sia un \rho
+	P_s'(t) + \lambda_s P_s(t) & = \lambda_{s-1} P_{s-1}(t) \\
+\end{align*}
+
+Osserviamo che 
+\begin{align*}
+	\frac{\partial}{\partial t}(e^{-\lambda_s t} P_s(t)) & = \lambda_s e^{\lambda_s t} P_s(t) + e^{\lambda_s t}P_s'(t) \\
+	e^{-\lambda_s(t)} \frac{\partial}{\partial t}(\partial t)(e^{\lambda_s t}P_s(t)) & = \lambda_{s-1} P_{s-1}(t) \\
+	\frac{\partial}{\partial t}(e^{\lambda_s t} P_s(t)) & = \lambda_{s-1}e^{\lambda_s t} P_{s-1}(t) \\
+	e^{\lambda_s t}P_s(t) & = P_s(0) + \int_{0}^{t} \lambda_{s-1}e^{\lambda_s u} P_{s-1}(u) du \\
+	P_s(t) & = P_s(0) e^{\lambda t} + e^{-\lambda t} \int_0^t \lambda_{s-1} e^{\lambda_s u} P_{s-1}(u)du \\
+	P_s(t) & = P_{\bar{s}, \bar{s}}(t) \\
+	& = e^{-\lambda_{\bar{s}} t}
+\end{align*}
+
+Possiamo ottenere tutti i valori delle probabilità di transizione. 
+
+Un caso particolare è il processo di Yule, in questo caso $ S = \mathbb{N} \setminus \{0\} $: è sempre un processo di pura nascita ma non consideriamo lo stato 0; parte infatti da 1, con $\lambda_s = s\cdot \lambda$. Se lo pensiamo come un processo di una popolazione, ad ogni individuo è associato un tempo esponenziale di parametro $\lambda$ e, allo scadere del tempo, l'individuo si sdoppia. Allo stato $ k $ ci sono $ k $ individui. Se consideriamo un intervallo $ h $ ??? %TODO
+dobbiamo fare il minimo tra due variabili \texttt{etc. riascolta} %TODO
+
+Si può dimostrare che 
+$$ p_{1,s}(t) = e^{-\lambda t}(1 - e^{-\lambda t})^{s-1} $$
+
+La dimostrazione può avvenire in vari modi. ?? %TODO
+
+Equazioni di Kolmogorov in avanti:
+
+\begin{align*}
+	P_{1,1}(0) & = 1 \\
+	P_{1,s}'(t) & \overset{?}{=} -s \lambda P_{1,s}(t) + (s-1)\lambda P_{1,s-1}(t)
+\end{align*}
+
+Non sappiamo se l'uguaglianza vale, dobbiamo verificare che soddisfi le equazioni in avanti di Kolmogorov. 
+
+%2020-12-2
+
+Quindi calcoliamo la derivata:
+
+\begin{align*}
+	P_{1,s}'(t) & = \lambda e^{-\lambda t }(1 - e^{-\lambda t})^{s-1} + \lambda e^{-\lambda t} e^{-\lambda t}(s-1)(1-e^{-\lambda t})^{s-2}  + \lambda e^{-\lambda t(1 - (1- e^{-\lambda t}))} %TODO ricontrolla
+\end{align*}
 
 \backmatter
 % bibliography, glossary and index would go here.
