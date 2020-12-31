@@ -43,14 +43,14 @@
 \contentsline {section}{\numberline {3.3}Teorema ergodico per catene di Markov}{41}%
 \contentsline {paragraph}{Teorema}{48}%
 \contentsline {section}{\numberline {3.4}Modello di coda}{49}%
-\contentsline {section}{\numberline {3.5}Reversibilità}{52}%
+\contentsline {section}{\numberline {3.5}Reversibilità}{53}%
 \contentsline {paragraph}{Esempio}{54}%
 \contentsline {paragraph}{Distribuzione invariante per il processo di coda}{56}%
-\contentsline {section}{\numberline {3.6}Metodo Montecarlo basato sulle catene di Markov (MCMC)}{57}%
-\contentsline {paragraph}{Nota}{59}%
+\contentsline {section}{\numberline {3.6}Metodo Montecarlo basato sulle catene di Markov (MCMC)}{58}%
+\contentsline {paragraph}{Nota}{60}%
 \contentsline {subsection}{\numberline {3.6.1}Algoritmo di Metropolis-Hastings}{60}%
 \contentsline {paragraph}{Modello di Ising}{60}%
-\contentsline {subsection}{\numberline {3.6.2}Campionatore di Gibbs (Gibbs sampler)}{61}%
+\contentsline {subsection}{\numberline {3.6.2}Campionatore di Gibbs (Gibbs sampler)}{62}%
 \contentsline {chapter}{\numberline {4}Catene di Markov con tempo continuo}{63}%
 \contentsline {section}{\numberline {4.1}Distribuzione esponenziale}{63}%
 \contentsline {subsection}{\numberline {4.1.1}Assenza di memoria}{65}%
@@ -84,3 +84,6 @@
 \contentsline {subsection}{\numberline {6.1.2}Equazioni in avanti di Kolmogorov (Kolmogorov forward equations )}{111}%
 \contentsline {paragraph}{Esempio }{111}%
 \contentsline {subsubsection}{Esempio - Processi di pura nascita}{112}%
+\contentsline {paragraph}{Esempio - Negozio di pulitura di scarpe}{116}%
+\contentsline {paragraph}{Esempio}{116}%
+\contentsline {paragraph}{Esempio}{117}%

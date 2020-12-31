@@ -23,8 +23,8 @@
 %TODO riascolta lezione del 13 ottobre (non so se mi son perso qualcosa)
 % riascoltata lezione del 14 ottobre
 % riascolta lezione del 20 ottobre
-% riascolta lezione del 21 ottobre
-%TODO riascolta lezione del 27 ottobre
+%TODO riascolta lezione del 21 ottobre (pezzo da finire)
+% riascolta lezione del 27 ottobre
 %TODO riascolta lezione del 28 ottobre
 %TODO riascolta lezione del 3 novembre
 %TODO riascolta lezione del 4 novembre
@@ -37,6 +37,8 @@
 %TODO riascolta lezione del 1 dicembre
 %TODO riascolta lezione del 2 dicembre
 %TODO riascolta lezione del 9 dicembre
+%TODO riascolta lezione del 15 dicembre
+%TODO riascolta lezione del 16 dicembre
 
 \begin{document}
 	
@@ -1921,10 +1923,19 @@ Intuitivamente, essendo $ p $ è la probabilità di arrivo di un cliente e $ q $
 
 Rimane da vedere il caso $ p \ge q $; ci sono due possibilità: gli stati sono \textbf{ricorrenti nulli} oppure \textbf{transienti}. 
 
-Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è una passeggiata aleatoria in cui possiamo aumentare o diminuire di 1. Qui però c'è anche la possibilità di rimanere nello stesso stato all'istante successivo. Ma se trascuriamo questi tempi, nel caso $ p = q $, $ \Rightarrow \frac{p}{1-p} = \frac{q}{1-q} $, siccome le probabilità di andare a destra e a sinistra sono uguali, il modello corrisponde alla passeggiata simmetrica. 
-\\
-\\
-\\
+Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è una passeggiata aleatoria in cui possiamo aumentare o diminuire di 1. Qui però c'è anche la possibilità di rimanere nello stesso stato all'istante successivo. 
+Ma possiamo trascurare questi tempi e considerare solo quelli in cui c'è un cambiamento di stato per ricondurci al problema della rovina del giocatore. Partendo da uno stato, vogliamo calcolare la probabilità di andare a destra o a sinistra nel caso non rimaniamo nello stesso stato. Nel caso $ s \ge 1 $, definiamo $ \bar{p} $ la probabilità di andare nello stato successivo se non rimaniamo nello stesso stato:
+
+$$ \bar{p}=\bar{p}_{s, s+1} = \frac{d}{1-r}$$
+
+nel modello di coda questa probabilità è uguale a $ d $, ma condizioniamo al fatto di non rimanere nello stesso stato. Analogamente:
+$$ 1-\bar{p}= \frac{l}{1-r} = \bar{p}_{s,s-1} $$
+E nel caso dello zero:
+
+$$ \bar{p}_{0,1} = 1 $$
+
+Perché se partiamo dallo stato 0 e sappiamo che non rimaniamo nello stato, con probabilità 1 andiamo nello stato 1.
+
 \begin{multicols}{2}
 	\begin{tikzpicture}
 		\begin{axis}[axis lines = middle, ticks=none, width=6cm, height=6cm, ymin=-1, ymax=3, xmin=-1]
@@ -1946,10 +1957,11 @@ Ci possiamo ricondurre al problema della rovina del giocatore: in quel caso è u
 Quindi, se $ S = 1 $, siccome andremo a 0, dovremo per forza ripassar e per 1; gli stati sono ricorrenti. Inoltre sono ricorrenti nulli perché non c'è distribuzione di probabilità invariante . 
 
 L'interpretazione è che la coda è lunga, ma ogni tanto si svuota. 
+\\
+\\
+Un altro caso possibile è $ p = q $; in questo caso $ d = l $ e si ha che $ \bar{p} = \frac{1}{2} $. Nel caso della rovina del giocatore, quando le due probabilità sono uguali, la rovina del primo giocatore si ha quando si torna allo stato 0; questo implica che lo stato 0 è ricorrente. Sappiamo già però che non può essere ricorrente positivo (lo è nel caso $ p < q $); gli stati allora devono essere necessariamente ricorrenti nulli. 
 
-Se $ p > q $, è come la passeggiata asimmetrica: $ d = \frac{p}{1-p} > l = \frac{q}{1-q} $: la probabilità di andare a destra è maggiore della probabilità di andare a sinistra. 
-
-C'è una probabilità positiva che il primo giocatore non si rovini, quindi che non torni a 0. Quindi in questo caso gli stati sono transienti. L'interpretazione quindi è che lo sportello si può vuotare un numero finito di volte, prima di allungarsi e non riuscire più a svuotarsi. 
+Se $ p > q $, è come la passeggiata asimmetrica: $ d = \frac{p}{1-p} > l = \frac{q}{1-q} $ e $ \bar{p} > \frac{1}{2} $: la probabilità di andare a destra è maggiore della probabilità di andare a sinistra. C'è una probabilità positiva che il primo giocatore non si rovini, quindi che non torni a 0. Quindi in questo caso gli stati sono transienti. L'interpretazione quindi è che lo sportello si può vuotare un numero finito di volte, prima di allungarsi e non riuscire più a svuotarsi. 
 
 \section{Reversibilità}
 È una proprietà che possono possedere le catene di Markov. 
@@ -2091,10 +2103,7 @@ Devo vedere se i due prodotti sono uguali.
 In (I) ci saranno dei passaggi a destra, a sinistra e dei momenti in cui la catena rimane ferma. Siccome devo tornare allo stato di partenza, il numero dei passi a destra deve essere uguale al numero dei passi a sinistra. Per ogni coppia di stati vicini, alcuni andranno in un senso e altri nel senso contrario. 
 
 %LEZIONE 27/10/2020 2020-10-27
-%TODO anziché confrontare le correzioni con quello che ho scritto l'altra volta, riascolta direttamente la lezione e fai il confronto diretto
-%comincio a copiare dalle cose nuove
-
-%TODO è una nuova sezione? 
+%TODO è una nuova sezione?
 \paragraph{Distribuzione invariante per il processo di coda} Dobbiamo cercare dei numeri $ \alpha_s $ tali che 
 $$ \alpha_{s}p_{s,s'} = \alpha_{s'}p_{s',s} $$
 $$ s \ge 1: \begin{array}{c}
@@ -2115,9 +2124,8 @@ $$
 Le equazioni sono uguali a parte per il primo stato ($ s=0 $), quindi la distribuzione invariante non è uguale. 
 \\
 \\
-C'è un altro modo con il quale si può ricercare la distribuzione invariante %TODO giusto? è un esempio o è una nuova tecnica?
+Vediamo un altro esempio con il quale si può ricercare la distribuzione invariante, supponendo sia reversibile. 
 
-Supponiamo sia reversibile. %TODO che cosa?
 Abbiamo un grafo:
 \begin{multicols}{2}
 	\begin{tikzpicture}
@@ -2190,13 +2198,12 @@ Per la legge dei grandi numeri
 $$ \ddfrac{\sum_{i=1}^{N} E_i}{N} \simeq \ddfrac{\pi}{4} $$
 Per $ N $ molto grande. 
 
-Con la catena di Markov non abbiamo una successione indipendente, ma appunto una catena di Markov. %TODO spiega un po' meglio questo passaggio
+Nel metodo Montecarlo basato su catene di Markov non abbiamo una successione indipendente, ma appunto una catena di Markov. 
 
-Supponiamo di avere un insieme $ S $ finito e di avere ??? %TODO
-di probabilità 
+Vediamo ora il metodo Montecarlo basato su catene di Markov. Supponiamo di avere un insieme $ S $ finito e una misura di probabilità 
 $$ u_s = k\pi_s $$
 
-$ k $ è la costante di normalizzazione. Se $ s $ è molto grande, calcolare $ k $può essere quasi impossibile. Vogliamo approssimarlo in modo numerico. Per farlo, possiamo generare una catena di Markov ergodica reversibile con $ u_s $ come distribuzione invariante. 
+$ k $ è la costante di normalizzazione. Se $ S $ è molto grande, calcolare $ k $ può essere quasi impossibile. Vogliamo approssimarlo in modo numerico. Per farlo, possiamo generare una catena di Markov ergodica reversibile con $ u_s $ come distribuzione invariante. 
 
 Partiamo da una catena di Markov su $ S $ con probabilità di transizione $ q_{s,s'} $ irriducibile e tale che se $ q_{s,s'} > 0 $ anche $ q_{s',s} > 0 $:
 
@@ -2210,7 +2217,7 @@ Ora voglio scegliere $ s' $ in modo tale che la catena abbia come distribuzione 
 \begin{align*}
 	u_s p_{s,s'} & = u_{s'}p_{s',s} \qquad s' \ne s \; \; \text{\tiny altrimenti la condizione è banalmente verificata} \\
 	\pi_s p_{s,s'} & = \pi_{s'}p_{s',s} \qquad \qquad u_s = k\pi_s \\
-	\pi_s \alpha_{s,s'}q_{s,s'} & = \pi_{s'}\alpha_{s'}q_{s',s} \\		
+	\pi_s \alpha_{s,s'}q_{s,s'} & = \pi_{s'}\alpha_{s',s}q_{s',s} \\		
 	\ddfrac{\alpha_{s,s'}}{\alpha_{s',s}} & = \ddfrac{\pi_{s'}q_{s',s}}{\pi_s q_{s,s'}} \qquad \qquad \alpha_{s,s'} \le 1 , \; \;  \alpha_{s',s} \le 1
 \end{align*}
 
@@ -2228,7 +2235,10 @@ Che proprietà deve avere questa funzione?
 	\item $ \ddfrac{\phi(x)}{\phi\left(\frac{1}{x}\right)} = x $
 \end{enumerate}
 
-Una possibile scelta per $\phi$ è:
+Se io prendo una certa funzione che ha queste proprietà e definisco delle quantità $ \alpha_{s,s'}, \alpha_{s',s} $ sulla quale la funzione è calcolata, allora la proprietà è soddisfatta. %TODO ho riascoltato ma non ho capito benissimissimo 
+% quindi per definire una catena di Markov posso  ???
+
+Esistono infinite scelte, ma una possibile scelta per $\phi$ è:
 $$ \phi(x) = \min(1,x) $$
 Supponiamo $ 0 < x \le 1 $; allora $ \phi(x) = x $ e $ \phi(\frac{1}{x}) = 1 $.
 
@@ -2241,9 +2251,11 @@ Se invece $ x > 1 $:
 
 Definiamo
 
-$$ \alpha_{s,s'} = \min\left(\ddfrac{\pi_s q_{s,s'}}{\pi_{s'}q_{s,s'}}, 1\right)$$ %TODO perché?
+$$ \alpha_{s,s'} = \min\left(\ddfrac{\pi_s q_{s,s'}}{\pi_{s'}q_{s,s'}}, 1\right)$$
 
 \paragraph{Nota} Abbiamo definito $\phi$ in un certo modo, ma non è l'unico: un'altra possibile funzione è $ \phi(x) = \ddfrac{x}{1+x} $.
+
+Vediamo ora un esempio di applicazione di questo metodo. 
 
 \subsection{Algoritmo di Metropolis-Hastings}
 \paragraph{Modello di Ising}
@@ -2264,30 +2276,33 @@ Ho un sottoinsieme di $ \mathbb{Z}^2 $ che posso vedere come un quadrato:
 		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (2,1) {};
 		\node[draw, circle, inner sep=2pt, label=1, fill=black] () at (2,2) {};
 	\end{tikzpicture}
+	\\
+	\\
+	Se per ognuno di questi punti assegno una quantità, ottengo una configurazione. 
 	
-	Se per ognuno di questi punti assegno una quantità, ottengo una configurazione:
+	Definisco una misura:
 	$$ u_s = k \exp \left[-j \sum_{<i,j>}s_i s_j\right] \qquad \qquad i \in \Lambda $$
 \end{multicols}
 
 $ <i,j>: \; i,j $ sono vicini, considero solo coppie di $ i,j $ vicini. 
 
-Per calcolare $ k $ (la costante di normalizzazione) devo fare la somma di tutti i possibili $ s: |s| = 2^{|\Lambda|} $ %TODO controlla sia giusto
+Per calcolare $ k $ (la costante di normalizzazione) devo fare la somma di tutti i possibili $ s $, che sono: $ |s| = 2^{|\Lambda|} $
 
 Se prendo un quadrato di lato 10, il numero di possibili configurazioni è $ 2^{100} $.
 
-??? %TODO
- Scelgo a caso un punto; se era uguale a 1, lo faccio diventare -1 e viceversa. 
+Quindi il problema risiede nel fatto che anche conoscendo il valore della probabilità, è difficile calcolare la costante di normalizzazione; in realtà abbiamo visto nel metodo Montecarlo con le catene di Markov è che la costante non ci serve.
 
-Questa $ q $ verifica le proprietà che voglio. %TODO che?
+Che funzione posso prendere per $ q_{s,s'} $? Una scelta potrebbe essere scegliere a caso un punto; se è uguale a 1, lo faccio diventare -1 e viceversa. 
 
-Questa catena di Markov è irriducibile: se cambio uno alla volta i valori della configurazione posso passare da una configurazione all'altra.
+Questa $ q $ verifica le proprietà che voglio: se la probabilità di andare da una configurazione all'altra è positiva, ovvero la configurazione si ottiene cambiando in un punto il valore da 1 a -1 o viceversa, è chiaro che anche quella in senso opposto è positiva: se da $ s $ potevo andare in $ s' $, da $ s' $ potevo andare a $ s $. Inoltre questa catena di Markov è irriducibile: se cambio uno alla volta i valori della configurazione posso passare da una configurazione all'altra.
 
 \begin{align*}
 	\pi_s & = \exp (j \sum_{<i,j>} s_i s_j) \\
 	\alpha_{s,s'} & = \min \left( \frac{\pi_s q_{s,s'}}{\pi_{s'} q_{s',s}} , 1 \right) \\
 \end{align*}
 
-$\alpha_{s,s'}$ è diverso da 0 solo se $ q_{s,s'} > 0 $, cioè solo se $ s,s' $ sono definiti cambiando di 1 ??? %TODO
+$\alpha_{s,s'}$ è diverso da 0 solo se $ q_{s,s'} > 0 $.%, cioè solo se $ s,s' $ sono definiti cambiando di 1. 
+
 $$ \frac{\pi}{\pi_{s'}} = \frac{u_s}{u_{s'}} = \frac{\exp \left[ -j \sum_{<i,j>} s_i s_j
 	 \right]}{ \exp \left[ -j \sum_{<i,j>} s_i' s_j' \right] } $$
 
@@ -2295,39 +2310,44 @@ So che $ s,s' $ sono uguali tranne in un punto. Quindi, tranne che per quel punt
 
 I vicini di un punto in 2 dimensioni sono 4, quindi rimane una somma di 4 termini.
 
-Qual è la probabilità che un certo punto sia uguale a 1? ??? %TODO
+Supponiamo ora di voler calcolare rispetto alla distribuzione invariante qual è la probabilità che un certo punto sia uguale a 1. Bisogna fare la somma delle probabilità di tutte le configurazioni tali che nel punto che sto considerando siano uguali a 1. Come posso approssimarlo usando il metodo Montecarlo? Faccio evolvere le configurazioni nella catena di Markov nel tempo e conto, come nel caso del cerchio, quante volte $ s_p = 1 $ (il mio punto valga 1). Quindi se faccio il rapporto tra quante volte il punto è stato uguale a 1 e il numero di volte che la catena di Markov è evoluta, questo rapporto tende con grande probabilità, per il tempo che tende all'infinito, al valore della probabilità che il punto sia uguale a 1. 
 
 %TODO all'inizio del 28/10/2020 fa un recap dell'algoritmo di metropolis, non so se serva modificare/aggiungere qualcosa detto precedentemente
 
+%Recap: 
+L'algoritmo che abbiamo visto si chiama alg. di Metropolis-Hastings ed è appunto basato sul metodo di Monte Carlo basati sulle catene di Markov
+Abbiamo visto anche il modello di Ising, dove possiamo applicare appunto l'algoritmo sopra citato. %(https://en.wikipedia.org/wiki/Ising_model#Metropolis_algorithm)
+%LEZIONE 28/10/2020 2020-10-28
+
 \subsection{Campionatore di Gibbs (Gibbs sampler)}
-È una versione dell'algoritmo di Metropolis-Hastings. Supponiamo che l'insieme degli stati sia un prodotto cartesiano di $ n $ spazi: 
+È un altro algoritmo basato sulle catene di Markov Monte Carlo. È una versione dell'algoritmo di Metropolis-Hastings. Supponiamo che l'insieme degli stati sia un prodotto cartesiano di $ n $ spazi: 
 $$ S = X_1 \times ... \times X_n $$
 $$ \underline{s} \in S \qquad \qquad \underline{s} = (x_1, ..., x_n) $$
 
-Scegliamo un punto a caso: $ \underline{s} = (\underbrace{s}_1, s_2) $
+Gibbs sampler è un caso particolare dell'algoritmo di Metropolis-Hastings; anche qui scegliamo a caso uno dei punti da 1 a $ n $ e ne cambiamo il valore; scegliamo un punto a caso: 
+$ \underline{s} $; lo possiamo scrivere come una coppia $ \underline{s} = (\underbrace{s}_1, s_2) $, dove $ \underline{s}_1 $ è la configurazione in tutti gli altri punti, $ s_2 $ è la configurazione in quel punto. %TODO non ho capito esattamente cosa voglia dire
 
-$ \underline{s}_1 $ è la configurazione in tutti gli altri punti, $ s_2 $ è la configurazione in quel punto. %TODO non ho capito esattamente cosa voglia dire
-
-Possiamo scegliere $ \underline{s}' = (\underline{s}_1, s_2') $ tale che ??? %TODO
+Da questa configurazione possiamo passare ad un'altra configurazione $ \underline{s}' = (\underline{s}_1, s_2') $ che è uguale in tutti gli altri punti, ma differisce solo nel punto scelto sopra. 
 
 Qual è la probabilità di passare da $ s $ a $ s' $?
-$$ p_{\underline{s}, \underline{s}'} = \frac{1}{n} p( s_2' | \underline{s}_1 )$$
+$$ q_{\underline{s}, \underline{s}'} = \frac{1}{n} P( s_2' | \underline{s}_1 )$$
 
-$$ \alpha_{s,s'} = \min\left( \frac{\pi(\underline{s}' q_{\underline{s}', s})}{\pi(\underline{s}) q_{s,s'}} , 1   \right) $$ %TODO e il collegamento con questa formula?
+Quindi vogliamo ottenere una catena di Markov che ha come distribuzione invariante $ k \pi(s) $. Partiamo dalla catena di Markov di riferimento che ha come probabilità di transizione $ q_{\underline{s}, \underline{s}'} $. Quando andiamo a fare il calcolo di $ \alpha_{s,s'} $:
 
-Osserviamo che 
+$$ \alpha_{s,s'} = \min\left( \frac{\pi(\underline{s}' q_{\underline{s}', \underline{s}})}{\pi(\underline{s}) q_{s,s'}} , 1   \right) $$ 
+
+osserviamo che 
 $$ k\pi(s') q_{\underline{s}', \underline{s}} = k\pi(\underline{s}) q_{\underline{s}, \underline{s}'} $$
 
 Questo perché
 
-$$ k\pi(s) = k\pi(s'_1)p(\underline{s}_2', \underline{s}_1) $$ %TODO ricontrolla apici/pedici
+$$ k\pi(s) = k\pi(\underline{s}_1)P(s_2, \underline{s}_1) $$ 
 
 e quindi 
 
-$$ \alpha_{s,s'} = \min \left(\frac{\pi(s_1)p(s_2' | \underline{s}_1)}{\pi(s_1)p(s_2 | \underline{s}_1)}, 1\right) $$
+$$ \alpha_{s,s'} = \min \left(\frac{\pi(s_1)P(s_2' | \underline{s}_1)}{\pi(s_1)P(s_2 | \underline{s}_1)}, 1\right) $$
 
-$ q_{\underline{s}', s} $ a meno di un fattore %TODO quale fattore
-è data da $ p(s_2 | s_1) $; quindi $\alpha_{s,s} = 1$. %TODO ricontrolla apici/pedici
+$ q_{\underline{s}', s} $ a meno di un fattore è data da $ P(s_2 | \underline{s}_1) $ (e allo stesso modo, nel denominatore al posto di $ q_{s,s'} $ posso scrivere $ P(s_2' | \underline{s}_1) $); quindi $\alpha_{\underline{s},\underline{s'}} = 1$. %TODO ricontrolla apici/pedici
 
 ??? %TODO
 
@@ -4147,8 +4167,210 @@ Non sappiamo se l'uguaglianza vale, dobbiamo verificare che soddisfi le equazion
 Quindi calcoliamo la derivata:
 
 \begin{align*}
-	P_{1,s}'(t) & = \lambda e^{-\lambda t }(1 - e^{-\lambda t})^{s-1} + \lambda e^{-\lambda t} e^{-\lambda t}(s-1)(1-e^{-\lambda t})^{s-2}  + \lambda e^{-\lambda t(1 - (1- e^{-\lambda t}))} %TODO ricontrolla
+	P_{1,s}'(t) & = \lambda e^{-\lambda t }(1 - e^{-\lambda t})^{s-1} + \lambda e^{-\lambda t} e^{-\lambda t}(s-1)(1-e^{-\lambda t})^{s-2}  + \lambda e^{-\lambda t(1 - (1- e^{-\lambda t}))} \\ %TODO ricontrolla
+	& = -\lambda s e^{-\lambda t}(1 - e^{-\lambda t})^{s-1} + ??? \lambda t(1 -\lambda t)^{s-2} %TODO
 \end{align*}
+
+Questa è la soluzione partendo da 1; qual è la soluzione partendo da un altro stato? In generale:
+
+\begin{align*}
+	P_{s,s'} & = \binom{s'-1}{s-1}e^{-s\lambda t} (1 - e^{-\lambda t})^{s'-s} \\
+	P_{1,s'}(t) & = e^{-\lambda t} (1 - e^{-\lambda t})^{s'-1}
+\end{align*}
+
+L'ultima equazione è la distribuzione geometrica; la distribuzione geometrica infatti è del tipo $ (1-p)^{k-1} $, con $ p,k = 1, 2, ... $. È collegata con lo schema di Bernoulli. Quindi quella soprastante è una distribuzione geometrica con $ p = e^{-\lambda t} $.
+
+Facciamo ora un'\textbf{osservazione}, collegata all'interpretazione del processo di Yule come processo di popolazione: $ P_{s,s'}(t) $ vuol dire che la popolazione all'inizio ha $ s $ individui, e ci stiamo chiedendo qual è la probabilità che al tempo $ t $ abbia $ s' $ individui. $ P_{s,s'}(t) $ si può vedere come la somma del numero di individui che discende dagli $ s $ iniziali, ovvero la somma di $ s $ variabili aleatorie indipendenti con distribuzione geometrica di parametro $ e^{-\lambda t} $.
+
+La distribuzione geometrica è la distribuzione nel tempo del primo successo; se invece anziché la prima vediamo la $ s $-esima volta, questo tempo lo possiamo suddividere come la somma di $ s $ variabili aleatorie indipendenti: bisogna vedere qual è il tempo in cui dobbiamo aspettare per la prima volta ??? %TODO
+
+Qual è la probabilità che fino al tempo $ s-1 $ abbiamo avuto $ s-1 $ successi? È la distribuzione binomiale:
+
+$$ \binom{s'-1}{s-1}e^{-(s-1)\lambda t}(1-e^{-\lambda t})^{s'-s}e^{-\lambda t} = \binom{s'-1}{s-1} e^{-s\lambda t}(1-e^{-\lambda t})$$
+
+Questo verifica le equazioni di Kolmogorov in avanti. 
+
+%TODO mia domanda
+
+Vediamo ora quando convergono ??? %TODO
+
+Supponiamo che da $ P_{s,s'}(t) $ converga per $ t \to \infty $ per tutti gli $ s $; Come ottengo il limite? %TODO in che senso
+
+$$ \lim\lim\limits_{t \to \infty} P_{s,s'}(t) = P_{s'} $$ %TODO il secondo è P o p?
+
+Scriviamo le equazioni in avanti:
+
+$$ P_{s,s'}'(t) = -v_{s'} P_{s,s'}(t) + \sum_{s'' \ne s'}q_{s'',s} P_{s.s''}(t) $$
+
+Supponiamo che le probabilità convergano. Allora 
+
+$$ \underset{t \to \infty}{\longrightarrow} -v_{s'}p_{s'} + \sum_{s'' \ne s} q_{s'',s'}p_{s''} $$
+
+Affinché converga, questa quantità deve essere uguale a 0. Infatti, supponiamo per assurdo che sia un valore diverso da 0. Allora potrebbe tendere a un valore ??? %TODO
+
+??? sistema equazioni lineari ??? %TODO
+
+?? caso più semplice %TODO
+
+Sia $ S = \{0,1\} $, $ \bar{s} $ lo stato di partenza; le equazioni in avanti sono:
+
+\begin{align*}
+	P_{\bar{s},0}'(t) & = -\lambda P_{\bar{s},0}(t) + \mu P_{\bar{s},1}(t) \\
+	P_{\bar{s},1}'(t) & = -\mu P_{\bar{s},1}(t) + \lambda P_{\bar{s},0}(t)) %TODO parentesi non bilanciate
+\end{align*}
+
+Siamo interessati solo al limite a cui tendono: %TODO ?? sicuri?
+
+$$
+\begin{cases}
+	0 = -\lambda p_0 + \mu p_1 \\
+	0 = -\mu p_1 + \lambda p_0 \\
+	p_0 + p_1 = 1
+\end{cases}
+$$
+
+\begin{multicols}{2}
+	\begin{align*}
+	p_1 & = 1-p_0 \\
+	0 & = \lambda p_1 + \mu(1 - p_0) \\
+	p_0 & = \frac{\mu}{\lambda + \mu} & p_1 = \frac{\lambda}{\lambda + \mu}
+	\end{align*}
+	\\
+	\\
+	\\
+	?? %TODO
+	\\
+	distribuzione stazionaria
+	\\
+	??
+\end{multicols}
+
+Vediamo ora un esempio di distribuzione stazionaria e proviamo a calcolarla ?? %TODO
+
+La distribuzione stazionaria è come un punto di equilibrio ?? %TODO 
+
+Nei processi di nascita e morte non è detto ?? %TODO
+
+Nei processi di pura nascita non c'è ?? %TODO
+
+\paragraph{Esempio - Negozio di pulitura di scarpe} Sia $ S = \{0,1,2\} $
+
+$$ \begin{array}{cccc}
+	v_0 = \lambda & v_1 = \mu_1 & v_2 = \mu_2 & ?? \\
+	a_{0,1} = 1 & a_{1,2} = 1 & a_{2,0} = 1 \\
+	q_{2,0} = \mu_2 & q_{0,1} = \lambda & q_{1,2} = \mu_1
+\end{array} $$
+
+\begin{align*}
+	\bar{P}_{\bar{s},0}(t) & = -\lambda P_{\bar{s}, 0}(t) + \mu_2 P_{\bar{s},2}(t) \\
+	{P}_{\bar{s},1}'(t) & = -\mu_1 P_{\bar{s}, 1}(t) + \lambda P_{\bar{s},0}(t) \\
+	{P}_{\bar{s},2}'(t) & = -\mu_2 P_{\bar{s}, 2}(t) + \mu_1 P_{\bar{s},1}(t)
+\end{align*}
+
+$$ 
+	\begin{cases}
+		-\lambda p_0 + \mu_2 p_2 = 0 \\
+		-\mu_1 p_1 + \lambda p_0 = 0 \\
+		-\mu_2 p_2 + \mu_1 p_1 = 1 \\
+		p_0 + p_1 + p_2 = 1
+	\end{cases}
+$$
+
+Abbiamo 4 equazioni e 3 incognite ??? %TODO
+
+\paragraph{Esempio}
+
+Abbiamo $ M $ macchine e 1 riparatore. Quando una macchina si guasta, viene messa in riparazione. Se c'è già una macchina in riparazione, si forma una coda. 
+
+Prendiamo come stato il numero delle macchine in funzione; ??? %TODO
+
+Il tempo di riparazione è un esponenziale di parametro $\mu$. Lo spazio degli stati è $ \{0, ..., M\} $. Supponiamo ci siano $ s $ macchine in funzione; le macchine in riparazione saranno $ M - s $. 
+
+Il tempo della riparazione è $ v_s $. 
+
+$$ \begin{array}{cc}
+	v_s = s\lambda + \mu \; , & s \le M-1 \\
+	s_M = M \lambda \; , & s = M
+\end{array} $$
+
+Quando scade $ v_s $, qual è la probabilità di andare nello stato $ s+1 $ e qual è la probabilità di andare nello stato $ s-1 $?
+
+Sia $ s \le M-1 $:
+
+\begin{align*}
+	a_{s,s+1} & = \frac{\mu}{s\lambda + \mu} \\
+	a_{s,s-1} & = \frac{s\lambda}{s\lambda + \mu} \\
+	a_{M, M-1} & = 1 \\
+	q_{s,s+1} & = \mu \\
+	q_{s,s-1} & = s\lambda
+\end{align*}
+
+Sia $ s = M $:
+\begin{align*}
+	q_{M, M-1} & = M\lambda 
+\end{align*}
+
+$$ 	p_0, p_1, ..., p_m  $$ %TODO ???
+$ 	s \le M-1 $:
+\begin{align*}
+	-p_s(\mu  +s\lambda) & = \mu p_{s-1} + (s+1)\lambda p_{s+1} 
+\end{align*}
+$ 	s = M $:
+\begin{align*}
+	-p_M M \lambda & = p_{M-1} \mu 
+\end{align*}
+
+$ 	p_0 + p_1 + ... + p_M < 1 $
+
+\paragraph{Esempio}
+Abbiamo visto esempi con un numero finito di stati; vediamo un esempio con un numero infinito di stati. Supponiamo di avere una coda $ M/M/1 $ (processo di nascita e coda ??? %TODO
+dove gli arrivi sono un processo di Poisson di parametro $\lambda$, il tempo di servizio è un processo di Poisson di parametro $\mu$ e infine c'è un solo sportello. 
+
+Prendiamo come stato il numero totale dei clienti nel sistema; quindi $ S = \mathbb{N} $. 
+
+Prendiamo come distribuzione iniziale
+$$ \rho_0 = 1$$
+ovvero all'inizio non c'è nessun cliente. 
+
+Mentre siamo nello stato $ 0 $, quando avviene il cambiamento di stato? È possibile solo se arriva un nuovo cliente; i clienti arrivano con processo di Poisson di parametro $\lambda$:
+$$ v_0 = \lambda $$
+$$ a_{0,1} = 1 $$
+
+Se invece $ s \ge 1 $, un cambiamento di stato può avvenire in due modi: arriva un nuovo cliente oppure finiamo di servire un cliente. È il minimo tra due variabili esponenziali di parametri $\lambda$ e $\mu$:
+
+\begin{align*}
+	v_s & = \lambda + \mu \\
+	a_{s,s+1} & = \frac{\lambda}{\lambda + \mu} & \text{il minimo corrisponde a } \lambda \\
+	a_{s, s-1} & = \frac{\mu}{\lambda + \mu} & \text{il minimo corrisponde a } \mu \\
+	q_{0,1} & = \lambda \\ 
+	q_{s,s+1} & = \lambda \\
+	 q_{s,s-1} & = \mu
+\end{align*}
+%TODO c'è qualcosa tipo vs * a_{s,s+1} in piccolo
+
+Vogliamo vedere se c'è una distribuzione stazionaria e calcolarla. 
+
+\begin{center}
+	\begin{tikzpicture}
+		\node[draw, circle, inner sep=2pt, fill=black, label=left:0] (0) at(-4, 0) {};
+		\node[draw, circle, inner sep=2pt, fill=black, label=left:1] (1) at(-2, 0) {};
+		\node[draw, circle, inner sep=2pt, fill=black, label=left:2] (2) at(0, 0) {};
+		\node[draw, circle, inner sep=2pt, fill=black, label=left:3] (3) at(2, 0) {};	
+		\node[draw, circle, inner sep=2pt, fill=black] (4) at(4, 0) {};	
+		
+		\draw[black] (0) to[out=-45,in=-135] (1) ;
+	\end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
+
+
+
 
 \backmatter
 % bibliography, glossary and index would go here.
