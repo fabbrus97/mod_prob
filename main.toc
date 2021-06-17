@@ -51,39 +51,67 @@
 \contentsline {subsection}{\numberline {3.6.1}Algoritmo di Metropolis-Hastings}{60}%
 \contentsline {paragraph}{Modello di Ising}{60}%
 \contentsline {subsection}{\numberline {3.6.2}Campionatore di Gibbs (Gibbs sampler)}{62}%
-\contentsline {chapter}{\numberline {4}Catene di Markov con tempo continuo}{63}%
-\contentsline {section}{\numberline {4.1}Distribuzione esponenziale}{63}%
-\contentsline {subsection}{\numberline {4.1.1}Assenza di memoria}{65}%
-\contentsline {subsection}{\numberline {4.1.2}Tasso di rischio}{66}%
-\contentsline {subsection}{\numberline {4.1.3}Distribuzione iperesponenziale}{67}%
-\contentsline {subsection}{\numberline {4.1.4}Distribuzione di Erlanger}{70}%
-\contentsline {chapter}{\numberline {5}Processo di Poisson}{73}%
-\contentsline {paragraph}{Proprietà dei processi di conteggio}{73}%
-\contentsline {section}{\numberline {5.1}Decomposizione di un processo di Poisson}{76}%
-\contentsline {section}{\numberline {5.2}Definizione equivalente di processo di Poisson}{78}%
-\contentsline {section}{\numberline {5.3}Distribuzione condizionata dei punti di salto}{80}%
-\contentsline {section}{\numberline {5.4}Processo di Poisson non omogeneo}{81}%
-\contentsline {paragraph}{Caratterizzazione infinitesimale}{82}%
-\contentsline {paragraph}{Esempio}{83}%
-\contentsline {paragraph}{Esempio}{84}%
-\contentsline {paragraph}{Esempio: processo di coda }{85}%
-\contentsline {section}{\numberline {5.5}Processi di Poisson composti (compound Poisson process)}{88}%
-\contentsline {section}{\numberline {5.6}Processi di pura nascita (pure birth processes)}{93}%
-\contentsline {paragraph}{Esplosione}{94}%
-\contentsline {chapter}{\numberline {6}Catene di Markov con tempo continuo}{97}%
-\contentsline {paragraph}{Esempio}{98}%
-\contentsline {paragraph}{Esempio}{100}%
-\contentsline {paragraph}{Esempio}{100}%
-\contentsline {paragraph}{Esempio}{102}%
-\contentsline {subsection}{\numberline {6.0.1}Modello di crescita lineare con immigrazione}{103}%
-\contentsline {subsection}{\numberline {6.0.2}Modello di pura nascita}{105}%
-\contentsline {paragraph}{Processo di Yule}{106}%
-\contentsline {section}{\numberline {6.1}Equazioni di Kolmogorov}{106}%
-\contentsline {subsection}{\numberline {6.1.1}Equazioni all'indietro di Kolmogorov (Kolmogorov backward equation)}{107}%
-\contentsline {paragraph}{Esempio}{108}%
-\contentsline {subsection}{\numberline {6.1.2}Equazioni in avanti di Kolmogorov (Kolmogorov forward equations )}{111}%
-\contentsline {paragraph}{Esempio }{111}%
-\contentsline {subsubsection}{Esempio - Processi di pura nascita}{112}%
-\contentsline {paragraph}{Esempio - Negozio di pulitura di scarpe}{116}%
-\contentsline {paragraph}{Esempio}{116}%
-\contentsline {paragraph}{Esempio}{117}%
+\contentsline {chapter}{\numberline {4}Catene di Markov con tempo continuo}{65}%
+\contentsline {section}{\numberline {4.1}Distribuzione esponenziale}{65}%
+\contentsline {subsection}{\numberline {4.1.1}Assenza di memoria}{67}%
+\contentsline {subsection}{\numberline {4.1.2}Tasso di rischio (hazard rate)}{69}%
+\contentsline {subsection}{\numberline {4.1.3}Distribuzione iperesponenziale}{70}%
+\contentsline {subsection}{\numberline {4.1.4}Distribuzione della somma di due variabili aleatorie indipendenti con distribuzione esponenziale}{72}%
+\contentsline {subsection}{\numberline {4.1.5}Distribuzione di Eerlang}{74}%
+\contentsline {subsection}{\numberline {4.1.6}Distribuzione ipoesponenziale}{75}%
+\contentsline {chapter}{\numberline {5}Processo di Poisson}{77}%
+\contentsline {paragraph}{Proprietà dei processi di conteggio}{77}%
+\contentsline {paragraph}{Osservazione}{81}%
+\contentsline {subsection}{\numberline {5.0.1}Salti nel processo di Poisson}{81}%
+\contentsline {section}{\numberline {5.1}Decomposizione di un processo di Poisson}{82}%
+\contentsline {subsection}{\numberline {5.1.1}"Ricomposizione" di processi di Poisson}{83}%
+\contentsline {section}{\numberline {5.2}Definizione equivalente di processo di Poisson}{83}%
+\contentsline {section}{\numberline {5.3}Distribuzione condizionata dei punti di salto}{86}%
+\contentsline {section}{\numberline {5.4}Processo di Poisson non omogeneo}{88}%
+\contentsline {subsection}{\numberline {5.4.1}Caratterizzazione infinitesimale}{89}%
+\contentsline {subsection}{\numberline {5.4.2}Definizione alternativa}{90}%
+\contentsline {paragraph}{Esempio}{90}%
+\contentsline {subsection}{\numberline {5.4.3}Generazione di un processo di Poisson non omogeneo}{91}%
+\contentsline {paragraph}{Esempio: processo di coda }{92}%
+\contentsline {subsection}{\numberline {5.4.4}Somma di processi di Poisson non omogenei}{93}%
+\contentsline {section}{\numberline {5.5}Processi di Poisson composti (compound Poisson process)}{96}%
+\contentsline {subsubsection}{Varianza}{97}%
+\contentsline {subsection}{\numberline {5.5.1}Esempi}{98}%
+\contentsline {section}{\numberline {5.6}Processi di pura nascita (pure birth processes)}{103}%
+\contentsline {paragraph}{Esplosione}{103}%
+\contentsline {chapter}{\numberline {6}Catene di Markov con tempo continuo}{109}%
+\contentsline {paragraph}{Esempio}{111}%
+\contentsline {section}{\numberline {6.1}Processi di tipo esponenziale}{112}%
+\contentsline {paragraph}{Esempio}{113}%
+\contentsline {paragraph}{Esempio}{113}%
+\contentsline {paragraph}{Esempio}{115}%
+\contentsline {subsection}{\numberline {6.1.1}Modello di crescita lineare con immigrazione}{116}%
+\contentsline {subsection}{\numberline {6.1.2}Modello di pura nascita}{119}%
+\contentsline {paragraph}{Processo di Yule}{120}%
+\contentsline {section}{\numberline {6.2}Equazioni di Kolmogorov}{120}%
+\contentsline {subsection}{\numberline {6.2.1}Equazioni all'indietro di Kolmogorov (Kolmogorov backward equation)}{121}%
+\contentsline {paragraph}{Esempio}{121}%
+\contentsline {subsection}{\numberline {6.2.2}Equazioni in avanti di Kolmogorov (Kolmogorov forward equations )}{125}%
+\contentsline {paragraph}{Esempio }{126}%
+\contentsline {subsubsection}{Esempio - Processi di pura nascita}{127}%
+\contentsline {paragraph}{Esempio - Negozio di pulitura di scarpe}{132}%
+\contentsline {paragraph}{Esempio}{132}%
+\contentsline {paragraph}{Esempio}{133}%
+\contentsline {paragraph}{Esempio}{136}%
+\contentsline {subsection}{\numberline {6.2.3}Processi di nascita e morte (con catene di Markov con tempo continuo)}{140}%
+\contentsline {subsection}{\numberline {6.2.4}Condizione per la reversibilità}{146}%
+\contentsline {subsection}{\numberline {6.2.5}Reversibilità dei processi di nascita e morte}{146}%
+\contentsline {paragraph}{Esempi}{147}%
+\contentsline {chapter}{\numberline {7}Processi di rinnovamento}{149}%
+\contentsline {paragraph}{Definizione}{149}%
+\contentsline {subsection}{\numberline {7.0.1}Proprietà dei processi di rinnovamento}{150}%
+\contentsline {paragraph}{Calcolo della distribuzione di $ N_t $}{151}%
+\contentsline {subsection}{\numberline {7.0.2}Comportamento asintotico}{151}%
+\contentsline {paragraph}{Esempio}{152}%
+\contentsline {paragraph}{Esempio}{152}%
+\contentsline {section}{\numberline {7.1}Processi di rinnovamento con ricompensa}{152}%
+\contentsline {subsection}{\numberline {7.1.1}Comportamento asintotico}{153}%
+\contentsline {subsection}{\numberline {7.1.2}Applicazione}{154}%
+\contentsline {section}{\numberline {7.2}Processi di rinnovamento alternati}{156}%
+\contentsline {paragraph}{Esempio}{158}%
+\contentsline {paragraph}{Esempio}{159}%

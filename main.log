@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.31)  31 DEC 2020 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.22)  17 JUN 2021 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -699,20 +699,20 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count301
@@ -739,12 +739,12 @@ ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.16} (current compat level: 1.5.1).
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -756,7 +756,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./main.toc [3
 
 ]
-Overfull \hbox (7.29868pt too wide) in paragraph at lines 82--82
+Overfull \hbox (7.29868pt too wide) in paragraph at lines 92--92
  [][] []\OT1/cmr/m/n/12 Equazioni all'indietro di Kol-mogorov (Kol-mogorov back
 - 
  []
@@ -768,18 +768,18 @@ Overfull \hbox (7.29868pt too wide) in paragraph at lines 82--82
  [4]
 Chapter 1.
 
-Overfull \hbox (12.72499pt too wide) in paragraph at lines 78--79
+Overfull \hbox (12.72499pt too wide) in paragraph at lines 79--80
 []\OT1/cmr/m/n/12 Data questa pre-messa, pos-si-amo far cor-rispon-dere le op-e
 r-azioni in-siemistiche
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--90
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
 []|\OT1/cmr/bx/n/12 Complementazione
  []
 
 
-Overfull \hbox (4.28581pt too wide) in paragraph at lines 81--93
+Overfull \hbox (4.28581pt too wide) in paragraph at lines 82--94
  [] 
  []
 
@@ -791,75 +791,75 @@ Overfull \hbox (4.28581pt too wide) in paragraph at lines 81--93
 ]
 Chapter 2.
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 131--135
+Underfull \hbox (badness 10000) in paragraph at lines 132--136
 
  []
 
 
-Underfull \hbox (badness 1292) in paragraph at lines 151--152
+Underfull \hbox (badness 1292) in paragraph at lines 152--153
  \OT1/cmr/bx/n/12 Dis-tribuzione bi-no-mi-ale[] \OT1/cmr/m/n/12 dis-ribuzione d
 el nu-mero di suc-cessi,
  []
 
 [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 311--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 311--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 311--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 311--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 311--319
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 357--365
+Underfull \hbox (badness 10000) in paragraph at lines 358--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--365
+Underfull \hbox (badness 10000) in paragraph at lines 358--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--365
+Underfull \hbox (badness 10000) in paragraph at lines 358--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--365
+Underfull \hbox (badness 10000) in paragraph at lines 358--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--365
+Underfull \hbox (badness 10000) in paragraph at lines 358--366
 
  []
 
 [9]
-Overfull \hbox (0.54872pt too wide) in paragraph at lines 392--393
+Overfull \hbox (0.54872pt too wide) in paragraph at lines 393--394
 []\OT1/cmr/m/n/12 Ma pos-si-amo ridurci al prob-lema prece-dente, spo-stando l'
 origine nel punto
  []
 
 Missing character: There is no ] in font nullfont!
 [10]
-Overfull \hbox (19.63153pt too wide) detected at line 462
+Overfull \hbox (19.63153pt too wide) detected at line 463
 \OMS/cmsy/m/n/12 ) \OT1/cmr/m/n/12 1 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f[] 
 \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12
  ::: \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f[] \OT1/cmr/m/n/12 = 1 \OMS/cmsy/m/
@@ -872,57 +872,57 @@ m/it/12 u[]: [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--470
+Underfull \hbox (badness 10000) in paragraph at lines 467--471
 
  []
 
 [11]
-Overfull \hbox (68.10083pt too wide) detected at line 482
+Overfull \hbox (68.10083pt too wide) detected at line 483
 []
  []
 
 
-Overfull \hbox (39.09659pt too wide) in paragraph at lines 512--513
+Overfull \hbox (39.09659pt too wide) in paragraph at lines 513--514
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 520--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 520--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 520--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 520--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 520--528
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in alignment at lines 553--553
+Underfull \hbox (badness 10000) in alignment at lines 554--554
 [][] 
  []
 
 [13]
-Overfull \hbox (46.72401pt too wide) in paragraph at lines 583--592
+Overfull \hbox (46.72401pt too wide) in paragraph at lines 584--593
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 598--598
+Underfull \hbox (badness 10000) in alignment at lines 599--599
 [][] 
  []
 
@@ -931,7 +931,7 @@ Overfull \vbox (20.88829pt too high) has occurred while \output is active []
 
 
 [14]
-Overfull \hbox (6.16496pt too wide) in paragraph at lines 623--624
+Overfull \hbox (6.16496pt too wide) in paragraph at lines 624--625
 []\OT1/cmr/m/n/12 Da questa for-mula si vede che l'istogramma ^^Re vi-cino alla
  fun-zione $[]$: 
  []
@@ -1087,63 +1087,63 @@ nded (in y). (see also unbounded coords=jump).
 NOTE: coordinate (1Y1.9999861e0],3Y0.0e0]) has been dropped because it is unbou
 nded (in y). (see also unbounded coords=jump). 
 
-Overfull \hbox (43.88326pt too wide) in paragraph at lines 637--638
+Overfull \hbox (43.88326pt too wide) in paragraph at lines 638--639
 [][] 
  []
 
 
-Overfull \hbox (14.17926pt too wide) in paragraph at lines 645--646
+Overfull \hbox (14.17926pt too wide) in paragraph at lines 646--647
 []\OT1/cmr/m/n/12 Questa ^^Re detta \OT1/cmr/bx/n/12 prima legge dell'arcoseno 
 \OT1/cmr/m/n/12 perch^^Se la prim-i-tiva dell'integrale
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 652--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 652--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 652--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 652--660
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--659
+Underfull \hbox (badness 10000) in paragraph at lines 652--660
 
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 660--660
+Underfull \hbox (badness 10000) in alignment at lines 661--661
 [][] 
  []
 
 [16]
-Overfull \hbox (2.52977pt too wide) in paragraph at lines 724--724
+Overfull \hbox (2.52977pt too wide) in paragraph at lines 725--725
 []\OT1/cmr/bx/n/17.28 Problema della rov-ina del gio-ca-tore (gam-
  []
 
 [17]
-Underfull \hbox (badness 10000) in alignment at lines 734--734
+Underfull \hbox (badness 10000) in alignment at lines 735--735
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 753--753
+Underfull \hbox (badness 10000) in alignment at lines 754--754
 [][] 
  []
 
 
-Overfull \hbox (87.98174pt too wide) detected at line 767
+Overfull \hbox (87.98174pt too wide) detected at line 768
 []
  []
 
@@ -1154,22 +1154,22 @@ Overfull \hbox (27.71817pt too wide) has occurred while \output is active
  []
 
 [19]
-Overfull \hbox (21.85524pt too wide) detected at line 801
+Overfull \hbox (21.85524pt too wide) detected at line 802
 []
  []
 
 [20]
-Overfull \hbox (4.70381pt too wide) in paragraph at lines 826--826
+Overfull \hbox (4.70381pt too wide) in paragraph at lines 827--827
 []\OT1/cmr/bx/n/17.28 Processi di di-ra-mazione di Galton-Watson
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 832--832
+Underfull \hbox (badness 10000) in alignment at lines 833--833
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 833--833
+Underfull \hbox (badness 10000) in alignment at lines 834--834
 [][] 
  []
 
@@ -1180,27 +1180,27 @@ ESSES) \OT1/cmr/m/n/12 21
  []
 
 [21]
-Underfull \hbox (badness 10000) in alignment at lines 862--862
-[][] 
- []
-
-
 Underfull \hbox (badness 10000) in alignment at lines 863--863
 [][] 
  []
 
-[22]
+
 Underfull \hbox (badness 10000) in alignment at lines 864--864
 [][] 
  []
 
+[22]
+Underfull \hbox (badness 10000) in alignment at lines 865--865
+[][] 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--872
+
+Underfull \hbox (badness 10000) in paragraph at lines 867--873
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--872
+Underfull \hbox (badness 10000) in paragraph at lines 867--873
 
  []
 
@@ -1211,12 +1211,12 @@ ESSES) \OT1/cmr/m/n/12 23
  []
 
 [23]
-Overfull \hbox (119.06743pt too wide) detected at line 918
+Overfull \hbox (119.06743pt too wide) detected at line 919
 []
  []
 
 
-Overfull \hbox (9.81406pt too wide) in paragraph at lines 943--944
+Overfull \hbox (9.81406pt too wide) in paragraph at lines 944--945
 [][] 
  []
 
@@ -1230,7 +1230,7 @@ ESSES) \OT1/cmr/m/n/12 25
  []
 
 [25]
-Overfull \hbox (14.49486pt too wide) in paragraph at lines 989--990
+Overfull \hbox (14.49486pt too wide) in paragraph at lines 990--991
 []\OT1/cmr/m/n/12 Quindi $\OML/cmm/m/it/12 s \OT1/cmr/m/n/12 = 1$ ^^Re una solu
 zione; ri-sol-vendo il sec-ondo el-e-mento dell'equazione
  []
@@ -1240,136 +1240,136 @@ zione; ri-sol-vendo il sec-ondo el-e-mento dell'equazione
 ]
 Chapter 3.
 [29] [30]
-Overfull \hbox (7.37227pt too wide) in paragraph at lines 1125--1126
+Overfull \hbox (7.37227pt too wide) in paragraph at lines 1126--1127
 []\OT1/cmr/m/n/12 Possiamo fi-nal-mente cal-co-lare le prob-a-bilit^^Ra di pas-
 sare da uno stato all'altro
  []
 
 [31] [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1274
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1283
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1283
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1290--1294
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1305--1309
+Underfull \hbox (badness 10000) in paragraph at lines 1306--1310
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1342
 
  []
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1371
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1371
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1372
 
  []
 
 [36] [37] [38]
-Overfull \hbox (13.04909pt too wide) in paragraph at lines 1483--1484
+Overfull \hbox (13.04909pt too wide) in paragraph at lines 1484--1485
 [][] 
  []
 
 [39] [40] [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1579--1584
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1585
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1579--1584
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1585
 
  []
 
 [42]
-Overfull \hbox (9.7126pt too wide) in paragraph at lines 1639--1640
+Overfull \hbox (9.7126pt too wide) in paragraph at lines 1640--1641
 []\OT1/cmr/m/n/12 Queste re-lazioni ci di-cono che $\OML/cmm/m/it/12 u[]$ \OT1/
 cmr/m/n/12 ^^Re una dis-tribuzione in-vari-ante o stazionaria,
  []
 
 [43] [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1693--1697
+Underfull \hbox (badness 10000) in paragraph at lines 1694--1698
 
  []
 
 [45]
-Overfull \hbox (5.05284pt too wide) in paragraph at lines 1714--1715
+Overfull \hbox (5.05284pt too wide) in paragraph at lines 1715--1716
 []\OT1/cmr/m/n/12 Quindi in una tale catena di Markov (sola classe di equiv-ale
 nza, ir-riducibile,
  []
 
 [46] [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1823--1828
+Underfull \hbox (badness 10000) in paragraph at lines 1824--1829
 
  []
 
 [48] [49] [50] [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1948--1955
+Underfull \hbox (badness 10000) in paragraph at lines 1949--1956
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1948--1955
+Underfull \hbox (badness 10000) in paragraph at lines 1949--1956
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1948--1955
+Underfull \hbox (badness 10000) in paragraph at lines 1949--1956
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1959--1963
+Underfull \hbox (badness 10000) in paragraph at lines 1960--1964
 
  []
 
 [52]
-Overfull \hbox (1.94463pt too wide) in paragraph at lines 1971--1972
+Overfull \hbox (1.94463pt too wide) in paragraph at lines 1972--1973
 []\OT1/cmr/m/n/12 Se come dis-tribuzione in-iziale di-amo $\OML/cmm/m/it/12 u[]
 $\OT1/cmr/m/n/12 , ai tempi suc-ces-sivi la dis-tribuzione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1999--2004
+Underfull \hbox (badness 10000) in paragraph at lines 2000--2005
 
  []
 
 [53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2062
+Underfull \hbox (badness 10000) in paragraph at lines 2058--2063
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2062
+Underfull \hbox (badness 10000) in paragraph at lines 2058--2063
 
  []
 
 [55]
-Underfull \hbox (badness 10000) in paragraph at lines 2124--2128
+Underfull \hbox (badness 10000) in paragraph at lines 2125--2129
 
  []
 
@@ -1380,12 +1380,12 @@ OT1/cmr/m/n/12 59
  []
 
 [59]
-Underfull \hbox (badness 10000) in paragraph at lines 2278--2282
+Underfull \hbox (badness 10000) in paragraph at lines 2279--2283
 
  []
 
 
-Overfull \hbox (15.32585pt too wide) detected at line 2284
+Overfull \hbox (15.32585pt too wide) detected at line 2285
 \OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k [] []   i \OMS/cmsy/m
 /n/12 2 \OT1/cmr/m/n/12 ^^C
  []
@@ -1397,63 +1397,111 @@ OT1/cmr/m/n/12 61
  []
 
 [61] [62]
+Overfull \hbox (60.0373pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 3.6.  METODO MONTECARLO BASATO SULLE CATENE DI MARKOV (MCMC) \
+OT1/cmr/m/n/12 63
+ []
+
+[63] [64
+
+]
 Chapter 4.
 
-Overfull \hbox (17.32574pt too wide) in paragraph at lines 2358--2359
+Overfull \hbox (17.32574pt too wide) in paragraph at lines 2372--2373
 \OT1/cmr/m/n/12 Nelle catene di Markov con tempo con-tinuo as-sume im-por-tanza
  la \OT1/cmr/bx/n/12 dis-tribuzione
  []
 
-[63
 
-] [64]
-Overfull \hbox (6.85005pt too wide) in paragraph at lines 2420--2421
+Overfull \hbox (8.05975pt too wide) in paragraph at lines 2392--2393
+[]\OT1/cmr/m/n/12 Quando posso scri-vere la fun-zione di ri-par-tizione come l'
+integrale di un'altra
+ []
+
+[65]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [66]
+Overfull \hbox (6.85005pt too wide) in paragraph at lines 2437--2438
 []\OT1/cmr/m/n/12 L'interpretazione della prob-a-bilit^^Ra ap-pena enun-ci-ata 
 ^^Re la seguente: sapendo
  []
 
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 2451--2456
 
-Underfull \hbox (badness 10000) in paragraph at lines 2434--2439
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2451--2456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2434--2439
+Underfull \vbox (badness 2469) has occurred while \output is active []
 
- []
-
-[65]
-Overfull \hbox (17.08096pt too wide) in paragraph at lines 2464--2465
+ [68]
+Overfull \hbox (17.08096pt too wide) in paragraph at lines 2481--2482
 []\OT1/cmr/m/n/12 Possiamo es-ten-derlo al caso di $\OML/cmm/m/it/12 n$ \OT1/cm
 r/m/n/12 vari-abili aleato-rie in-dipen-denti $\OML/cmm/m/it/12 X[]; X[]; :::; 
 X[]$
  []
 
-[66]
-Overfull \hbox (0.24806pt too wide) in paragraph at lines 2513--2514
+[69]
+Overfull \hbox (12.61038pt too wide) in paragraph at lines 2532--2533
+\OT1/cmr/m/n/12 abili aleato-rie in-dipen-denti con dis-tribuzione espo-nen-zia
+le di parametri $\OML/cmm/m/it/12 ^^U[]; :::; ^^U[]$
+ []
+
+
+Overfull \hbox (0.24806pt too wide) in paragraph at lines 2534--2535
 []\OT1/cmr/m/n/12 Supponiamo di avere una vari-abile aleato-ria $\OML/cmm/m/it/
 12 X$ \OT1/cmr/m/n/12 in-dipen-dente da $\OML/cmm/m/it/12 X[]; :::; X[]$\OT1/cm
 r/m/n/12 . 
  []
 
-[67] [68] [69]
-Overfull \hbox (5.96255pt too wide) in paragraph at lines 2585--2586
+[70] [71]
+Overfull \hbox (1.99615pt too wide) in paragraph at lines 2579--2579
+[]\OT1/cmr/bx/n/14.4 Distribuzione della somma di due vari-abili aleato-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [72]
+[73]
+Overfull \hbox (5.96255pt too wide) in paragraph at lines 2623--2624
 \OT1/cmr/m/n/12 In gen-erale cosa suc-cede se fac-ciamo la somma di $\OML/cmm/m
 /it/12 n$ \OT1/cmr/m/n/12 vari-abili aleato-rie $\OML/cmm/m/it/12 X[]; :::; X[]
 $
  []
 
-[70]
-Overfull \hbox (4.45192pt too wide) in paragraph at lines 2623--2624
-[]\OT1/cmr/m/n/12 Consideriamo ora ef-fet-ti-va-mente $\OML/cmm/m/it/12 n$ \OT1
-/cmr/m/n/12 dis-tribuzioni espo-nen-ziali $\OML/cmm/m/it/12 X[]; X[]; :::; X[]$
+
+Underfull \hbox (badness 10000) in paragraph at lines 2647--2651
 
  []
 
-[71] [72]
+
+Overfull \hbox (5.84656pt too wide) in paragraph at lines 2647--2651
+\OT1/cmr/m/n/12 Vediamo ora il caso di $\OML/cmm/m/it/12 n$ \OT1/cmr/m/n/12 var
+i-abili aleato-rie in-dipen-denti con parametri $\OML/cmm/m/it/12 ^^U[]; :::; ^
+^U[]$
+ []
+
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 2662--2665
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2662--2665
+
+ []
+
+[75] [76]
 Chapter 5.
 
-Overfull \hbox (7.81749pt too wide) in paragraph at lines 2675--2676
+Overfull \hbox (7.81749pt too wide) in paragraph at lines 2717--2718
 []\OT1/cmr/m/n/12 Queste dis-tribuzioni (di parametri rispet-ti-va-mente $\OML/
 cmm/m/it/12 ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[] \OMS/cmsy/m/n/12 ^^@ \OT1/
 cmr/m/n/12 0)\OML/cmm/m/it/12 ; ^^U\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[] \OMS/c
@@ -1461,48 +1509,63 @@ msy/m/n/12 ^^@ \OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; ^^U\OT1/
 cmr/m/n/12 (\OML/cmm/m/it/12 t[] \OMS/cmsy/m/n/12 ^^@
  []
 
-[73
+[77
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 2692--2696
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2692--2696
+] [78] [79]
+Underfull \hbox (badness 10000) in paragraph at lines 2805--2809
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2692--2696
-
- []
-
-[74]
-Overfull \hbox (6.17715pt too wide) in paragraph at lines 2734--2735
+Overfull \hbox (6.17715pt too wide) in paragraph at lines 2817--2818
 \OT1/cmr/m/n/12 tribuzione uni-forme in $[0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1
 ]$ e sia $\OML/cmm/m/it/12 F$ \OT1/cmr/m/n/12 la fun-zione di ri-par-tizione de
 ll'esponenziale: 
  []
 
-[75] [76]
-Overfull \hbox (19.41612pt too wide) detected at line 2804
+[80] [81]
+Overfull \hbox (19.41612pt too wide) detected at line 2893
 []
  []
 
-
-Overfull \hbox (7.36375pt too wide) in paragraph at lines 2820--2821
+[82]
+Overfull \hbox (7.36375pt too wide) in paragraph at lines 2907--2908
 []\OT1/cmr/m/n/12 I pro-cessi $\OML/cmm/m/it/12 N[]; :::; N[]$ \OT1/cmr/m/n/12 
 sono an-che loro di Pois-son in-dipen-denti di parametri
  []
 
 
-Overfull \hbox (10.97379pt too wide) in paragraph at lines 2831--2831
+Overfull \hbox (10.97379pt too wide) in paragraph at lines 2920--2920
 []\OT1/cmr/bx/n/17.28 Definizione equiv-a-lente di pro-cesso di Pois-
  []
 
-[77] [78]
-Overfull \hbox (23.74414pt too wide) detected at line 2896
+[83]
+Overfull \hbox (2.13298pt too wide) in paragraph at lines 2950--2951
+[]\OT1/cmr/m/n/12 Il pro-cesso di Pois-son sod-disfa queste pro-priet^^Ra. Pos-
+si-amo fare un'ulteriore
+ []
+
+[84]
+Overfull \hbox (20.60176pt too wide) in paragraph at lines 2978--2979
+[]\OT1/cmr/m/n/12 L'argomento del lim-ite ^^Re un'equazione dif-feren-ziale; la
+ soluzione dell'equazione
+ []
+
+
+Overfull \hbox (26.92615pt too wide) detected at line 2991
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N[] \OT1/cmr/m/n/12 = \OML/
+cmm/m/it/12 k\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/
+it/12 N[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 )\OML/cmm/m/it/12
+ P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 N
+[] \OT1/cmr/m/n/12 = 0) + \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N
+[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1)
+\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N[] \OMS/cmsy/m/n/12 ^^@ \O
+ML/cmm/m/it/12 N[] \OT1/cmr/m/n/12 = 1) + \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 (\O
+ML/cmm/m/it/12 h\OT1/cmr/m/n/12 )
+ []
+
+
+Overfull \hbox (23.74414pt too wide) detected at line 2996
 \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 N[] \OT1/cmr/m/n/12 = \OML/
 cmm/m/it/12 k\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 P\OT1/cmr/
 m/n/12 (\OML/cmm/m/it/12 N[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 k\OT1/cmr/m/n/1
@@ -1516,163 +1579,339 @@ ML/cmm/m/it/12 h\OT1/cmr/m/n/12 )) + \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 (\OML/cm
 m/m/it/12 h\OT1/cmr/m/n/12 )
  []
 
-[79] [80]
-Overfull \hbox (6.00145pt too wide) in paragraph at lines 2982--2983
-[]\OT1/cmr/m/n/12 Questo porta ad una gen-er-al-iz-zazione del pro-cesso di Poi
-s-son, per l'appunto
- []
-
-[81]
-Underfull \hbox (badness 10000) in paragraph at lines 3017--3021
+[85] [86] [87] [88]
+Underfull \hbox (badness 10000) in paragraph at lines 3129--3133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3023--3028
+Underfull \hbox (badness 10000) in paragraph at lines 3135--3138
 
  []
 
-[82] [83] [84] [85] [86]
-Overfull \hbox (57.71564pt too wide) detected at line 3187
+
+Underfull \hbox (badness 10000) in paragraph at lines 3135--3138
+
+ []
+
+[89]
+Underfull \vbox (badness 3849) has occurred while \output is active []
+
+ [90]
+[91] [92]
+Overfull \hbox (57.71564pt too wide) detected at line 3303
 []
  []
 
-[87] [88]
+[93] [94]
+Underfull \hbox (badness 10000) in paragraph at lines 3331--3336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3331--3336
+
+ []
+
+[95] [96]
+Overfull \hbox (5.82663pt too wide) in paragraph at lines 3396--3397
+\OT1/cmr/m/n/12 amo $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OMS/
+cmsy/m/n/12 j\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 )$ per in-di-care una vari-abile
+ aleato-ria che as-sume il val-ore $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm
+/m/it/12 Y\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 X \OT1/cmr/m/n/12 =
+ []
+
+
 Overfull \hbox (41.29433pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 5.5.  PROCESSI DI POISSON COMPOSTI (COMPOUND POISSON PROCESS) 
-\OT1/cmr/m/n/12 89
+\OT1/cmr/m/n/12 97
  []
 
-[89] [90]
-Overfull \hbox (0.74397pt too wide) in paragraph at lines 3329--3330
-[]\OT1/cmr/m/n/12 Vediamo un es-em-pio con le code; con-sid-e-ri-amo un sis-tem
-a di coda $\OML/cmm/m/it/12 M=G=\OT1/cmr/m/n/12 1$,
- []
-
-
+[97] [98]
 Overfull \hbox (41.29433pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/12 5.5.  PROCESSI DI POISSON COMPOSTI (COMPOUND POISSON PROCESS) 
-\OT1/cmr/m/n/12 91
+\OT1/cmr/m/n/12 99
  []
 
-[91] [92] [93]
-Overfull \hbox (3.80028pt too wide) in paragraph at lines 3411--3412
+[99]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [100]
+Overfull \hbox (47.16927pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/12 5.5.  PROCESSI DI POISSON COMPOSTI (COMPOUND POISSON PROCESS) 
+\OT1/cmr/m/n/12 101
+ []
+
+[101] [102]
+Overfull \hbox (15.93633pt too wide) in paragraph at lines 3599--3600
+\OT1/cmr/m/n/12 parametri $\OML/cmm/m/it/12 ^^U[]; ^^U[]; ^^U[] ::: ^^U[] > \OT
+1/cmr/m/n/12 0$ e una suc-ces-sione di vari-abili aleato-rie $\OML/cmm/m/it/12 
+U[]; U[]; U[];  :::$
+ []
+
+
+Overfull \hbox (3.80028pt too wide) in paragraph at lines 3608--3609
  \OT1/cmr/bx/n/12 Es-plo-sione[] \OT1/cmr/m/n/12 Se i $\OML/cmm/m/it/12 ^^U[]$ 
 \OT1/cmr/m/n/12 crescono troppo ve-lo-ce-mente, la popo-lazione pu^^Ro crescere
 
  []
 
-
-Overfull \hbox (23.15245pt too wide) detected at line 3423
-[]
+[103] [104] [105]
+Overfull \hbox (12.54929pt too wide) in paragraph at lines 3695--3699
+[]\OT1/cmr/m/n/12 In questo modo ab-bi-amo di-mostrato che se la se-rie $[][] [
+]$ tende all'infinito,
  []
 
-[94] [95]
-Overfull \hbox (1.84048pt too wide) in paragraph at lines 3502--3503
+
+Underfull \hbox (badness 10000) in paragraph at lines 3695--3699
+
+ []
+
+
+Overfull \hbox (1.84048pt too wide) in paragraph at lines 3713--3714
 []\OT1/cmr/m/n/12 Quando i $\OML/cmm/m/it/12 ^^U[]$ \OT1/cmr/m/n/12 crescono ab
 -bas-tanza rap-i-da-mente al-lora ab-bi-amo l'esplosione.
  []
 
-[96]
+[106] [107] [108
+
+]
 Chapter 6.
-
-Overfull \hbox (27.76431pt too wide) detected at line 3548
+[109]
+Overfull \hbox (59.36374pt too wide) detected at line 3759
 []
  []
 
-[97
-
-] [98]
-Underfull \hbox (badness 10000) in paragraph at lines 3596--3599
+[110] [111]
+Underfull \hbox (badness 10000) in paragraph at lines 3840--3843
 
  []
 
-[99]
-Underfull \hbox (badness 10000) in paragraph at lines 3629--3657
+[112]
+Underfull \hbox (badness 10000) in paragraph at lines 3873--3901
 
  []
 
-[100]
-Underfull \hbox (badness 10000) in paragraph at lines 3670--3673
+[113]
+Underfull \hbox (badness 10000) in paragraph at lines 3914--3917
 
  []
 
-[101]
-Overfull \hbox (22.08754pt too wide) detected at line 3713
+[114]
+Overfull \hbox (22.08754pt too wide) detected at line 3957
 []
  []
 
-[102]
-Overfull \hbox (7.40698pt too wide) in paragraph at lines 3748--3749
+[115]
+Overfull \hbox (7.40698pt too wide) in paragraph at lines 3992--3993
 []\OT1/cmr/m/n/12 C'^^Re per^^Ro an-che un af-flusso di in-di-vidui dall'estern
 o (dati dall'immigrazione);
  []
 
-[103] [104]
-Overfull \hbox (7.69168pt too wide) in paragraph at lines 3819--3820
+[116] [117]
+Overfull \hbox (7.69168pt too wide) in paragraph at lines 4066--4067
 []\OT1/cmr/m/n/12 Nel caso $\OML/cmm/m/it/12 ^^V \OT1/cmr/m/n/12 = \OML/cmm/m/i
 t/12 ^^U$ \OT1/cmr/m/n/12 quindi la popo-lazione cresce lin-ear-mente con l'imm
-igrazione,
+igrazione.
  []
 
-[105] [106]
-Overfull \hbox (11.64113pt too wide) in paragraph at lines 3893--3893
+[118] [119]
+Overfull \hbox (11.64113pt too wide) in paragraph at lines 4157--4157
 []\OT1/cmr/bx/n/14.4 Equazioni all'indietro di Kol-mogorov (Kol-mogorov
  []
 
-[107] [108] [109] [110]
-Overfull \hbox (7.79126pt too wide) detected at line 4055
+[120] [121]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [122]
+Underfull \vbox (badness 2538) has occurred while \output is active []
+
+ [123]
+[124]
+Overfull \hbox (7.79126pt too wide) detected at line 4306
 []
  []
 
-[111] [112] [113]
-Overfull \hbox (8.42119pt too wide) detected at line 4172
+
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+ [125]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [126]
+[127]
+Overfull \hbox (88.82042pt too wide) detected at line 4428
 []
  []
 
-[114]
-Underfull \hbox (badness 10000) in paragraph at lines 4237--4246
+[128] [129]
+Overfull \hbox (16.47217pt too wide) in paragraph at lines 4475--4476
+[]\OT1/cmr/m/n/12 Anche nel caso delle catene di Markov, per trovare le dis-tri
+buzioni stazionarie,
+ []
+
+[130]
+Underfull \hbox (badness 10000) in paragraph at lines 4511--4517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4237--4246
+Underfull \hbox (badness 10000) in paragraph at lines 4511--4517
 
  []
 
-[115] [116] [117] [118] (./main.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 4511--4517
+
+ []
+
+[131] [132]
+Underfull \hbox (badness 10000) in paragraph at lines 4580--4583
+
+ []
+
+[133] [134] [135]
+Underfull \hbox (badness 10000) in alignment at lines 4694--4694
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 4696--4696
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 4701--4701
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 4705--4705
+[][] 
+ []
+
+
+Underfull \hbox (badness 1132) in paragraph at lines 4707--4707
+[]|\OT1/cmr/m/n/12 Nel sec-ondo caso, an-di-amo a $\OML/cmm/m/it/12 s \OMS/cmsy
+/m/n/12 ^^@ \OT1/cmr/m/n/12 1$
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 4707--4707
+[][] 
+ []
+
+[136] [137] [138] [139]
+Overfull \hbox (1.7613pt too wide) in paragraph at lines 4870--4870
+[]\OT1/cmr/bx/n/14.4 Processi di nascita e morte (con catene di Markov
+ []
+
+[140] [141] [142]
+Overfull \hbox (78.22816pt too wide) detected at line 4952
+[]
+ []
+
+
+Overfull \hbox (23.15431pt too wide) detected at line 4976
+[]
+ []
+
+[143]
+Overfull \hbox (0.6235pt too wide) in paragraph at lines 4982--4983
+[]\OT1/cmr/m/n/12 Possiamo definire i cosid-detti \OT1/cmr/bx/n/12 pro-cessi re
+-versibili\OT1/cmr/m/n/12 : una catena di Markov
+ []
+
+[144]
+Overfull \hbox (11.45pt too wide) in paragraph at lines 5028--5029
+\OT1/cmr/m/n/12 in-vari-ante e con-sid-e-ri-amo la catena di Markov col tempo a
+ll'indietro, i parametri
+ []
+
+
+Overfull \hbox (6.36255pt too wide) in paragraph at lines 5031--5032
+\OT1/cmr/m/n/12 versibile, ovvero vogliamo vedere la con-dizione per la re-vers
+ibilit^^Ra sui parametri
+ []
+
+[145]
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 5042.
+
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 5042.
+
+[146] [147] [148]
+Chapter 7.
+
+Overfull \hbox (6.80518pt too wide) in paragraph at lines 5107--5109
+ \OT1/cmr/bx/n/12 Definizione[] \OT1/cmr/m/n/12 Siano $\OML/cmm/m/it/12 U[]; U[
+]; :::$ \OT1/cmr/m/n/12 in-dipen-denti e iden-ti-ca-mente dis-tribuiti. Questi
+ []
+
+[149
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 5133--5137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5140--5144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5150--5154
+
+ []
+
+[150] [151] [152] [153] [154]
+Underfull \hbox (badness 1052) in paragraph at lines 5316--5316
+[]|$\OML/cmm/m/it/12 N[]$ \OT1/cmr/m/n/12 ^^Re l'ultimo rin-no-va-mento avvenut
+o
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 5316--5316
+[][] 
+ []
+
+[155] [156] [157] [158] [159] [160] [161] [162
+
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 26473 strings out of 483183
- 667001 string characters out of 5966291
- 1071181 words of memory out of 5000000
- 41086 multiletter control sequences out of 15000+600000
- 543861 words of font info for 68 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
+ 26711 strings out of 483058
+ 671381 string characters out of 5963219
+ 1071608 words of memory out of 5000000
+ 41338 multiletter control sequences out of 15000+600000
+ 544782 words of font info for 71 fonts, out of 8000000 for 9000
+ 81 hyphenation exceptions out of 8191
  69i,22n,111p,828b,2012s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/simone/.texlive2019/texmf-var/fon
-ts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/l
-ine10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb>
-Output written on main.pdf (122 pages, 517673 bytes).
+ </home/simone/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/
+ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (166 pages, 637349 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 335 compressed objects within 4 object streams
+ 628 PDF objects out of 1000 (max. 8388607)
+ 434 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
