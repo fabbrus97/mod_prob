@@ -106,10 +106,10 @@ Effettuiamo prove indipendenti che possono dare due risultati sempre nelle stess
 Supponiamo di avere una successione di eventi infiniti (\textbf{nota bene} negli esempi useremo un numero finito).
 Tutti gli eventi hanno la stessa probabilità:
 $$P(E_i) = p$$
-Quando si parla di schema di Bernoulli, bisogna specificare p.
+Quando si parla di schema di Bernoulli, bisogna specificare \textit{p}.
 
 Come formalizziamo l'altra ipotesi, ovvero che gli eventi siano indipendenti?
-$$P (F_1, ..., F_i ) = p^k(1-p)^{n-k}$$
+$$P (F_1, ..., F_n ) = p^k(1-p)^{n-k}$$
 con $ F_i = E_i $ oppure $ F_i = \widetilde{E}_i $, $ p $ la costante associata allo schema di Bernoulli, $ k $ numero di volte in cui appare l'evento: in alcuni $ F_i $ infatti apparirà l'evento, in altri il complementare; $ n-k $ quindi è il numero di volte in cui appare l'evento complementare.
 
 \section{Passeggiata aleatoria}
@@ -152,14 +152,14 @@ $$ P(2z_n - n = x) = P(z_n = \frac{n+x}{2})$$
 	\paragraph{Distribuzione binomiale} disribuzione del numero di successi, quando facciamo delle prove indipendenti. 
 	
 	Distribuzione binomiale di parametri n e p:
-	$$P(u - k) = \binom{n}{k} \cdot p^k(1-p)^{n-k}$$
+	$$P(n, k) = \binom{n}{k} \cdot p^k(1-p)^{n-k}$$
 	con n il numero delle prove e p la probabilità di successo. 
 \end{tcolorbox}
 
 
-$\ddfrac{n+x}{2}$ deve essere un numero intero, quindi $ n+x $ deve essere pari; quindi se $ n $ è pari (il tempo è pari) $ x $ deve essere pari, la particella cioè deve essere in una posizione pari:
+$\ddfrac{n+x}{2}$ deve essere un numero intero, quindi $ n+x $ deve essere pari; quindi se $ n $ è pari (il tempo è pari) $ x $ deve essere pari, la particella cioè deve essere in una posizione pari (se n è il numero di passi che facciamo e x il punto dove ci fermiamo, la somma deve essere pari. ad es. non è possibile fare 10 passi e fermarci nel punto 9, mentre fare 7 passi e fermarsi su 5 è possibile perché 7+5 = 12):
 
-$$\Rightarrow P(z_n = \frac{n+x}{2}) = ???$$
+$$\Rightarrow P(z_n = \frac{n+x}{2}) = \binom{n}{\frac{n+x}{2}}2^{-n}$$
 %TODO
 
 La passeggiata aleatoria è definita su numeri interi, sarebbe graficamente cioè una successione di punti, ma si può visualizzare come una linea spezzata unendo i punti. 
@@ -213,7 +213,7 @@ Ci chiediamo ora: qual è la probabilità che \textbf{A} sia sempre in vantaggio
 
 In questo caso non abbiamo tutti i cammini con probabilità uguale, perché alla fine andremo nel punto $ (n,x) $. Quanti sono i cammini che finiscono nel punto $ x $?
 
-Abbiamo $ n $ estrazioni e dobbiamo scegliere un sottoinsieme di $ a $ elementi. Questo è quello che si chiama una combinazione. Le possibili combinazioni sono:
+Abbiamo $ n $ estrazioni e dobbiamo scegliere un sottoinsieme di $ a $ elementi. Questo è quello che si chiama una combinazione. Le possibili combinazioni (i cammini possibili) sono:
 \begin{align*}
 	& \binom{n}{a} = \frac{n!}{a!(n-a)!} \\
     = & \binom{n}{b} = \frac{n!}{b!(n-b)!} \qquad \qquad (n-b=a)
@@ -264,14 +264,14 @@ Dobbiamo contare i cammini che sono sempre sopra l'asse delle x, che non toccano
 
 \end{multicols}
 
-L'idea è di riflettere specularmente ogni cammino che parte da (1,1) e tocca l'asse delle x.
+L'idea è di riflettere specularmente ogni cammino che parte da (1,1) e tocca l'asse delle x (ovvero quando si raggiunge un pareggio contando i voti; questo è permesso dal principio di riflessione ).
 %TODO ma l'immagine non è speculare, WTF
 
-Questa è una corrispondenza biunivoca. 
+C'è una corrispondenza biunivoca tra i cammini che raggiungono il pareggio - toccano l'asse delle x - partendo da (1,1) e quelli che partono da (1,-1). Notare che non tutte le sequenze che partono da (1,1) raggiungono un pareggio, mentre tutte le sequenze che partono da (1,-1) si (perché a > b).
 
 Ci sono $ n-1 $ passi per partire da (1,1) e arrivare a $ x $. Ci sono $ a-1 $ passi a destra negli $ n-1 $ cammini da (1,1); ci sono $ a $ passi a destra partendo invece da (-1,1).
 
-Il numero dei cammini è $ \binom{n-1}{a} $
+Il numero dei cammini che toccano l'asse delle x è $ \binom{n-1}{a} $
 
 Quanti sono i cammini che non toccano? Togliamo da tutti i cammini quelli che toccano:
 $$\binom{n-1}{a-1} - \binom{n-1}{a}$$
@@ -319,7 +319,7 @@ Chiediamoci ora qual è la probabilità che la passeggiata aleatoria torni a 0 n
 $$P(S_1 > 0, ..., S_{2n-1}>0, S_{2n} = 0)$$
 Perché si verifichi occorre che $ S_{2n-1} = 1 $.
 \begin{multicols}{2}
-	Possiamo contare i cammini che partono da 0 e al tempo $ 2_{n-1} $ sono a 1, rimanendo sempre positivi. Lo abbiamo visto per il teorema del ballottaggio. 
+	Possiamo contare i cammini che partono da 0 e al tempo $ 2n-1 $ sono a 1, rimanendo sempre positivi. Lo abbiamo visto per il teorema del ballottaggio. 
 	
 	
 	\begin{center}
@@ -340,7 +340,7 @@ Perché si verifichi occorre che $ S_{2n-1} = 1 $.
 	\end{center}
 \end{multicols}
 
-È come avere $ 2_{n-1} $ schede e $ n $ voti per A, e $ n-1 $ voti per B. Quindi, sapendo che la formula è $ \frac{a-b}{a+b} $ e che $ a $ corrisponde a $ n $ e $ b $ corrisponde a $ n-1 $, per ottenere il numero dei cammini che partono dall'origine e ritornano a 0 in $ 2n $ passi e sono sempre positivi possiamo calcolare:
+È come avere $ 2n-1 $ schede e $ n $ voti per A, e $ n-1 $ voti per B. Quindi, sapendo che la formula è $ \frac{a-b}{a+b} $ e che $ a $ corrisponde a $ n $ e $ b $ corrisponde a $ n-1 $, per ottenere il numero dei cammini che partono dall'origine e ritornano a 0 in $ 2n $ passi e sono sempre positivi possiamo calcolare:
 $$ \frac{1}{2n-1} \cdot \binom{2n-1}{n} = \frac{(2n-1)!}{n!(n-1)!(2n-1)} = $$
 $$ = \frac{(2n-2)!}{n(n-1)!^2} = \frac{1}{n} \binom{2n-2}{n-1} $$
 
@@ -353,7 +353,7 @@ $$ = \frac{1}{4n} u_{2n-2} $$
 Quindi nella passeggiata aleatoria per calcolare la probabilità di un evento che si riferisce ai primi $ 2n $ passi, siccome i cammini hanno la stessa probabilità $ p $,
 %TODO siamo sicuri che hanno tutti la stessa probabilità p?
  si riduce a contare quanti sono i cammini. Abbiamo visto che 
- $$ P (S_1 > 0, ..., S_{n-1} > 0, S_n = 0) = \frac{1}{n} u_{2n-2} = \frac{1}{n}\binom{2n-2}{n-1} \frac{1}{n^{n-2}}$$
+ $$ P (S_1 > 0, ..., S_{n-1} > 0, S_n = 0) = \frac{1}{n} u_{2n-2} = \frac{1}{n}\binom{2n-2}{n-1} \frac{1}{2^{2n-2}}$$
  Definiamo $ L_{2n} = \frac{1}{n+1}\binom{2n}{n} $; allora possiamo riscrivere l'equazione sopra come
  $$ P(...) = L_{2n-2} \frac{1}{2^{2n-2}} $$
 \\
@@ -442,7 +442,8 @@ $$ f_{2n} = P(S_1 \ne 0, S_2 \ne 0, ..., S_{2n-1} \ne 0, S_{2n} = 0) $$
 
 Avevamo precedentemente trovato la probabilità che il cammino fosse sempre positivo; per simmetria, è uguale alla probabilità che sia sempre negativo. Allora
 
-$$ f_{2n} = 2P(S_1 > 0, ..., S_{2n-1} < 0, S_{2n} = 0) = 2\frac{u_{2n}-2}{n} $$
+$$ f_{2n} = 2P(S_1 > 0, ..., S_{2n-1} > 0, S_{2n} = 0) = 2\frac{u_{2n-2}}{4n} $$
+%$$ f_{2n} = 2P(S_1 > 0, ..., S_{2n-1} < 0, S_{2n} = 0) = 2\frac{u_{2n}-2}{n} $$
 
 Consideriamo l'evento complementare di $S_1 \ne 0, ..., S_{2n-1} \ne 0, S_{2n} \ne 0$; è l'evento che qualche volta tra 0 e $ 2n $, $ S_i $ valga 0:
 
@@ -460,19 +461,19 @@ $$ \underbrace{u_{2n-2} - u_{2n}}_{\displaystyle \binom{2n-2}{n-1} \frac{1}{2^{2
 	& = \frac{u_{2n-2}}{2n} = f_{2n} 
 \end{align*}
 
-$$ \Rightarrow 1 - f_2 - f_4 - ... - f_{2n} = 1 - (u_0 - u_2) - (u_2) - u_4 - ... - (u_{2n-2} - u_{2n}) = u_{2n}. \qed \text{ QED }$$ 
+$$ \Rightarrow 1 - f_2 - f_4 - ... - f_{2n} = 1 - (u_0 - u_2) - (u_2 - u_4) - ... - (u_{2n-2} - u_{2n}) = u_{2n}. \qed \text{ QED }$$ 
 
 $ u_0 $ per definizione è 1; $ u_2 $ si cancella con $ u_2 $ (gli $ u_i $ si cancellano due alla volta).
 
-Interpretazione: sappiamo, per Stirling, che possiamo approssimare $ u_{2n} \approx \frac{1}{\sqrt{\pi n}} $. Se prendiamo $ n $ grande. la probabilità che non si torni mai a 0 tende a 0. Ad esempio, se prendiamo 2 giocatori A, B che tirano una moneta, e se esce testa A vince 1 euro (e B perde), mentre se esce croce A perde un euro (e B vince), la probabilità che il gioco non termini mai e che i giocatori vanno avanti all'infinito tende a 0. 
+Interpretazione: sappiamo, per Stirling, che possiamo approssimare $ u_{2n} \approx \frac{1}{\sqrt{\pi n}} $. Se prendiamo $ n $ grande, la probabilità che non si torni mai a 0 tende a 0. Ad esempio, se prendiamo 2 giocatori A, B che tirano una moneta, e se esce testa A vince 1 euro (e B perde), mentre se esce croce A perde un euro (e B vince), la probabilità che il gioco non termini mai e che i giocatori vanno avanti all'infinito tende a 0. 
 \\
 \\
-Dimostriamo \textbf{3}; vogliamo dimostrare che $ u_{2n} = P(S_1 \ge 0, ..., S_2n \ge 0 ) $, che rappresenta l'evento che il primo giocatore (sempre nell'esempio dei due giocatori che tirano una moneta) sia sempre in vantaggio o in parità. 
+Dimostriamo \textbf{3}; vogliamo dimostrare che $ u_{2n} = P(S_1 \ge 0, ..., S_{2n} \ge 0 ) $, che rappresenta l'evento che il primo giocatore (sempre nell'esempio dei due giocatori che tirano una moneta) sia sempre in vantaggio o in parità. 
 
 Definiamo 
 $$ f_{2n} = P(S_1 \ge 0, ..., S_{2n-2} \ge 0, S_{2n-1} < 0) $$
 in base al conteggio fatto precedentemente sul numero dei cammini $ \ge 0 $ fino a $ 2n-2 $, questa quantità è pari a:
-$$  f_{2n} = \frac{1}{2^{2n} u_{2n-2} \frac{1}{2n}} $$
+$$  f_{2n} = \frac{1}{2^{2n}} u_{2n-2} \frac{1}{2n} $$
 
 Consideriamo l'evento complementare di $ f_{2n} $, cioè che ci sia stato un punto negativo. I punti negativi possono essere solo nei punti dispari:
 
@@ -565,11 +566,10 @@ Sia $ 1 \le k \le n-1 $. Ci sarà un intervallo in cui il grafico è sopra e uno
 
 $$ p_{2k, 2n} = \underbrace{\sum_{r=1}^{k}\frac{1}{2} f_{2r} p_{2k-2r, 2n-2r}}_{\substack{\text{probabilità di tornare a 0 per} \\ \text{la prima volta al tempo 2r; il} \\ \text{cammino può essere positivo} \\ \text{o negativo, per questo} \\ \text{moltiplichiamo per } \frac{1}{2}}}       + \sum_{r=1}^{n-k} \frac{1}{2}f_{2r}p_{2k, 2n-2r} =  $$ 
 %TODO ambiguità: da una parte si dice che la prima sommatoria rappresenta la probabilità di tornare a 0 e il cammino era positivo, mentre la seconda sarebbe la stessa p con il cammino negativo; da un'altra parte si dice che il cammino può essere positivo o negativo, non lo sappiamo, per questo moltiplichiamo per 1/2
-$$ = \frac{1}{2} \sum_{r=1}^{k} f_{2r}u_{2k-2r}u_{2n-2k} + \frac{1}{2}\sum_{r=1}^{n-k}f_{2r}u_{2k}u(2r-2k) - 2r$$
+$$ = \frac{1}{2} \sum_{r=1}^{k} f_{2r}u_{2k-2r}u_{2n-2k} + \frac{1}{2}\sum_{r=1}^{n-k}f_{2r}u_{2k}u_{(2r-2k) - 2r}$$
 Applichiamo la formula del rinnovamento:
 \begin{align*}
-	& = \frac{1}{2}u_{2n-2} + \sum_{r=1}^{k}f_{2n}u_{2k-2r} + \frac{1}{2}u_{2k}\sum_{r=1}^{n-k}f_{2r} u2(n-k) - 2r \\
-	%TODO non capisco se u2(n-k) - 2r in realtà vada come pedice, cioè u_{2(n-k) - 2r}
+	& = \frac{1}{2}u_{2n-2} + \sum_{r=1}^{k}f_{2n}u_{2k-2r} + \frac{1}{2}u_{2k}\sum_{r=1}^{n-k}f_{2r} u_{2(n-k) - 2r} \\
 	& = \frac{1}{2} u_{2n-2k}u_{2k} + \frac{1}{2}u_{2k}u_{2n-2k} \\
 	& = u_{2k}u_{2n-2k} \qed 
 \end{align*}
@@ -658,7 +658,7 @@ Questo vale per la passeggiata aleatoria asimmetrica libera.
 \\
 Vediamo un caso simile: consideriamo la probabilità che il primo giocatore sia in vantaggio per un tempo $ 2k $ e che a $ 2n $ la passeggiata sia 0, ovvero i due giocatori siano in pareggio; definiamo
 
-\formule {(   \frac{1}{2^{2n}}) (L_{2k,2n}) = } { probabilità che il primo giocatore  sia in vantaggio per un tempo $ 2k $ e che $ s_{2n} = 0 $}
+\formule {(   \frac{1}{2^{2n}}) (L_{2k,2n}) = } { probabilità che il primo giocatore  sia in vantaggio per un tempo $ 2k $ e che $ S_{2n} = 0 $}
 
 $ L_{2k, 2n} $ è il numero dei cammini; dividendolo per il numero totale dei cammini $ 2^{2n} $ dà la probabilità. 
 
@@ -701,7 +701,7 @@ Modifichiamo la variabile $ r $ al secondo membro, con $ \rho = n -r + 1 $. Quin
 
 $$ = \sum_{r=1}^{k}L_{2n-2}L_{2n-2r} + \sum_{\rho = k+1}^{n} L_{2\rho - 2} L_{2n - 2\rho}$$
 
-$$ = \sum_{r=1}^{n} L_{2r-2}L{2n-2r} \qed$$
+$$ = \sum_{r=1}^{n} L_{2r-2}L_{2n-2r} \qed$$
 
 Abbiamo dimostrato che $ L_{2k,2r} $ non dipende da $ k $, ma è uguale per tutti i valori. Ma quanto vale effettivamente?
 
@@ -767,7 +767,7 @@ Possiamo scrivere $ u_x $ come la probabilità di rovina del giocatore sapendo c
 	u_x & = u_0 + \sum_{y=0}^{x-1} (u_{y+1} - u_y) = 1 - \frac{x}{N}
 \end{align*}
 
-Quindi se $ x \to N $, la probabilità che A si rovini tende a 0. Cosa succede se $ N $ tende all'infinito? A parte da $ x $, e B da $ N - x $. La probabilità di rovina in questo caso tende a 1. 
+Ed è la probabilità di rovina di A partendo da x. La probabilità di rovina di B è data da $ 1 - \frac{N-x}{N}$. Quindi se $ x \to N $, la probabilità che A si rovini tende a 0. Cosa succede se $ N $ tende all'infinito? A parte da $ x $, e B da $ N - x $. La probabilità di rovina in questo caso tende a 1. 
 
 La probabilità che il gioco continui all'infinito è 0.
 
@@ -790,7 +790,7 @@ $$ 0 < x < N \qquad \qquad \qquad u_x = p\cdot u_{x+1} + q\cdot u_{x-1} $$
 Con $ q = 1-p $. 
 
 \begin{align*}
-	(p+q)u_x & = pu_x + q_ux = pu_{x+1} + qu_{x-1} \\
+	(p+q)u_x & = pu_x + qu_x = pu_{x+1} + qu_{x-1} \\
 	q(u_x - u_{x-1})  & = p(u_{x+1} - u_x) \\
 	u_{x+1} - u_x & = \frac{q}{p}(u_x - u_{x-1}) \\
 	u_{k+1} - u_k & = (\frac{q}{p})^k(u_1 - u_0) \qquad \qquad u_0 = 1 \text{ (rovina all'istante iniziale), } u_N = 0 \\
@@ -798,7 +798,7 @@ Con $ q = 1-p $.
 	& = 1 + \sum_{j=0}^{k-1}(\frac{q}{p})^j(u_1 - u_0) \\
 	& = 1 + (u_1 - u_0) \sum_{j=0}^{k-1} (\frac{q}{p})^j \\
 	\text{possiamo} & \text{ applicare la formula della somma geometrica } (p\ne \frac{1}{2} \Rightarrow \frac{q}{p} \ne 1): \\	 
-	 & = 1 + (u_1 - u_0)\ddfrac{\left(\ddfrac{q}{p}\right)^k - 1}{\ddfrac{q}{p} - 1}
+	 u_k & = 1 + (u_1 - u_0)\ddfrac{\left(\ddfrac{q}{p}\right)^k - 1}{\ddfrac{q}{p} - 1}
 \end{align*}
 
 Applichiamo la formula per $ k = N $, sapendo che $ u_N = 0 $:
@@ -816,9 +816,9 @@ Consideriamo ora $ v_k $ la probabilità di rovina di B; in questo caso B vince 
 
 $$ v_k = 1 - \ddfrac{\left(\ddfrac{p}{q}\right)^{N-k} - 1}{\left(\ddfrac{p}{q}\right)^N - 1} $$
 
-$ v_k + u_k = 1 $. La probabilità che il gioco continui all'infinito è 0 (uno dei due giocatori va in rovina prima o poi). Cosa succede se $ N \to \infty $ (con $ p \ne \frac{1}{2} $)? Supponiamo $ p > \frac{1}{2} $. 
+Come nel caso simmetrico, $ v_k + u_k = 1 $. La probabilità che il gioco continui all'infinito è 0 (uno dei due giocatori va in rovina prima o poi). Cosa succede se $ N \to \infty $ (con $ p \ne \frac{1}{2} $)? Supponiamo $ p > \frac{1}{2} $. 
 
-$$ \frac{q}{p} < 1 \qquad \qquad u_k \stackrel{N \to \infty}{\longrightarrow} \left(\frac{q}{p}\right)^k \qquad (\text{perché} \left(\frac{q}{p}\right)^N \to 0, \text{ perché } \frac{q}{p} < 1) $$
+$$ \textnormal{Se} \frac{q}{p} < 1 \textnormal{allora} \qquad \qquad u_k \stackrel{N \to \infty}{\longrightarrow} \left(\frac{q}{p}\right)^k < 1 \qquad (\text{perché} \left(\frac{q}{p}\right)^N \to 0, \text{ perché } \frac{q}{p} < 1) $$
 
 Quindi se A è favorito, la sua probabilità di rovina è minore di 1, e più è grande $ k $ e più si abbassa.
 
@@ -830,10 +830,10 @@ Sono esempi particolari delle catene di Markov, un modello più generale. Servon
 Supponiamo che ogni individuo abbia le stesse probabilità di avere figli, indipendentemente dagli altri individui, e gli intervalli (numero di figli) siano regolari. Consideriamo una successione di variabili aleatorie, e vogliamo vedere quanti figli ci sono nelle varie generazioni.
 
 Definiamo:
-\formule{x_i = }{numero di figli della generazione i-esima}
+\formule{x_i = }{numero di individui della generazione i-esima}
 \formule{p_k = }{probabilità di avere $ k $ figli per ogni individuo; $ \sum_{k=0}^\infty p_k = 1 $ (sono eventi incompatibili, è una partizione).}
 
-Supponiamo che l'attesa del numero di figli sia finita; la indichiamo con $ \mu $:
+Supponiamo che la previsione del numero dei figli di un individuo sia finita; la indichiamo con $ \mu $:
 $$ \mu = \sum_{k=0}^{\infty} k \cdot p_k < +\infty $$
 
 Quindi abbiamo supposto $ x_0 = 1 $. Qual è l'attesa della k-esima generazione?
@@ -878,9 +878,9 @@ Vogliamo mostrare che se $\mu < 1$, allora $ P(E) = 1 $:
 	& = 1 - P(x_k) \\
 	& = 1-\mu^k \to 1 \qquad \qquad \text{perché abbiamo supposto } \mu < 1 \Rightarrow \mu^k \stackrel{k \to \infty}{\longrightarrow} 0 \\ \\
 	& P(E) = 1
-\end{align*}(
+\end{align*}
 
-Se invece $\mu = 1$, l'attesa di $ x_k(P(x_k)) $ rimane 1.
+Se invece $\mu = 1$, l'attesa di $ x_k $ rimane 1.
 
 Vediamo infine il caso generale: non facciamo ipotesi su $\mu$, ma può assumere qualsiasi valore.
 
@@ -897,7 +897,8 @@ Definiamo una funzione $ f $:
 \begin{align*}
 	f(s) & = \sum_{j=0}^{\infty} p_j s^j \\
 	\pi^k & = f(\pi^{k-1}) \\
-	\pi^k \ge \pi^{k-1} \qquad \qquad \pi^k \le 1
+	\\
+	\pi^k \ge \pi^{k-1} & \qquad \qquad \pi^k \le 1 
 \end{align*}
 
 Abbiamo una successione non decrescente:
@@ -912,9 +913,16 @@ Supponiamo ora $ p_0 + p_1 = 1 $ e $ p_0 > 0 $, ovvero ogni individuo non ha fig
 Studiamo com'è fatta $ f(s) $:
 
 $$
-\begin{array}{ccc}
-	f(1) = 1 & \qquad f'(s) = \sum_{j=1}^{\infty} j \cdot p^j \cdot s^{j-1} & f''(s) > 0 \\
-	f(0) = p_0 > 0 & \quad f'(1) = \sum_{j=1}^{\infty} j \cdot p^j = \mu & \quad f''(s) = \sum_{j=2}^{\infty} p_j \cdot j \cdot (j-1) s^{j-2} > 0, \quad 0 < s < 1
+\begin{array}{cc}
+	f(1) = 1 & \qquad f'(s) = \sum_{j=1}^{\infty} j \cdot p^j \cdot s^{j-1} \\
+	f(0) = p_0 > 0 & \quad f'(1) = \sum_{j=1}^{\infty} j \cdot p^j = \mu 
+\end{array}
+$$
+$$
+\begin{array}{c}
+	f''(s) > 0 \\
+	\quad f''(s) = \sum_{j=2}^{\infty} p_j \cdot j \cdot (j-1) s^{j-2} > 0, \quad 0 < s < 1
+	
 \end{array}
 $$
 
@@ -943,7 +951,7 @@ La derivata seconda è positiva, quindi la funzione è strettamente convessa.
 	\end{axis}
 \end{tikzpicture}
 
-Qual è la probabilità di estinzione? $ \pi = f(\pi) $; la probabilità di estinzione è una soluzione di una delle funzioni sottostanti:
+Consideriamo il caso di $\mu > 1$, ricordando che $\mu = f'(1)$. Qual è la probabilità di estinzione? $ \pi = f(\pi) $; la probabilità di estinzione è una soluzione di una delle funzioni sottostanti:
 
 $ \pi^{(1)} = p_0 $ (prima generazione)
 
@@ -953,7 +961,7 @@ $ \pi^{(3)} = f(\pi^{(2)}) $
 
 $ \pi^{(k+1)} = f(\pi^{(k)}) $
 
-Siccome $ f $ è crescente, se applichiamo da entrambe le parti:
+Chiamiamo $\pi^*$ la soluzione. Siccome $ f $ è crescente, se applichiamo da entrambe le parti:
 
 $ p_0 < \pi^* $
 
@@ -1035,7 +1043,7 @@ Si può vedere anche per i processi di diramazione. Supponiamo di essere nell'in
 
 Scegliamo, per il primo individuo, un intervallo a caso; diciamo che esca $ p_i $: il primo individuo avrà i figli. Ripetiamo per ogni individuo della seconda generazione, e così via. Tipicamente la probabilità di estinzione è minore di 1; l'estinzione avviene nelle prime generazioni (perché la prole cresce esponenzialmente ed è più difficile che avvenga).
 
-Questi tre esempi appena illustrati sono un caso particolare di un modello più generale detto \textbf{catene di Markov}. 
+Questi tre esempi appena illustrati (random walk, gambling ruin, branching processes) sono un caso particolare di un modello più generale detto \textbf{catene di Markov}. 
 
 \chapter{Catene di Markov}
 \section{Catene di Markov omogenee}
@@ -1043,7 +1051,7 @@ Se ripensiamo ai problemi e ai modelli visti precedentemente, la caratteristica 
 
 Studieremo le \textbf{catene di Markov omogenee con numero finito o numerabile di stati}.
 
-L'attributo "omogeneo" indica che la probabilità di passare da uno stato all'altro. Esistono anche fenomeni dipendenti dal tempo (es. se studiamo la temperatura, bisogna tenere conto di in quale giorno dell'anno si stanno effettuando le misurazioni, e non è quindi un fenomeno omogeneo nel tempo).
+L'attributo "omogeneo" indica che la probabilità di passare da uno stato all'altro non dipende dal tempo. Esistono anche fenomeni dipendenti dal tempo (es. se studiamo la temperatura, bisogna tenere conto di in quale giorno dell'anno si stanno effettuando le misurazioni, e non è quindi un fenomeno omogeneo nel tempo).
 
 Lo "stato", nel caso della probabilità aleatoria, è il punto in cui ci troviamo. Possiamo rappresentare lo stato con un numero intero, che quindi può assumere infiniti valori numerabili. Nel caso dei processi di diramazione, ad esempio, lo stato può essere il numero degli individui (un intero non negativo). 
 
@@ -1060,7 +1068,7 @@ Possiamo definire una successione $ x_0, x_1, x_2, ... $ e, dopo aver definito a
 
 \begin{align*}
 	& P(x_0 = s_0, x_1 = s_1, ..., x_n = s_n) \\
-	= & u_{s_0} \cdot p_{s_0, s_1} \cdot u_{s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{s_{n-1}, s_n}
+	= & u_{s_0} \cdot p_{s_0, s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{s_{n-1}, s_n}
 \end{align*}
 
 C'è un problema di compatibilità: se assegno la distribuzione dei primi $ n+1 $, posso sapere la distribuzione dei primi $ n $. %TODO che cacchio vuol dire
@@ -1074,12 +1082,12 @@ Queste assegnazioni delle probabilità sono compatibili, è coerente.
 Supponiamo di avere una successione $ s_0, ..., s_{n-1}, s $
 e che $ u_{s_0} \cdot p_{s_0, s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{s_{n-1}, s}  > 0 $ (se il prodotto fosse 0, la probabilità che si verifichi la successione sarebbe 0). 
 Ci chiediamo quanto vale la seguente probabilità:
-$$ P(x_{n-1} | x_0 = s_0, x_1 = s_1, ..., x_{n-1} = s_{n-1}, x_n = s) $$
+$$ P(x_{n+1} = s' | x_0 = s_0, x_1 = s_1, ..., x_{n-1} = s_{n-1}, x_n = s) $$
 
 Usiamo la formula della probabilità condizionata (richiamo: dati due eventi $ A, B $: $ P(A|B) = \frac{P(AB)}{P(B)} $, con $ P(B) > 0 $):
 
 \begin{align*}
-	& = \frac{P(x_0 = s_0, ..., x_{n-1} = s_{n-1}, x_n = s, x_{n-1} = s')}{P(x_0 = s_0, ..., x_{n-1} = s_{n-1}, x_n = s)} \\
+	& = \frac{P(x_0 = s_0, ..., x_{n-1} = s_{n-1}, x_n = s, x_{n+1} = s')}{P(x_0 = s_0, ..., x_{n-1} = s_{n-1}, x_n = s)} \\
 	& = \frac{u_{s_0}\cdot p_{s_0, s_1} \cdot ... \cdot p_{s_{n-1}, s} \cdot p_{s,s'}}{u_{s_0}\cdot p_{s_0, s_1} \cdot ... \cdot p_{s_{n-1}, s} \cdot p_{s_{n-1},s}}\\
 	& = p_{s,s'}
 \end{align*}
@@ -1089,7 +1097,7 @@ Quindi, se voglio calcolare la probabilità di andare da $ s $ a $ s' $ mi basta
 Qual è la probabilità di transizione in più passi, ad esempio in due passi?
 
 \begin{align*}
-	& P(s_2 = s' | x_0 = s) \\
+	& P(x_2 = s' | x_0 = s) \\
 	& = \frac{P(x_0 = s, x_2 = s')}{P(\underbrace{x_0 = s}_{\substack{ = u_s \\ \text{distribuzione} \\ \text{iniziale}}}  )} \\
 	& = \frac{\sum_{s'' \in S} P(x_0 = s, x_1 = s'', x_2 = s')}{P(x_0 = s)} \\
 	& = \frac{\sum_{s'' \in S} u_s p_{s, s''} p_{s'', s'}}{u_s} \\
@@ -1127,24 +1135,24 @@ Possiamo finalmente calcolare le probabilità di passare da uno stato all'altro 
 
 \begin{align*}
 	p_{0,0}^{(n)} \qquad \qquad \qquad \Pi^{n+1} = \; & \Pi^n \Pi \\
-	p_{0,0}^{(n+1)} = \; & p_{0,0}^{(n)}p + p_{0,1}^{(1-p)} \\
-	= \; & p_{0,0}^{(n)}p + (1-p_{0,0}^{(n)})(1-p)  \\ \\
+	p_{0,0}^{(n+1)} = \; & p_{0,0}^{(n)}p + p_{0,1}^n(1-p) \\
+	= \; & p_{0,0}^{(n)}p + (1-p_{0,0}^{(n)})(1-q)  \\ \\
 %	\text{Sono tutti eventi incompatibili, la } & \text{loro somma deve fare 1} \\ \\
 	p_{0,0}^{(n+1)} = \; & p_{0,0}^{(n)}(p-1-q) + (1-q)  \\
 	p_{0,0}^{(2)} = \; & p(p+q-1) + (1-q) 
 \end{align*}
 
-Il calcolo è lasciato per esercizio (è una somma geometrica nota, $ p_{0,1}^{(n)} = 1-p^{n} $)
+Il calcolo è lasciato per esercizio (è una somma geometrica nota, $ p_{0,1}^{(n)} = 1-p_{0,0}^{n} $)
 
 \paragraph{Esempio 2} Consideriamo una passeggiata aleatoria nel caso generale (non simmetrico). Sia $ 0 < p < 1 $ la probabilità di fare un passo a destra. 
 
 $$ 
 	\begin{array}{cc}
-	S = Z & u_0 = 1, u_s = z \\
+	S = Z & u_0 = 1, u_s = 0 \\
 	 & \text{per } s \ne 0 \\
 	 & \\
-	p_{s,s_0} = p & p_{s,s-1} = 1-p \\
-	p_{s,s'} = 0 & s' + s+1 = s-1
+	p_{s,s_{s+1}} = p & p_{s,s-1} = 1-p \\
+	p_{s,s'} = 0 & s'\ne s+1, s-1
 	\end{array}
 $$
 
@@ -1154,7 +1162,9 @@ $ p_{s,s}^{(2)} = p(1-p) + (1-p)p = 2p(1-p) $
 
 Ci sono solo 2 possibilità: faccio prima un passo a sinistra e poi a destra, oppure il contrario. 
 
-$ p_{s, s+2}^{(2)} = p^2 \cdot p_{s,s-2}^{(2)}  = (1-p)^2$ 
+$ p_{s, s+2}^{(2)} = p^2 $
+
+$ p_{s,s-2}^{(2)}  = (1-p)^2$ 
 
 $ p_{s,s'}^{(2)} = 0 \qquad \qquad \text{per } s \ne s', s+2, s-2$
 
@@ -1169,7 +1179,7 @@ $$  \substack {\displaystyle a < s < b \; , \qquad \qquad p_{s,s+1} = p \; , \qq
 	\end{array} }
  $$ 
 
-\subsection{Modello di Ebembat} %TODO ??? cerca nome di sto modello
+\subsection{Modello di Ehrenfest} 
 
 Descrive la componente di un gas. Supponiamo di avere $ n $ particelle; gli stati saranno $ S = \{0, 1, ... N \} $.
 
@@ -1205,7 +1215,7 @@ Descrive la componente di un gas. Supponiamo di avere $ n $ particelle; gli stat
 		
 	Le probabilità che una particella vada a destra o a sinistra sono rispettivamente:
 	$$ p_{s,s+1} = \frac{N-s}{N} $$
-	$$ p_{s,s-1} ??? $$ %TODO
+	$$ p_{s,s-1} = \frac{s}{N} $$ 
 	
 \end{multicols}
 
@@ -1248,32 +1258,34 @@ Supponiamo che in ogni istante sia scelta a caso una particella nel contenitore 
 
 Lo stato $ S = \{0, 1, ..., N\} $ rappresenta il numero di palline di gas A a sinistra. 
 
-$ p_{s,s} $ è la probabilità che ci siano $ n $ particelle A a sinistra e che dopo lo scambio questo valore rimanga invariato; questo può capitare se scambiamo una particella di A a sinistra con un'altra particella, sempre di A, a destra (oppure se scegliamo due particelle di tipo B).
+$ p_{s,s} $ è la probabilità che ci siano $ s $ particelle A a sinistra e che dopo lo scambio questo valore rimanga invariato; questo può capitare se scambiamo una particella di A a sinistra con un'altra particella, sempre di A, a destra (oppure se scegliamo due particelle di tipo B).
 
-$ p_{s,s} = ??? $ %TODO
-
-$ p_{s,s-1} = \frac{s}{N}\cdot \frac{s}{N} = \frac{s^2}{N^2} ???$ %TODO
+$ p_{s,s} = \frac{s}{N} \cdot \frac{N-s}{N} + \frac{N-s}{N} \cdot \frac{s}{N} $
+$ p_{s,s+1} = \frac{N-s}{N} \cdot \frac{N-s}{N} $
+$ p_{s,s-1} = \frac{s}{N}\cdot \frac{s}{N} = \frac{s^2}{N^2} $
 
 \section{Classificazione degli stati}
 
 Due stati $ s $ e $ s' $ si dicono \textbf{comunicanti} quando $ s $ comunica con $ s' $, ovvero la probabilità di andare da $ s $ a $ s' $ è positiva:
 
-$ p^{n}_{s,s'} = 0 $
+$ p^{n}_{s,s'} > 0, \qquad n \ge 0 $
 
-$ p^{(???)}_{s,s'} = 0 $, con $ s' \ne s $ %TODO
+$ p^0_{s,s'} = 0 $, con $ s' \ne s $
+
+% $ p_{s,s}^0 = 1 $ è un caso che non so in quali condizioni si verifichi
 
 Uno stato comunica con sè stesso. 
 
-\paragraph{Definizione} (più precisa) Uno stato $ s $ comunica con uno stato $ s' $ se esiste $ n $ tale che la successione da $ s $ a $ s' $ in $ n $ passi è sempre positiva ??? %TODO
+\paragraph{Definizione} (più precisa) Uno stato $ s $ comunica con uno stato $ s' $ se esiste $ n $ tale che la successione da $ s $ a $ s' $ in $ n $ passi $ s_0 = s, s_1, ..., s_n-1,  s'  = s_n $ è sempre positiva, ovvero tale che $ p_{s_0, s1} > 0, ..., p_{s_{n-1}, s_n} > 0$. 
 
 \paragraph{Proprietà} Siano $ s $ e $ s' $ due stati comunicanti: $ s \prec s' $
 
-Se $ us < s' $ e $ s' < s'' $ %TODO controlla abbia senso (riguarda lezione)
+Se $ s \prec s' $ e $ s' \prec s'' $ 
 , allora $ s \prec s'' $ \\
 \\
 In generale, se ho due cammini:
 
-$ s, s_1, ..., s_{n-1}, s'' $
+$ s, s_1, ..., s_{n-1}, s' $
 
 $ s', \bar{s}_1, ..., \bar{s}_{m-1}, s'' $
 \\
@@ -1301,7 +1313,8 @@ Una classe equivalente ad $ s $ si dice \textbf{massimale} se non comunica con u
 
 Quando la catena di Markov arriva in uno stato che appartiene ad una classe massimale, rimane "bloccata" sempre dentro stati di quella classe. 
 
-Una catena di Markov si dice \textbf{irriducibile} se da una sola classe di equivalenza ??? %TODO
+Una catena di Markov si dice \textbf{irriducibile} se ha una sola classe di equivalenza, cioè S (spazio degli stati) è una classe di equivalenza.
+Se abbiamo una classe massimale, possiamo considerare una restrizione della catena di Markov: se le transizioni rimangono solo nella classe, possiamo ignorare gli altri stati. 
 
 cioè lo spazio degli eventi $ S $ è una sola classe di equivalenza.
 \\
@@ -1327,7 +1340,7 @@ $ c_1 $ e $ c_3 $ sono massimali. In questo caso la catena di Markov non è irri
 
 \paragraph{Periodo} Dato uno stato $ s \in S $:
 
-$$ A^+_s = \{? | p_{s,s}^{(n)} > 0\} $$ %TODO
+$$ A^+_s = \{ n > 0 | p_{s,s}^{(n)} > 0\} $$ %TODO
 $$ A^+_s \ne 0 $$
 
 Se $ n_1 \in A^+_s $ e $ n_2 \in A^+_s $, allora $ n_1 + n_2 \in A^+_s $
@@ -1338,7 +1351,7 @@ Il \textbf{periodo} di $ s $ (con $ A^+_s \ne 0 $) è:
 $$ q = \text{MCD}(A^+_s) $$\\
 \\
 \\
-In una \textbf{passeggiata aleatoria con condizioni periodiche} possiamo fare un movimento in senso orario o antiorario (dallo stato $ b $ torniamo ad $ a $). Non è detto che tutti gli $ A^+ $ siano divisibili per 2: il numero degli stati può essere dispari. 
+In una \textbf{passeggiata aleatoria con condizioni periodiche}, immaginando gli stati disposti come un cerchio, possiamo fare un movimento in senso orario o antiorario (dallo stato $ b $ torniamo ad $ a $). Non è detto che tutti gli $ A^+ $ siano divisibili per 2: il numero degli stati può essere dispari. 
 
 Se $ q = 1 $, $ s $ si dice aperiodico. 
 
@@ -1363,7 +1376,7 @@ $ n + n_1 + n_2 $ è divisibile per $ q' \Rightarrow n$ è divisibile per $ q' $
 
 Viceversa, preso $ n' \in A^+_{s'} $, $ n' $ è divisibile per $ q $.
 
-???%TODO
+Quindi q e q' sono divisore comune di $A^+_s$, quindi siccome q è il massimo comune divisore, allora q' dev'essere multiplo di q e viceversa; allora q e q' devono necessariamente essere uguali. 
 
 Il periodo è una caratteristica delle classi di equivalenza. \\
 \\
@@ -1419,11 +1432,11 @@ Vediamo ora un altro tipo di classificazione, detto appunto \textbf{ricorrenza}:
 
 Definiamo, dati due stati $ s $ e $ s' $ e dato $ n > 0 $:
 
-$$ f^{(n)}_{s,s'} = P(x_n = s', x_{n-1} \ne s', ..., x_n \ne s' | x_0 = s)$$
+$$ f^{(n)}_{s,s'} = P(x_n = s', x_{n-1} \ne s', ..., 0 \ne s' | x_0 = s)$$
 
 Questa è la probabilità di passare da $ s $ a $ s' $ per la prima volta in un tempo $ n $. 
 
-Osserviamo che se consideriamo questi eventi per un dato $ n $ e per un $ n' \ne $, questi eventi sono incompatibili: se partendo da $ s $ arriviamo per la prima volta a $ s' $ in un tempo $ n $, ovviamente è impossibile che succeda la stessa cosa per un tempo $ n' \ne n $. 
+Osserviamo che se consideriamo questi eventi per un dato $ n $ e per un $ n' \ne n $, questi eventi sono incompatibili: se partendo da $ s $ arriviamo per la prima volta a $ s' $ in un tempo $ n $, ovviamente è impossibile che succeda la stessa cosa per un tempo $ n' \ne n $. 
 In particolare, se facciamo la somma di queste probabilità, troveremo che questa è pari alla probabilità di uno di questi eventi:
 $$ \sum_{n} f_{s,s'}^{(n)} = f_{s,s'} $$
 è appunto la probabilità che si verifichi uno di quegli eventi, o in altre parole che arriveremo in uno stato $ s' $ partendo da uno stato $ s $ in un certo tempo. 
@@ -1464,11 +1477,11 @@ $$ p = \frac{1}{2} \qquad p_{0,0}^{(2n)} = u_{2n} = \binom{2n}{n}\frac{1}{2^{2n}
 $$ \sum_{n=0}^{\infty} p_{0,0}^{(n)} = +\infty $$
 Dobbiamo considerare la serie $\frac{1}{\sqrt{n}}$ che è divergente per $ n \ge \frac{1}{2} $ e converge per $ n < \frac{1}{2} $. In questo caso è divergente. 
 
-$$ p \ne \frac{1}{2} \qquad p_{0,0}^{(2n)} = \binom{2n}{n} p^n (1-p)^n = \underbrace{\binom{2n}{n}\frac{1}{2^2n}}_{\displaystyle = u_{2n} \simeq \frac{1}{\sqrt{\pi n}}} \cdot \; \underbrace{2^{2n} p^n(1-p^n) }_{\displaystyle = 4p(1-p^n)} $$
+$$ p \ne \frac{1}{2} \qquad p_{0,0}^{(2n)} = \binom{2n}{n} p^n (1-p)^n = \underbrace{\binom{2n}{n}\frac{1}{2^{2n}}}_{\displaystyle = u_{2n} \simeq \frac{1}{\sqrt{\pi n}}} \cdot \; \underbrace{2^{2n} p^n(1-p)^n }_{\displaystyle = 4p(1-p)^n} $$
 
 Consideriamo la funzione $ p(1-p) $:
 
-$$ \frac{\partial}{\partial{p}} p(1-p) = 1.p -p = 1 - 2p $$
+$$ \frac{\partial}{\partial{p}} p(1-p) = 1 -p -p = 1 - 2p $$
 È positiva per $ p < \frac{1}{2} $ e negativa per $ p > \frac{1}{2} $.
 
 \begin{multicols}{2}
@@ -1488,7 +1501,7 @@ $$ \frac{\partial}{\partial{p}} p(1-p) = 1.p -p = 1 - 2p $$
 
 Quindi nel caso di passeggiata aleatoria non simmetrica i due giocatori andranno in pareggio solo un numero finito di volte. 
 
-Verifichiamo ora la seconda proprietà, quella che ci permette di determinare se uno stato è transiente. Introduciamo la \textbf{funzione generatrice}. È uno strumento che si usa in molti casi, quando abbiamo una successione. 
+Verifichiamo ora che la seconda proprietà, quella che ci permette di determinare se uno stato è transiente, sia equivalente alla prima. Introduciamo la \textbf{funzione generatrice}. È uno strumento che si usa in molti casi, quando abbiamo una successione. 
 
 \begin{align*}
 	& f_{s,s}^{(0)} \\
@@ -1510,7 +1523,7 @@ Per Markov è come se la catena ripartisse dall'inizio.
  
 Per $ n = 0, p_{s,s}^0 = 1 $ quindi 
 
-$$ U(z)	= 1 + \sum_{n=1}^{n} (\sum_{k=1}^{n} f_{s,s}^{(k)} p_{s,s}^{(n-k)}) z^n $$
+$$ U(z)	= 1 + \sum_{n=1}^{\infty} (\sum_{k=1}^{n} f_{s,s}^{(k)} p_{s,s}^{(n-k)}) z^n $$
 
 Introduciamo $ m = n-k \Rightarrow n=m+k $
 
@@ -1544,7 +1557,7 @@ $$ \Rightarrow \exists n_1 : P_{s,s'}^{(n_1)} > 0 \land \exists n_2 : p_{s,s'}^{
 
 $$ \sum_{n=0}^{\infty} p_{s',s'}^{(n)} \ge \sum_{n = n_1 + n_2}^{\infty} p_{s',s'}^{(n)} $$ 
 
-Se invece di partire da $ n = 0 $ partiamo da $ n = n_1+n_2 $, come facciamo ad andare da $ s' $ a $ s' $? Andiamo in $ n_2 $ da $ s' $ a $ n $, e in $ n - n_1 - n_2 $ possiamo andare a $ s $, e infine in $ n_1 $ da $ s $ a $ s' $:
+Se invece di partire da $ n = 0 $ partiamo da $ n = n_1+n_2 $, come facciamo ad andare da $ s' $ a $ s' $? Andiamo in $ n_2 $ da $ s' $ a $ s $, e in $ n - n_1 - n_2 $ possiamo andare a $ s $, e infine in $ n_1 $ da $ s $ a $ s' $:
 
 $$ \ge \sum_{n=n_1+n_2}^{\infty} p_{s',s}^{(n_2)} p_{s,s}^{(n-n_1-n_2)} p_{s,s'}^{(n_1)} $$
 Sia $ k = n-n_1-n_2 $:
@@ -1562,7 +1575,8 @@ $$
 	s \text{ ricorrente } & f_s = \sum_{n=1}^{\infty} f_{s,s}^{(n)} = 1 \\  
 \end{array} $$
 
-$$ p_{s,s'}^{(n)} \underset{n \to \infty}{\longrightarrow} \frac{1}{v_s} $$
+$$ p_{s',s}^{(n)} \underset{n \to \infty}{\longrightarrow} \frac{1}{v_s} $$
+
 $$ \text{se } v_s = +\infty, \; \; \frac{1}{v_s} = 0 $$
 
 Se $ v_s = +\infty $ allora non è necessario che sia aperiodica. 
@@ -1584,9 +1598,9 @@ Sappiamo che $ p_{s',s}^{(n)} \to v_s^{-1} = u_s $.
 Osservazione: $ p_{s',s}^{(n+1)} = \sum_{s''} p_{s',s''}^{(n)} p_{s'',s} $
 
 $$ \begin{array}{cc}
-	p_{s,s'}^{(n+1)} \underset{n \to \infty}{u_s} & \sum_{s''}p_{s',s''}^{(n)} p_{s'',s} \\ 
+%	p_{s,s'}^{(n+1)} \underset{n \to \infty}{u_s} & \sum_{s''}p_{s',s''}^{(n)} p_{s'',s} \\ 
 	
-	u_s = \sum_{s''} u_{s''} & \sum_{s \in S} u_s = 1
+	u_s = \sum_{u_s''p_{s'',s}} u_{s''} & \sum_{s \in S} u_s = 1
 \end{array} $$
 
 $ u_s $ è una distribuzione di probabilità sugli stati;
@@ -1635,9 +1649,9 @@ Questa quantità è uguale a 0 se $ \mu = +\infty $. Se $ \mu= +\infty $, non è
 Nel caso $ S $ finito, detto $ u_s = \ddfrac{1}{\mu_s} $
 $$ \qquad \displaystyle \sum_{s \in S} u_s = 1 $$
 e
-$$ \forall s' \qquad \sum_{s} u_s p_{s,s'} = u_s'$$
+$$ \forall s' \qquad \sum_{s} u_s p_{s,s'} = u_{s'}$$
 
-Queste relazioni ci dicono che $ u_s $ è una distribuzione invariante o stazionaria, ovvero se $ u_s $ soddisfa le due equazioni e mettiamo $ u_s $ come distribuzione iniziale in una catena di Markov, vediamo che nei tempi successivi rimane invariante (ovvero la distribuzione rimane $ u_s $)Se $ u_s $ è la distribuzione iniziale, da $ \sum_{s} u_s p_{s,s'} = u_s' $ segue che $ u_s $ è anche la distribuzione al tempo 1. È anche stazionaria perché non cambia nel tempo
+Queste relazioni ci dicono che $ u_s $ è una distribuzione invariante o stazionaria, ovvero se $ u_s $ soddisfa le due equazioni e mettiamo $ u_s $ come distribuzione iniziale in una catena di Markov, vediamo che nei tempi successivi rimane invariante (ovvero la distribuzione rimane $ u_s $). Se $ u_s $ è la distribuzione iniziale, da $ \sum_{s} u_s p_{s,s'} = u_{s'} $ segue che $ u_s $ è anche la distribuzione al tempo 1. Ripetendo questo ragionamento si può vedere che vale anche al tempo 2, 3, etc. È anche stazionaria perché non cambia nel tempo.
 
 Vogliamo verificare se la proprietà sia vera anche nel caso $ S $ infinito. 
 
@@ -1651,7 +1665,7 @@ Questa è una serie, dobbiamo passare al limite. Nel caso infinito però non è 
 \begin{align*}
 	p_{\bar{s}, s'}^{(n+1)} & \ge \sum_{s \in \bar{S} } p_{\bar{s},s}^{(n)} p_{s,s'} \qquad \text { per il teorema ergodico} \\
 	u_{s'} & \ge \sum_{s \in \bar{S}} u_s p_{s,s'} \\
-	u_{s'} & \ge \sum_{s \in S} u_sp_{s,s'} \qquad \text{(I)}
+	\text{se } \overline{S} \to S, \qquad u_{s'} & \ge \sum_{s \in S} u_sp_{s,s'} \qquad \text{(I)}
 \end{align*}
 
 Abbiamo dimostrato una disuguaglianza. Definiamo 
@@ -1662,11 +1676,11 @@ Dobbiamo dimostrare che in (I) c'è uguaglianza, e in (II) che la somma è pari 
 
 Supponiamo per assurdo che non ci sia uguaglianza in (I) per un particolare stato $\bar{s}'$:
 
-$$ u_{\bar{s}'} > \sum_{s \in S} u_s p{s,s'} $$
+$$ u_{\bar{s}'} > \sum_{s \in S} u_s p_{s,s'} $$
 
 Allora quando sommiamo tutti gli stati, avremo la disuguaglianza stretta:
 $$ \sum_{s'} u_{s'} > \sum_{s'} \sum_{s} u_s p_{s,s'} $$
-$$ \alpha = \sum_{s'} u_{s'} > \sum_{s'} \sum{s} u_s p_{s,s'}$$
+$$ \alpha = \sum_{s'} u_{s'} > \sum_{s'} \sum_{s} u_s p_{s,s'}$$
 $$ \alpha > \alpha \text{ ASSURDO } $$
 
 Quindi anche nel caso infinito, $ u_s $ è una distribuzione di probabilità, cioè la somma è pari a 1:
@@ -1675,12 +1689,15 @@ Quindi anche nel caso infinito, $ u_s $ è una distribuzione di probabilità, ci
 	u_{s'} & = \sum_{s} u_s p_{s,s'}^{(2)} \\
 	u_{s'} & = \sum_{s} u_s p_{s,s'} ^{(n)}
 \end{align*}
+Questo si ottiene mettendo la stessa relazione $ u_s' $ al posto di $ u_s $, e otteniamo $ p_{s,s'}^{(2)} $; ripetendo otteniamo $ p_{s,s'}^{(n)} $.
 
 Per $ n \to \infty $, $ u_{s'} = \sum_{s} u_su_{s'}$
 \begin{align*}
 u_{s'} & = \alpha u_{s'} \qquad \qquad u_{s'} > 0 \\
 & \Rightarrow \alpha = 1 \qed
 \end{align*}
+
+Quindi anche nel caso infinito, $ u_s $ è la distribuzione invariante della catena di Markov.
 
 Abbiamo ipotizzato finora l'attesa di ritorno $\mu_s < +\infty$ (cioè $\mu_s$ finito).
 
@@ -1694,23 +1711,25 @@ $$ \text{supponiamo } s \text{ ricorrente: } \begin{cases*}
 Nel primo caso quindi l'attesa del tempo di ritorno è finita, nel secondo infinita. 
 \\
 \\
-Supponiamo di avere una classe di equivalenza $ S $ irriducibile e ricorrente. Vogliamo mostrare che non è possibile che ci sia uno stato ricorrente positivo e uno stato ricorrente nullo. Supponendo quindi che $ s_1 $ sia positivo, vogliamo mostrare che $ s_2 $ non può essere ricorrente nullo. 
+Supponiamo di avere una classe di equivalenza $ S $ irriducibile, aperiodica e ricorrente. Vogliamo mostrare che non è possibile che ci sia uno stato ricorrente positivo e uno stato ricorrente nullo. Supponendo quindi che $ s_1 $ sia positivo, vogliamo mostrare che $ s_2 $ non può essere ricorrente nullo. 
 
 Dato un $ s $,
-$$ p_{s,s{_1}}^{(n)} \underset{n \to \infty}{\longrightarrow} u_{s_{1}} > 0$$
+$$ p_{s,s{_1}}^{(n)} \underset{\text{per teorema ergodico}}{\underset{n \to \infty}{\longrightarrow}} u_{s_{1}} > 0$$
 
-$$ \exists n_1 : p_{s_1, s_2}^{n_1} > 0 \qquad \text{perché } s_1, s_2 \in S  $$
+$$ \exists n_1 : p_{s_1, s_2}^{(n_1)} > 0 \qquad \text{perché } s_1, s_2 \in S  $$
 
 Ma $ p_{s,s_2}^{(n)} > p_{s,s_1}^{(n - n_1)} p_{s,s_2}^{(n_1)} $
 
-$ p_{s,s_2}^{(n)} $ non tende a 0 (per $ n \to \infty $)
+$ p_{s_1,s_2}^{(n)} $ non tende a 0 (per $ n \to \infty $)
 
 $$ \Rightarrow s_2 \text{ è ricorrente positivo} \qed $$
+
+Se $ s_2 $ fosse stato ricorrente nullo, quella quantità avrebbe teso a 0.
 
 Una conseguenza è che se $ S $ è finito, non ci sono stati ricorrenti nulli, perché abbiamo che $ \sum_{s' \in S} p_{s,s'}^{(n)} = 1 $.
 
 
-Essendo S finito, possiamo passare al limite della somma. Se gli stati fossero ricorrenti nulli, il limite tenderebbe a 0, e siccome è una somma finita, anche la somma tenderebbe a 0. Ma la somma è pari a 1, quindi dev'esserci almeno uno stato ricorrente positivo. E abbiamo appena visto che se abbiamo una sola classe di equivalenza e uno stato è ricorrente positivo, allora sono tutti ricorrenti positivi - anche se la dimostrazione appena vista funziona solo nel caso aperiodico. 
+Essendo S finito, possiamo passare al limite della somma. Se gli stati fossero ricorrenti nulli, il limite tenderebbe a 0, e siccome è una somma finita, anche la somma tenderebbe a 0. Ma la sommatoria è pari a 1, quindi dev'esserci almeno uno stato ricorrente positivo. E abbiamo appena visto che se abbiamo una sola classe di equivalenza e uno stato è ricorrente positivo, allora sono tutti ricorrenti positivi - anche se la dimostrazione appena vista funziona solo nel caso aperiodico. 
 
 Quindi in una tale catena di Markov (sola classe di equivalenza, irriducibile, stati ricorrenti positivi, aperiodica) abbiamo una distribuzione invariante, e le probabilità tendono a $ u_s $: ma come si fa a calcolare questo limite? La cosa più semplice è provare a risolvere il sistema d'equazioni.
 
@@ -1767,7 +1786,7 @@ Possiamo rappresentare la passeggiata aleatoria con un cerchio:
 		(1) edge[bend left, ->] (2)
 		(1) edge[bend right, ->] (7); 
 		
-		\node[] (8) at (6,1) {$ |S| = n $};
+		\node[] (8) at (6,1) {$ |S| = p $};
 		
 	\end{tikzpicture}	
 \end{center}
@@ -1789,7 +1808,7 @@ Questa è in realtà una distribuzione invariante anche nel caso pari, ma nel ca
 
 Altri modelli che abbiamo visto sono i modelli di estrazione dall'urna: abbiamo visto il modello di Ehrenfest e di Laplace-Bernoulli. In entrambi i modelli abbiamo due urne. Nel primo scegliamo a caso una pallina e la spostiamo da un'urna all'altra; nel secondo, abbiamo $ n $ palline bianche e $ n $ palline nere. Di queste $ 2n $ palline, metà stanno nell'urna A e metà nell'urna B. Possiamo prendere come stato il numero delle palline bianche in A. Quello che osserviamo è che il modello di Ehrenfest non è aperiodico: come nel caso della passeggiata aleatoria ha periodo 2. 
 
-Rappresentiamo gli stati come punti, mettendo una freccia per indicare le transizioni possibili. Il numero delle palline nell'urna A può aumentare o diminuire, ovvero possiamo fare un passo a destra o un passo a sinistra. Possiamo tornare solo nei tempi pari, e quindi in questo caso - siccome il periodo è 2 - non possiamo applicare direttamente il teorema ergodico. 
+Rappresentiamo gli stati come punti, mettendo una freccia per indicare le transizioni possibili. Il numero delle palline nell'urna A può aumentare o diminuire, ovvero possiamo fare un passo a destra o un passo a sinistra. Possiamo tornare solo nei tempi pari (per tornare allo stato 0, dobbiamo fare lo stesso numero di passi a destra o sinistra), e quindi in questo caso - siccome il periodo è 2 - non possiamo applicare direttamente il teorema ergodico. 
 
 Nel modello di Laplace-Bernoulli il numero di palline bianche può anche rimanere invariato:
 
@@ -1809,18 +1828,19 @@ Nel modello di Laplace-Bernoulli il numero di palline bianche può anche rimaner
 			edge[loop above] (2)
 		(3) edge[e] (2)
 			edge[loop above] (3)
-		(4)	edge[e]	(3);
+		(4)	edge[e]	(3)
+			edge[loop above] (4);
 		
 	\end{tikzpicture}
 \end{center}
 
-se scambiamo 2 palline bianche tra le urne A e B, il numero delle palline bianche in A è invariato. Se la probabilità di rimanere nello stato è 0, allora il periodo deve essere 1  e possiamo usare il teorema ergodico. Intuitivamente, comunque, possiamo affermare che 
+se scambiamo 2 palline bianche tra le urne A e B, il numero delle palline bianche in A è invariato. Se la probabilità di rimanere nello stato è positiva, allora il periodo deve essere 1  e possiamo usare il teorema ergodico. Intuitivamente, comunque, possiamo affermare che 
 
 $$ u_s < \frac{\binom{N}{S}\binom{N}{N-S}}{\binom{2N}{N}} $$
 
 e questa disuguaglianza dovrà soddisfare le equazioni. 
 
-\paragraph{Teorema} Supponiamo S infinito, una sola classe di equivalenza aperiodica irriducibile. Supponiamo ci sia una distribuzione invariante $ u_s $, con $ 0 \le u_s \le 1 $:
+\paragraph{Teorema} Quando abbiamo uno spazio degli stati infinito, come facciamo a vedere se gli stati sono ricorrenti positivi, nulli, transienti...? Supponiamo S infinito, una sola classe di equivalenza aperiodica irriducibile. Supponiamo ci sia una distribuzione invariante $ u_s $, con $ 0 \le u_s \le 1 $:
 $$ \sum_{s}u_s = 1 \qquad \forall s', u_{s'} = \sum_{s} u_s p_{s,s'} $$
 Allora gli stati sono ricorrenti positivi. 
 \\
@@ -1832,7 +1852,7 @@ $$ \sum_n p^{(n)}_{s,s} < + \infty $$
 Questo implica in particolare che anche la probabilità di andare da uno stato qualunque, es. da $ s' $ a $ s $ con $ s' \ne s $ tende a 0:
 $$ p_{s,s'} \underset{n\to \infty}{\longrightarrow} 0  $$
 Possiamo scrivere l'equazione del rinnovamento; questa equazione deve tendere a 0::
-$$ p_{s',s}^{(n)}  = \sum_{k=1}^{n} p^{(k)}_{s',s} p^{(n-k)}_{s,s} \underset{n \to \infty}{\longrightarrow} 0$$
+$$ f_{s',s}^{(k)}  = \sum_{k=1}^{n} p^{(k)}_{s',s} p^{(n-k)}_{s,s} \underset{n \to \infty}{\longrightarrow} 0$$
 
 Si può dividere in due parti:
 $$ = \sum_{k=1}^{\frac{n}{2}} + \sum_{k=\frac{n}{2} + 1}^{n}$$
@@ -1844,7 +1864,7 @@ Se noi facciamo tendere $ n $ all'infinito, se $ s $ fosse uno stato transiente,
 
 Se gli stati fossero ricorrenti nulli, dal teorema ergodico abbiamo che $ p^{(n)}_{s',s} \to 1 $. Potremo usare lo stesso argomento. 
 
-Quindi gli stati non possono essere ne transienti ne ricorrenti nulli: devono essere ricorrenti positivi. 
+Quindi gli stati non possono essere ne transienti ne ricorrenti nulli: devono essere ricorrenti positivi. Se esiste una distribuzione invariante, gli stati devono essere necessariamente ricorrenti positivi.
 
 \section{Modello di coda}
 In questo modello abbiamo dei clienti, che arrivano e vanno dagli sportelli dove vengono serviti. Il tempo che passano agli sportelli è aleatorio. Supponiamo che il tempo sia discreto. 
@@ -1857,7 +1877,7 @@ Questo è descritto da una catena di Markov in cui lo spazio degli stati è $ \m
 
 Ci chiediamo ora qual è la probabilità, partendo da 0, di rimanere nello stato 0 (ovvero che non ci sia nessun cliente e che non arrivi nessun cliente), e altre probabilità, con $ S = \mathbb{N} $:
 $$ \begin{array}{ccc}
-  p_{0,0} = 1-p & p_{1,1} = p\cdot q + (1-p) 1-q  & p_{1,2} = p(1-q) \\
+  p_{0,0} = 1-p & p_{1,1} = p\cdot q + (1-p)(1-q)  & p_{1,2} = p(1-q) \\
   p_{0,1} = p & p_{1,0} = (1-p)q & 
 \end{array} $$
 
@@ -1878,13 +1898,14 @@ Vogliamo quindi vedere se gli stati sono ricorrenti o transienti, e nel primo ca
 
 Vogliamo scrivere le equazioni per la distribuzione invariante. Definiamo $ u_i $ la distribuzione invariante, con $ i \in \mathbb{N} $:
 \begin{align*}
-	\sum_{i=0}^{\infty} u_i & = i \\
+	\sum_{i=0}^{\infty} u_i & = 1 \\
 	u_0 & = u_0(1-p) + u_1 l \\
-	u_1 & = u_0 p + u_1 r + u_r l \\
+	u_1 & = u_0 p + u_1 r + u_2 l \\
 	u_s & = u_{s-1}d + u_s r + u_{s+1} l, \qquad \qquad s \ge 2 \\
 	u_1 l & = u_0 p \\
 	u_1(1-r-l) & = u_2 l \\
 	u_1 d & = u_2 l \\	
+	\text{ripetendo questo argomento si vede che:} \\
 	u_s d = u_{s+1} l
 \end{align*}
 
@@ -1960,7 +1981,7 @@ Quindi, se $ S = 1 $, siccome andremo a 0, dovremo per forza ripassar e per 1; g
 L'interpretazione è che la coda è lunga, ma ogni tanto si svuota. 
 \\
 \\
-Un altro caso possibile è $ p = q $; in questo caso $ d = l $ e si ha che $ \bar{p} = \frac{1}{2} $. Nel caso della rovina del giocatore, quando le due probabilità sono uguali, la rovina del primo giocatore si ha quando si torna allo stato 0; questo implica che lo stato 0 è ricorrente. Sappiamo già però che non può essere ricorrente positivo (lo è nel caso $ p < q $); gli stati allora devono essere necessariamente ricorrenti nulli. 
+Abbiamo appena visto $ p < q $. Un altro caso possibile è $ p = q $; in questo caso $ d = l $ e si ha che $ \bar{p} = \frac{1}{2} $. Nel caso della rovina del giocatore, quando le due probabilità sono uguali, la rovina del primo giocatore si ha quando si torna allo stato 0; questo implica che lo stato 0 è ricorrente. Sappiamo già però che non può essere ricorrente positivo (lo è nel caso $ p < q $); gli stati allora devono essere necessariamente ricorrenti nulli. 
 
 Se $ p > q $, è come la passeggiata asimmetrica: $ d = \frac{p}{1-p} > l = \frac{q}{1-q} $ e $ \bar{p} > \frac{1}{2} $: la probabilità di andare a destra è maggiore della probabilità di andare a sinistra. C'è una probabilità positiva che il primo giocatore non si rovini, quindi che non torni a 0. Quindi in questo caso gli stati sono transienti. L'interpretazione quindi è che lo sportello si può vuotare un numero finito di volte, prima di allungarsi e non riuscire più a svuotarsi. 
 
@@ -1983,7 +2004,7 @@ $$ P (Y_{n+1} = s' | Y_{n} = s, Y_{n-1} = s_{n-1}, ..., Y_0 = s_0) $$
 
 Possiamo scriverlo usando la formula delle probabilità subordinate:
 \begin{align*}
-	& = \frac{P(Y_{n+1} = s' | Y_n = s, ..., Y_0 = S_0)}{P(Y_n = s, Y_{n-1} = s_{n-1}, ..., Y_0 = s_0)} \\ 
+	& = \frac{P(Y_{n+1} = s', Y_n = s, ..., Y_0 = S_0)}{P(Y_n = s, Y_{n-1} = s_{n-1}, ..., Y_0 = s_0)} \\ 
 	& = \frac{P(X_0=s_0, X_{-1} = s_1, ..., X_{-n} = s, X_{-n-1} = s')}{P(X_0 = s_0, X_{-1} = s_1, ..., X_{-n} = s)} \\
 	& = \frac{u_{s'}p_{s',s} p_{s,s_n}...p_{s_1, s_0}}{u_s p_{s,s_n}...p_{s_1, s_0}} \\
 	& = \frac{u_{s'} p_{s',s}}{u_s} \qquad \begin{array}{c}
@@ -2010,9 +2031,9 @@ allora $ u_s = \frac{\alpha_{s}}{\sum_{s'} \alpha_{s'}} $ è una distribuzione i
 
 Dobbiamo far vedere anzitutto che è una distribuzione invariante; la condizione perché ciò avvenga è:
 $$ \sum_{s} u_s p_{s,s'} = u_{s'} $$
-Sia $ k = \frac{1}{\sum_{s'}\alpha_{s'}} $; $ u_s = k \cdot a_s $.
+Sia $ k = \frac{1}{\sum_{s'}\alpha_{s'}} $; $ u_s = k \cdot \alpha_s $.
 \begin{align*}
-	\sum_{s} k\alpha_{s} p_{s,s'} & = \sum_{s} k \alpha_{s} p_{s',s} \\
+	\sum_{s} k\alpha_{s} p_{s,s'} & = \sum_{s} k \alpha_{s'} p_{s',s} \\
 	& = k \alpha_{s'} \\ 
 	& = u_{s'} \qed
 \end{align*}
@@ -2039,7 +2060,7 @@ $$ \begin{array}{cc}
 \end{array}$$
 
 Vogliamo cercare dei numeri tali che:
-	$$ \alpha_{s}p-{s,s'} = \alpha_{s'} p_{s's,} $$
+	$$ \alpha_{s}p_{s,s'} = \alpha_{s'} p_{s's,} $$
 Supponiamo $ s' = s+1 $
 \begin{align*}
 	\alpha_{s} p & = \alpha_{s+1} (1-p) \\
@@ -2048,7 +2069,7 @@ Supponiamo $ s' = s+1 $
 
 Il numero degli stati è $ b-a+1 $; se itero queste relazioni:
 $$ \alpha_a = \left(\frac{p}{1-p}\right)^{b-a+1}\alpha_a $$
-Quindi $ \frac{p}{1-p})^{b-a+1} $ deve essere uguale a 1; ciò è vero solo se $ p = \frac{1}{2} $.
+Quindi $ \left(\frac{p}{1-p}\right)^{b-a+1} $ deve essere uguale a 1; ciò è vero solo se $ p = \frac{1}{2} $.
 
 Se $ p = \frac{1}{2} $, allora $ \alpha_s = \alpha_a \forall s $
 $$ u_s = \frac{1}{b+a+1}$$
@@ -2060,7 +2081,7 @@ Se $ p \ne \frac{1}{2} $, la passeggiata andrebbe più in senso orario o antiora
 \\
 \\
 Vediamo un criterio generale per la reversibilità. Supponiamo di avere una catena di Markov ergodica e aperiodica:
-$$ p_{s,s'}^(n) \overset{n \to \infty}{u_{s'}} \qquad \text{distribuzione invariante} $$
+$$ p_{s,s'}^{(n)} \overset{n \to \infty}{\longrightarrow} u_{s'} \qquad \text{distribuzione invariante} $$
 Allora la catena di Markov è reversibile se e solo se $ \forall s_0, ..., s_n $:
 
 $$ p_{s_0,s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{s_{n-1}, s_n} \cdot p_{s_n , s_0} = p_{s_0 s_n} \cdot p_{s_n, s_{n-1}} \cdot ... \cdot p_{s_1, s_0} $$
@@ -2070,7 +2091,7 @@ Supponiamo sia reversibile.
 \begin{align*}
 	p_{s,s'} & = \frac{p_{s',s}}{u_s}\cdot u_{s'} \\
 	& = p_{s_0 s_n} \cdot p_{s_n, s_{n-1}} \cdot ... \cdot p_{s_1, s_0} \\
-	& = \left(\frac{p_{s_0, s_1}}{u_{s_1}}\cdot u_{s_0}\right) \cdot \left(\frac{p_{s_1, s_2}}{u_{s_2}}\cdot u_{s_1}\right) \cdot ...
+	& = \left(\frac{p_{s', s}}{u_{s_1}}\cdot u_{s_0}\right) \cdot \left(\frac{p_{s_1, s_2}}{u_{s_2}}\cdot u_{s_1}\right) \cdot ...
 \end{align*}
 
 Gli $ u_{s_i} $ si semplificano. Questa è una condizione necessaria. Dobbiamo ora far vedere che è sufficiente. 
@@ -2079,12 +2100,12 @@ Supponiamo che la relazione sia soddisfatta.
 
 \begin{align*}
 	u_s p_{s,s'} & = \lim\limits_{n \to \infty} p_{s,s'}p_{s',s}^{(n)} \\
-	& = \lim\lim\limits_{n \to \infty} p_{s,s'} \sum_{s_1, s_2, ..., s_{n-1}} p_{s',s_1} p_{s_1, s_2} ... p_{s_{n-1}, s} \\
+	& = \lim\limits_{n \to \infty} p_{s,s'} \sum_{s_1, s_2, ..., s_{n-1}} p_{s',s_1} p_{s_1, s_2} ... p_{s_{n-1}, s} \\
 	& = \lim\limits_{n \to \infty} \sum_{s_1, s_2, ..., s_{n-1}} p_{s,s_{n-1}} ... p_{s_1, s'}p_{s',s} \\
 	& = \lim\limits_{n \to \infty} p_{s,s'}^{(n)} p_{s',s} \overset{\text{per ergodicità}}{=} u_{s'} p_{s',s} \qed
 \end{align*}
 
-Un esempio di applicazione di questo è il seguente: supponiamo di avere una catena di Markov irriducibile su un intervallo tale che
+Un esempio di applicazione di questo è il seguente: supponiamo di avere una catena di Markov irriducibile su un intervallo finito e aperiodica tale che
 $$ p_{s,s'} = 0 \qquad \text{se } | s' - s | \ge 2 $$
 Allora è reversibile. 
 
@@ -2092,16 +2113,16 @@ Allora è reversibile.
 
 Questa catena quindi non può fare dei salti maggiori o uguali a 2; può rimanere ferma, andare a destra oppure a sinistra. 
 
-Sappiamo che ci deve essere almeno uno stato ricorrente positivo. Siccome la catena è irriducibile, allora tutti gli stati sono così. 
+Sappiamo che ci deve essere almeno uno stato ricorrente positivo, perché lo spazio degli stati è finito. Siccome la catena è irriducibile, allora tutti gli stati sono così. 
 
-Mostriamo che è irreversibile:
+Mostriamo che è reversibile:
 $$ s_1, ..., s_{n-1}, s' $$
-$$ p_{s_1, s} \cdot p_{s_1, s_2} \cdot ... \cdot ??? \qquad \text{(I)}$$ %TODO
+$$ p_{s, s_1} \cdot p_{s_1, s_2} \cdot ... \cdot p_{n-1, s'} \cdot p_{s',s} \qquad \text{(I)}$$ 
 $$ p_{s,s'} \cdot p_{s', s_{n-1}} \cdot p_{s_2, s_1} \cdot p_{s_1, s} \qquad \text{(II)}$$
 
 Devo vedere se i due prodotti sono uguali. 
 
-In (I) ci saranno dei passaggi a destra, a sinistra e dei momenti in cui la catena rimane ferma. Siccome devo tornare allo stato di partenza, il numero dei passi a destra deve essere uguale al numero dei passi a sinistra. Per ogni coppia di stati vicini, alcuni andranno in un senso e altri nel senso contrario. 
+In (I) ci saranno dei passaggi a destra, a sinistra e dei momenti in cui la catena rimane ferma. Siccome devo tornare allo stato di partenza, il numero dei passi a destra deve essere uguale al numero dei passi a sinistra. Per ogni coppia di stati vicini, alcuni andranno in un senso e altri nel senso contrario, ma il numero di passi in una direzione e nell'altra sarà lo stesso.  Quindi la condizione è soddisfatta e (I) = (II).
 
 %LEZIONE 27/10/2020 2020-10-27
 %TODO è una nuova sezione?
@@ -2117,7 +2138,7 @@ $$ s \ge 1: \begin{array}{c}
 
 Applichiamo lo stesso criterio per la passeggiata aleatoria (consideriamo solo gli spostamenti):
 $$ s \ge 1: 
-	\bar{\alpha}_{s-1} = \bar{\alpha}_s \ddfrac{\bar{p}}{1-\bar{p}} = \ddfrac{d}{l}
+	\bar{\alpha}_{s+1} = \bar{\alpha}_s \ddfrac{\bar{p}}{1-\bar{p}} = \bar{\alpha}_s \ddfrac{d}{l}
 	\qquad \qquad s = 0: 
 	\bar{\alpha}_{0} = \bar{\alpha}_{1} \ddfrac{l}{1-r}
 $$
@@ -2161,7 +2182,7 @@ Ci sono degli archi che attirano più di altri il passaggio. Cerchiamo una distr
 \begin{align*}
 	\alpha_{i}p_{i,j} & = \alpha_{j}p_{j,i} \\
 	\alpha_{i}\ddfrac{v_{i,j}}{\sum_{j'}v_{i,j'}} & = 	\alpha_{j}\ddfrac{v_{j,i}}{\sum_{i'}v_{j,i'}} \\
-	\ddfrac{a_j}{a_i} & = \frac{\sum_{i'}v_{j,i'}}{\sum_{j'}v_{i,j}}
+	\ddfrac{a_j}{a_i} & = \frac{\sum_{i'}v_{j,i'}}{\sum_{j'}v_{i,j'}}
 \end{align*}
 
 Devo scegliere $ k $ in modo che la somma faccia 1:
@@ -2214,7 +2235,7 @@ Partiamo da una catena di Markov su $ S $ con probabilità di transizione $ q_{s
 	 \sum_{s'}p_{s,s'} & = 1
 \end{align*}
 
-Ora voglio scegliere $ s' $ in modo tale che la catena abbia come distribuzione invariante $ u_s $:
+Ora voglio scegliere $ \alpha_{s,s'} $ in modo tale che la catena abbia come distribuzione invariante $ u_s $:
 \begin{align*}
 	u_s p_{s,s'} & = u_{s'}p_{s',s} \qquad s' \ne s \; \; \text{\tiny altrimenti la condizione è banalmente verificata} \\
 	\pi_s p_{s,s'} & = \pi_{s'}p_{s',s} \qquad \qquad u_s = k\pi_s \\
@@ -2222,7 +2243,7 @@ Ora voglio scegliere $ s' $ in modo tale che la catena abbia come distribuzione 
 	\ddfrac{\alpha_{s,s'}}{\alpha_{s',s}} & = \ddfrac{\pi_{s'}q_{s',s}}{\pi_s q_{s,s'}} \qquad \qquad \alpha_{s,s'} \le 1 , \; \;  \alpha_{s',s} \le 1
 \end{align*}
 
-Definiamo
+Definiamo una funzione, di questa quantità:
 
 \begin{align*}
 	\alpha_{s,s'} & = \phi \left(\ddfrac{\pi_{s'} q_{s',s}}{\pi_s q_{s,s'}}\right) \\
@@ -2236,7 +2257,7 @@ Che proprietà deve avere questa funzione?
 	\item $ \ddfrac{\phi(x)}{\phi\left(\frac{1}{x}\right)} = x $
 \end{enumerate}
 
-Se io prendo una certa funzione che ha queste proprietà e definisco delle quantità $ \alpha_{s,s'}, \alpha_{s',s} $ sulla quale la funzione è calcolata, allora la proprietà è soddisfatta. %TODO ho riascoltato ma non ho capito benissimissimo 
+Se io prendo una certa funzione $ \phi $ che ha queste proprietà e definisco delle quantità $ \alpha_{s,s'}, \alpha_{s',s} $ sulla quale la funzione è calcolata, allora la proprietà è soddisfatta. %TODO ho riascoltato ma non ho capito benissimissimo 
 % quindi per definire una catena di Markov posso  ???
 
 Esistono infinite scelte, ma una possibile scelta per $\phi$ è:
@@ -2246,13 +2267,13 @@ Supponiamo $ 0 < x \le 1 $; allora $ \phi(x) = x $ e $ \phi(\frac{1}{x}) = 1 $.
 Se invece $ x > 1 $: 
 \begin{align*}
 	\phi(x) & = 1 \\
-	\phi(\frac{1}{x}) & = \frac{1}{x} \\
-	\frac{1}{\frac{1}{x}} & = 1
+	\phi(\frac{1}{x}) & = \frac{1}{x} %\\
+%	\frac{1}{\frac{1}{x}} & = 1
 \end{align*}
 
 Definiamo
 
-$$ \alpha_{s,s'} = \min\left(\ddfrac{\pi_s q_{s,s'}}{\pi_{s'}q_{s,s'}}, 1\right)$$
+$$ \alpha_{s,s'} = \min\left(\ddfrac{\pi_s q_{s,s'}}{\pi_{s'}q_{s',s}}, 1\right)$$
 
 \paragraph{Nota} Abbiamo definito $\phi$ in un certo modo, ma non è l'unico: un'altra possibile funzione è $ \phi(x) = \ddfrac{x}{1+x} $.
 
@@ -2285,13 +2306,13 @@ Ho un sottoinsieme di $ \mathbb{Z}^2 $ che posso vedere come un quadrato:
 	$$ u_s = k \exp \left[-j \sum_{<i,j>}s_i s_j\right] \qquad \qquad i \in \Lambda $$
 \end{multicols}
 
-$ <i,j>: \; i,j $ sono vicini, considero solo coppie di $ i,j $ vicini. 
+$ <i,j>: \; i,j $ sono vicini, considero solo coppie di $ i,j $ vicini orizzontalmente o verticalmente. 
 
 Per calcolare $ k $ (la costante di normalizzazione) devo fare la somma di tutti i possibili $ s $, che sono: $ |s| = 2^{|\Lambda|} $
 
 Se prendo un quadrato di lato 10, il numero di possibili configurazioni è $ 2^{100} $.
 
-Quindi il problema risiede nel fatto che anche conoscendo il valore della probabilità, è difficile calcolare la costante di normalizzazione; in realtà abbiamo visto nel metodo Montecarlo con le catene di Markov è che la costante non ci serve.
+Quindi il problema risiede nel fatto che anche conoscendo il valore della probabilità, è difficile calcolare la costante di normalizzazione; in realtà abbiamo visto nel metodo Montecarlo con le catene di Markov che la costante non ci serve.
 
 Che funzione posso prendere per $ q_{s,s'} $? Una scelta potrebbe essere scegliere a caso un punto; se è uguale a 1, lo faccio diventare -1 e viceversa. 
 
@@ -2304,8 +2325,8 @@ Questa $ q $ verifica le proprietà che voglio: se la probabilità di andare da 
 
 $\alpha_{s,s'}$ è diverso da 0 solo se $ q_{s,s'} > 0 $.%, cioè solo se $ s,s' $ sono definiti cambiando di 1. 
 
-$$ \frac{\pi}{\pi_{s'}} = \frac{u_s}{u_{s'}} = \frac{\exp \left[ -j \sum_{<i,j>} s_i s_j
-	 \right]}{ \exp \left[ -j \sum_{<i,j>} s_i' s_j' \right] } $$
+$$ \frac{\pi_s}{\pi_{s'}} = \frac{u_s}{u_{s'}} = \frac{\exp \left[ -J \sum_{<i,j>} s_i s_j
+	 \right]}{ \exp \left[ -J \sum_{<i,j>} s_i' s_j' \right] } $$
 
 So che $ s,s' $ sono uguali tranne in un punto. Quindi, tranne che per quel punto, tutte le coppie si cancellano. 
 
@@ -2326,7 +2347,7 @@ $$ S = X_1 \times ... \times X_n $$
 $$ \underline{s} \in S \qquad \qquad \underline{s} = (x_1, ..., x_n) $$
 
 Gibbs sampler è un caso particolare dell'algoritmo di Metropolis-Hastings; anche qui scegliamo a caso uno dei punti da 1 a $ n $ e ne cambiamo il valore; scegliamo un punto a caso: 
-$ \underline{s} $; lo possiamo scrivere come una coppia $ \underline{s} = (\underbrace{s}_1, s_2) $, dove $ \underline{s}_1 $ è la configurazione in tutti gli altri punti, $ s_2 $ è la configurazione in quel punto. %TODO non ho capito esattamente cosa voglia dire
+$ \underline{s} $; lo possiamo scrivere come una coppia $ \underline{s} = (\underline{s}_1, s_2) $, dove $ \underline{s}_1 $ è la configurazione in tutti gli altri punti, $ s_2 $ è la configurazione in quel punto. %TODO non ho capito esattamente cosa voglia dire
 
 Da questa configurazione possiamo passare ad un'altra configurazione $ \underline{s}' = (\underline{s}_1, s_2') $ che è uguale in tutti gli altri punti, ma differisce solo nel punto scelto sopra. 
 
@@ -2335,18 +2356,18 @@ $$ q_{\underline{s}, \underline{s}'} = \frac{1}{n} P( s_2' | \underline{s}_1 )$$
 
 Quindi vogliamo ottenere una catena di Markov che ha come distribuzione invariante $ k \pi(s) $. Partiamo dalla catena di Markov di riferimento che ha come probabilità di transizione $ q_{\underline{s}, \underline{s}'} $. Quando andiamo a fare il calcolo di $ \alpha_{s,s'} $:
 
-$$ \alpha_{s,s'} = \min\left( \frac{\pi(\underline{s}' q_{\underline{s}', \underline{s}})}{\pi(\underline{s}) q_{s,s'}} , 1   \right) $$ 
+$$ \alpha_{s,s'} = \min\left( \frac{\pi(\underline{s}')q_{\underline{s}', \underline{s}}}{\pi(\underline{s}) q_{s,s'}} , 1   \right) $$ 
 
 osserviamo che 
 $$ k\pi(s') q_{\underline{s}', \underline{s}} = k\pi(\underline{s}) q_{\underline{s}, \underline{s}'} $$
 
 Questo perché
 
-$$ k\pi(s) = k\pi(\underline{s}_1)P(s_2, \underline{s}_1) $$ 
+$$ k\pi(s) = k\pi(\underline{s}_1)P(s_2 | \underline{s}_1) $$ 
 
 e quindi 
 
-$$ \alpha_{s,s'} = \min \left(\frac{\pi(s_1)P(s_2' | \underline{s}_1)}{\pi(s_1)P(s_2 | \underline{s}_1)}, 1\right) $$
+$$ \alpha_{s,s'} = \min \left(\frac{\pi(s_1)P(s_2' | \underline{s}_1)}{\pi(s_1)P(s_2' | \underline{s}_1)}, 1\right) $$
 
 $ q_{\underline{s}', s} $ a meno di un fattore è data da $ P(s_2 | \underline{s}_1) $ (e allo stesso modo, nel denominatore al posto di $ q_{s,s'} $ posso scrivere $ P(s_2' | \underline{s}_1) $); quindi $\alpha_{\underline{s},\underline{s'}} = 1$. 
 
@@ -2354,14 +2375,14 @@ In cosa consiste quindi il campionatore di Gibbs? Anzitutto si applica quando lo
 
 Consideriamo due stati $ \underline{s}, \underline{s}' $ con $ \underline{s} = (s_1, s_2) $ e $ \underline{s}' = (\underline{s}_1, s_2')$; la probabilità di passare da uno stato all'altro è 
 $$ p_{\underline{s},\underline{s}'} = P(s_2' | s_1) $$
-che è appunto la probabilità condizionata della misura che voglio riprodurre, ovvero $ k\pi(\underline(s)) $. 
+che è appunto la probabilità condizionata della misura che voglio riprodurre, ovvero $ k\pi(\underline{s}) $. 
 
-Nel caso del modello di Ising calcolare questa probabilità condizionata è molto semplice da calcolare, perché è 
+Nel caso del modello di Ising calcolare questa probabilità condizionata è molto semplice, perché è 
 
 $$ k\pi(s) = K \exp [-J \sum_{<i, j>} s_i, s_j] $$
 Se adesso condiziono tutti tranne un punto, supponiamo sia $\underline{i}$, posso riscrivere la sommatoria:
 
-$\sum s_i, s_j = s_{\underline{i}} \sum_{<j, \underline{i}} s_j + \sum$
+$\sum s_i, s_j = s_{\underline{i}} \sum_{<j, i>} s_j + \sum$
 Solo la prima sommatoria dipende da $ \underline{i} $, l'altra sommatoria (di tutti gli alti valori) non mi interessa per calcolare la probabilità condizionata.
 %TODO spiegazione non chiarissima
 
